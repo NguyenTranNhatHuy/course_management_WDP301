@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Header() {
     return (
@@ -49,7 +50,7 @@ function Header() {
                             >
                                 <i className="fa fa-bars" />
                             </button>
-                            <a className="navbar-brand" href="index.html">
+                            <a href='/home' className="navbar-brand" >
                                 <img src="assets/img/logo.png" className="logo" alt="Logo" />
                             </a>
                         </div>
@@ -204,7 +205,7 @@ function Header() {
                                                                 <a href="edit-profile.html">Edit Profile</a>
                                                             </li>
                                                             <li>
-                                                                <a href="login.html">login</a>
+                                                                <Link to={"/login"}>login</Link>
                                                             </li>
                                                             <li>
                                                                 <a href="register.html">register</a>

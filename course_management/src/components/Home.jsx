@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
 
 function Home() {
     return (
@@ -42,9 +43,9 @@ function Home() {
                                 <a className="popup-with-form" href="#register-form">
                                     <i className="fas fa-edit" /> Register
                                 </a>
-                                <a className="popup-with-form" href="#login-form">
+                                <Link className="popup-with-form" to={"/login"}>
                                     <i className="fas fa-user" /> Login
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

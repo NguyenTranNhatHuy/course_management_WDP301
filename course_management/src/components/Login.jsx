@@ -1,13 +1,53 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+// import { unstable_HistoryRouter } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from "axios";
+import { Link, useNavigate } from 'react-router-dom';
 function Login() {
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+
+        if (!username || !password) {
+            toast.error('Please enter username and password');
+            return;
+        }
+
+
+        try {
+            const response = await axios.post('http://localhost:3000/users/login', {
+                username: username,
+                password: password
+            });
+            if (response.data.success) {
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('accountid', response.data.accountid);
+                localStorage.setItem('admin', response.data.admin);
+
+
+                navigate('/home')
+                toast.success('Login successfully');
+                // window.location.href = '/home';
+
+            } else {
+                toast.error('Invalid username or password');
+            }
+        } catch (error) {
+            toast.error('Invalid username or password', error);
+
+        }
+    };
     return (
         <div>
             <div className="login-area default-padding">
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 col-md-offset-2">
-                            <form action="#" id="login-form" className="white-popup-block">
+                            <form onSubmit={handleLogin} id="login-form" className="white-popup-block">
                                 <div className="col-md-4 login-social">
                                     <h4>Login with social</h4>
                                     <ul>
@@ -35,8 +75,9 @@ function Login() {
                                             <div className="form-group">
                                                 <input
                                                     className="form-control"
-                                                    placeholder="Email*"
-                                                    type="email"
+                                                    placeholder="Username*"
+                                                    type="text"
+                                                    onChange={(e) => setUsername(e.target.value)}
                                                 />
                                             </div>
                                         </div>
@@ -47,7 +88,8 @@ function Login() {
                                                 <input
                                                     className="form-control"
                                                     placeholder="Password*"
-                                                    type="text"
+                                                    type="password"
+                                                    onChange={(e) => setPassword(e.target.value)}
                                                 />
                                             </div>
                                         </div>
@@ -69,7 +111,7 @@ function Login() {
                                         </div>
                                     </div>
                                     <p className="link-bottom">
-                                        Not a member yet? <a href="#">Register now</a>
+                                        Not a member yet? <Link to={"/register"}>Register now</Link>
                                     </p>
                                 </div>
                             </form>
