@@ -28,10 +28,9 @@ function Login() {
                 localStorage.setItem('accountid', response.data.accountid);
                 localStorage.setItem('admin', response.data.admin);
 
-
-                navigate('/home')
                 toast.success('Login successfully');
-                // window.location.href = '/home';
+                // navigate('/home')
+                window.location.href = '/home';
 
             } else {
                 toast.error('Invalid username or password');

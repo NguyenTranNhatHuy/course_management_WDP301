@@ -1,7 +1,50 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import { getAccountById } from '../services/AccountServices';
 
 function Header() {
+    const navigator = useNavigate();
+    const [user, setUser] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(false);
+    function getAuthToken() {
+        const token = localStorage.getItem('token');
+        return token;
+    }
+    function getAccountId() {
+        const accountid = localStorage.getItem('accountid');
+        return accountid;
+    }
+    function getRole() {
+        const admin = localStorage.getItem('admin');
+        return admin;
+    }
+    function logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('accountid');
+        localStorage.removeItem('admin');
+
+        // navigator('/home');
+        window.location.href = '/home';
+        toast.success("Logout Successfully")
+
+    }
+    const authToken = getAuthToken();
+    const accountid = getAccountId();
+    const admin = getRole();
+    useEffect(() => {
+
+        getAccountById(accountid, authToken)
+            .then((response) => {
+                setUser(response.data);
+                setIsAdmin(response.data.admin || false);
+            })
+            .catch((error) => {
+                console.error("Error fetching account:", error);
+            });
+    }, [accountid]
+    );
+
     return (
         <div>
             <header id="home">
@@ -285,7 +328,7 @@ function Header() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="dropdown">
+                                {/* <li className="dropdown">
                                     <a
                                         href="#"
                                         className="dropdown-toggle active"
@@ -304,16 +347,21 @@ function Header() {
                                             <a href="event-3.html">Event Carousel</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> */}
                                 <li className="dropdown">
-                                    <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                                        Blog
-                                    </a>
+                                    {user && (
+                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                                            Hi, {user.username} !
+                                        </a>
+                                    )}
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <a href="blog-standard.html">Blog Standard</a>
+                                            <a href="/profile">View Profile</a>
                                         </li>
                                         <li>
+                                            <a href='' onClick={logout} >Logout</a>
+                                        </li>
+                                        {/* <li>
                                             <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
                                         </li>
                                         <li>
@@ -331,12 +379,12 @@ function Header() {
                                             <a href="blog-single-right-sidebar.html">
                                                 Single Right Sidebar
                                             </a>
-                                        </li>
+                                        </li> */}
                                     </ul>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <a href="contact.html">contact</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         {/* /.navbar-collapse */}
