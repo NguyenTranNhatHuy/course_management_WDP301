@@ -1,9 +1,15 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+
+import { Link, useNavigate } from 'react-router-dom'
 
 function Home() {
+
+    function getAuthToken() {
+        const token = localStorage.getItem('token');
+        return token;
+    }
+
+    const authToken = getAuthToken();
     return (
         <div>
             <>
@@ -40,12 +46,17 @@ function Home() {
                                 </div>
                             </div>
                             <div className="user-login text-right col-md-4">
-                                <a className="popup-with-form" href="#register-form">
-                                    <i className="fas fa-edit" /> Register
-                                </a>
-                                <Link className="popup-with-form" to={"/login"}>
-                                    <i className="fas fa-user" /> Login
-                                </Link>
+                                {!authToken && (
+                                    <Link className="popup-with-form" to={"/register"}>
+                                        <i className="fas fa-edit" /> Register
+                                    </Link>
+                                )}
+                                {!authToken && (
+                                    <Link className="popup-with-form" to={"/login"}>
+                                        <i className="fas fa-user" /> Login
+                                    </Link>
+                                )}
+
                             </div>
                         </div>
                     </div>

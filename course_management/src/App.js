@@ -8,21 +8,24 @@ import Footer from './components/Footer';
 import ProfileUser from './components/ProfileUser';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { AuthProvider } from './context/authContext';
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <ToastContainer />
-        <Routes>
-          <Route path="/home" element={<Home />} exact />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<ProfileUser />} />
+      <AuthProvider>
+        <BrowserRouter>
+          <Header />
+          <ToastContainer />
+          <Routes>
+            <Route path="/home" exact element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<ProfileUser />} />
 
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }
