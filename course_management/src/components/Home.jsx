@@ -4,4131 +4,2482 @@ function Home() {
     return (
         <div>
             <>
-                {/* The social media icon bar */}
-                <div className="icon-bar-sticky">
-                    <a
-                        href="#"
-                        className="waves-effect waves-light btn btn-social-icon btn-facebook"
-                    >
-                        <i className="fa fa-facebook" />
-                    </a>
-                    <a
-                        href="#"
-                        className="waves-effect waves-light btn btn-social-icon btn-twitter"
-                    >
-                        <i className="fa fa-twitter" />
-                    </a>
-                    <a
-                        href="#"
-                        className="waves-effect waves-light btn btn-social-icon btn-linkedin"
-                    >
-                        <i className="fa fa-linkedin" />
-                    </a>
-                    <a
-                        href="#"
-                        className="waves-effect waves-light btn btn-social-icon btn-youtube"
-                    >
-                        <i className="fa fa-youtube-play" />
-                    </a>
+                {/* Preloader Start */}
+                <div className="se-pre-con" />
+                {/* Preloader Ends */}
+                {/* Start Header Top 
+    ============================================= */}
+                <div className="top-bar-area address-two-lines bg-dark text-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-8 address-info">
+                                <div className="info box">
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                <i className="fas fa-map" /> Address
+                                            </span>
+                                            California, TX 70240
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <i className="fas fa-envelope-open" /> Email
+                                            </span>
+                                            Info@gmail.com
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <i className="fas fa-phone" /> Contact
+                                            </span>
+                                            +123 456 7890
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="user-login text-right col-md-4">
+                                <a className="popup-with-form" href="#register-form">
+                                    <i className="fas fa-edit" /> Register
+                                </a>
+                                <a className="popup-with-form" href="#login-form">
+                                    <i className="fas fa-user" /> Login
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <header className="top-bar text-dark">
-                    <div className="topbar">
-                        <div className="container">
-                            <div className="row justify-content-end">
-                                <div className="col-lg-6 col-12 d-lg-block d-none">
-                                    <div className="topbar-social text-center text-md-start topbar-left">
-                                        <ul className="list-inline d-md-flex d-inline-block">
-                                            <li className="pe-10">
-                                                <a href="#">
-                                                    <i className="fa fa-question-circle" /> Ask a Question
-                                                </a>
-                                            </li>
-                                            <li className="ms-10 pe-10">
-                                                <a href="#">
-                                                    <i className="fa fa-envelope" /> info@EduLearn.com
-                                                </a>
-                                            </li>
-                                            <li className="ms-10 pe-10">
-                                                <a href="#">
-                                                    <i className="fa fa-phone" /> +(1) 123-878-1649
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="col-lg-6 col-12 xs-mb-10">
-                                    <div className="topbar-call text-center text-lg-end topbar-right">
-                                        <ul className="list-inline d-lg-flex justify-content-end">
-                                            <li className="me-10 ps-10 lng-drop">
-                                                <select className="header-lang-bx selectpicker">
-                                                    <option>USD</option>
-                                                    <option>EUR</option>
-                                                    <option>GBP</option>
-                                                    <option>INR</option>
-                                                </select>
-                                            </li>
-                                            <li className="me-10 ps-10 lng-drop">
-                                                <select className="header-lang-bx selectpicker">
-                                                    <option data-icon="flag-icon flag-icon-us">Eng USA</option>
-                                                    <option data-icon="flag-icon flag-icon-gb">Eng UK</option>
-                                                </select>
-                                            </li>
-                                            <li className="me-10 ps-10">
-                                                <a href="#">
-                                                    <i className="fa fa-user d-md-inline-block d-none" />{" "}
-                                                    Register
-                                                </a>
-                                            </li>
-                                            <li className="me-10 ps-10">
-                                                <a href="#">
-                                                    <i className="fa fa-sign-in d-md-inline-block d-none" />{" "}
-                                                    Login
-                                                </a>
-                                            </li>
-                                            <li className="me-10 ps-10">
-                                                <a href="#">
-                                                    <i className="fa fa-dashboard d-md-inline-block d-none" />{" "}
-                                                    My Account
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <nav hidden="" className="nav-dark nav-transparent">
-                        <div className="nav-header">
-                            <a href="index.html" className="brand">
-                                <img src="../../images/logo-light-text5.png" alt="" />
-                            </a>
-                            <button className="toggle-bar">
-                                <span className="ti-menu" />
-                            </button>
-                        </div>
-                        <ul className="menu">
-                            <li className="dropdown">
-                                <a href="#">Home</a>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <a href="index.html">Home 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="index2.html">Home 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="index3.html">Home 3</a>
-                                    </li>
-                                    <li>
-                                        <a href="index4.html">Home 4</a>
-                                    </li>
-                                    <li>
-                                        <a href="index5.html">Home 5</a>
-                                    </li>
-                                    <li>
-                                        <a href="index6.html">Home 6</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="about.html">About</a>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#">Courses</a>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <a href="courses_list.html">Courses List</a>
-                                    </li>
-                                    <li>
-                                        <a href="courses_list_right_sidebar.html">
-                                            Courses List Right Sidebar
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="courses_list-map.html">Courses with Map</a>
-                                    </li>
-                                    <li>
-                                        <a href="courses_categories.html">Courses Categories</a>
-                                    </li>
-                                    <li>
-                                        <a href="courses_details.html">Courses Details</a>
-                                    </li>
-                                    <li>
-                                        <a href="courses_details_right_sidebar.html">
-                                            Courses Details right sidebar
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="megamenu">
-                                <a href="#">Pages</a>
-                                <div className="megamenu-content">
-                                    <div className="row">
-                                        <div className="col-lg-3 col-12">
-                                            <ul className="list-group">
-                                                <li>
-                                                    <h4 className="menu-title">User Pages</h4>
-                                                </li>
-                                                <li>
-                                                    <a href="faqs.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        FAQs
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="inovice.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Invoice
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="membership.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Membership
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="mydashboard.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        My Dashboard
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="staff.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Staff
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="testimonial.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Testimonial
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="typography.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Typography
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="user_list.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        User List
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="userprofile.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        User Profile
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="about.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        About
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="contact_us.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Contact
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="col-lg-3 col-12">
-                                            <ul className="list-group">
-                                                <li>
-                                                    <h4 className="menu-title">Widgets</h4>
-                                                </li>
-                                                <li>
-                                                    <a href="widgets.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Widgets
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="courses_list.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Courses List
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="courses_details.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Courses Details
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="register.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Register
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="login.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Login
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="register_login.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Register &amp; Login
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="forgot_pass.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Forgot Password
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="lockscreen.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Lock Screen
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="maintenance.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Under Constructions
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="404.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        404
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="500.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        500
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="col-lg-3 col-12">
-                                            <ul className="list-group">
-                                                <li>
-                                                    <h4 className="menu-title">Features</h4>
-                                                </li>
-                                                <li>
-                                                    <a href="header_default.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Header One
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="header_style2.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Header Two
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="header_style3.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Header Three
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="header_style4.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Header Four
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="header_style5.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Header Five
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="footer_style1.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Footer One
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="footer_style2.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Footer Two
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="footer_style3.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Footer Three
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="footer_style4.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Footer Four
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="footer_style5.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Footer Five
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="footer_style6.html">
-                                                        <i className="ti-arrow-circle-right me-10" />
-                                                        Footer Six
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="col-md-3 col-12 d-none d-lg-block">
-                                            <img
-                                                src="../../images/front-end-img/adv.jpg"
-                                                className="img-fluid"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#">Blog</a>
-                                <ul className="dropdown-menu">
-                                    <li className="dropdown">
-                                        <a href="#">Grid Blog</a>
-                                        <ul className="dropdown-menu">
-                                            <li>
-                                                <a href="blog_grid_2.html">Grid 2 colunm</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_grid_3.html">Grid 3 colunm</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_grid_left_sidebar.html">blog left sidebar</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_grid_right_sidebar.html">blog right sidebar</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#">List Blog</a>
-                                        <ul className="dropdown-menu">
-                                            <li>
-                                                <a href="blog_list.html">Blog List</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_list_left_sidebar.html">
-                                                    Blog List Left Sidebar
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_list_right_sidebar.html">
-                                                    Blog List right Sidebar
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li className="dropdown">
-                                        <a href="#">Single Blog Post</a>
-                                        <ul className="dropdown-menu">
-                                            <li>
-                                                <a href="blog_single_grid_post.html">Single Grid Post</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_html5video_post.html">
-                                                    Single html5 Video-post
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_image_post.html">Single Image Post</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_slider_post.html">Single Slider Post</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_soundcloud_post.html">
-                                                    Single SoundCloud Post
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_vimeo_post.html">Single Vimeo Post</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_post.html">Single without image post</a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_single_youtube_post.html">
-                                                    Single Youtube Post
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="dropdown">
-                                <a href="#">Shop</a>
-                                <ul className="dropdown-menu">
-                                    <li>
-                                        <a href="shop.html">Shop Grid</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-cart.html">Shop Cart</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-checkout.html">Shop Checkout</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-details.html">Shop Details</a>
-                                    </li>
-                                    <li>
-                                        <a href="shop-orders.html">Shop Orders</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="contact_us.html">Contact</a>
-                            </li>
-                        </ul>
-                        <ul className="attributes">
-                            <li className="d-md-block d-none">
-                                <a href="#" className="px-10 pt-15 pb-10">
-                                    <div className="btn btn-primary py-5">Enroll Now</div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="toggle-search-fullscreen">
-                                    <span className="ti-search" />
-                                </a>
-                            </li>
-                            <li className="megamenu" data-width={270}>
-                                <a href="#">
-                                    <span className="ti-shopping-cart" />
-                                </a>
-                                <div className="megamenu-content megamenu-cart">
-                                    {/* Start Shopping Cart */}
-                                    <div className="cart-header">
-                                        <div className="total-price">
-                                            Total: <span>$2,432.93</span>
-                                        </div>
-                                        <i className="ti-shopping-cart" />
-                                        <span className="badge">3</span>
-                                    </div>
-                                    <div className="cart-body">
-                                        <ul>
-                                            <li>
-                                                <img
-                                                    src="../../images/front-end-img/product/product-1.png"
-                                                    alt=""
-                                                />
-                                                <h5 className="title">Lorem ipsum dolor</h5>
-                                                <span className="qty">Quantity: 02</span>
-                                                <span className="price-st">$843,12</span>
-                                                <a href="#" className="link" />
-                                            </li>
-                                            <li>
-                                                <img
-                                                    src="../../images/front-end-img/product/product-2.png"
-                                                    alt=""
-                                                />
-                                                <h5 className="title">Lorem ipsum dolor</h5>
-                                                <span className="qty">Quantity: 02</span>
-                                                <span className="price-st">$843,12</span>
-                                                <a href="#" className="link" />
-                                            </li>
-                                            <li>
-                                                <img
-                                                    src="../../images/front-end-img/product/product-3.png"
-                                                    alt=""
-                                                />
-                                                <h5 className="title">Lorem ipsum dolor</h5>
-                                                <span className="qty">Quantity: 02</span>
-                                                <span className="price-st">$843,12</span>
-                                                <a href="#" className="link" />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="cart-footer">
-                                        <a href="#">Checkout</a>
-                                    </div>
-                                    {/* End Shopping Cart */}
-                                </div>
-                            </li>
-                        </ul>
-                        <div className="wrap-search-fullscreen">
-                            <div className="container">
-                                <button className="close-search">
-                                    <span className="ti-close" />
-                                </button>
-                                <input type="text" placeholder="Search..." />
-                            </div>
-                        </div>
-                    </nav>
-                </header>
-                <section
-                    className="bg-img pt-200 pb-150"
-                    data-overlay-light={2}
-                    style={{
-                        backgroundImage: "url(../../images/front-end-img/banners/banner-1.jpg)",
-                        backgroundPosition: "top center"
-                    }}
-                >
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12">
-                                <div className="text-center mt-80">
-                                    <h1 className="box-title mb-30">Find Your Online Course</h1>
-                                </div>
-                                <form className="cours-search mb-30">
-                                    <div className="input-group">
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            placeholder="What do you want to learn today?"
-                                        />
-                                        <button className="btn btn-primary" type="submit">
-                                            Search
-                                        </button>
-                                    </div>
-                                </form>
-                                <div className="text-center">
-                                    <a href="courses_list.html" className="btn btn-primary-light">
-                                        Browse Courses List
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="bg-transparent">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-12 col-md-12 col-sm-12">
-                                <div className="uni_box ovr_top">
-                                    <div className="row align-items-center m-0">
-                                        <div className="col-xl-2 col-lg-3 col-md-4 col-sm-12">
-                                            <div className="uni_tags">
-                                                <h4>Over 70+ University Cources in one place</h4>
-                                            </div>
-                                        </div>
-                                        <div className="col-xl-10 col-lg-9 col-md-8 col-sm-12">
-                                            <div
-                                                className="owl-carousel owl-theme"
-                                                data-nav-arrow="false"
-                                                data-nav-dots="false"
-                                                data-items={5}
-                                                data-md-items={4}
-                                                data-sm-items={3}
-                                                data-xs-items={2}
-                                                data-xx-items={2}
-                                            >
-                                                <div className="item">
-                                                    <img
-                                                        src="../../images/front-end-img/unilogo/uni-1.jpg"
-                                                        className="img-fluid"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className="item">
-                                                    <img
-                                                        src="../../images/front-end-img/unilogo/uni-2.jpg"
-                                                        className="img-fluid"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className="item">
-                                                    <img
-                                                        src="../../images/front-end-img/unilogo/uni-3.jpg"
-                                                        className="img-fluid"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className="item">
-                                                    <img
-                                                        src="../../images/front-end-img/unilogo/uni-4.jpg"
-                                                        className="img-fluid"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className="item">
-                                                    <img
-                                                        src="../../images/front-end-img/unilogo/uni-5.jpg"
-                                                        className="img-fluid"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className="item">
-                                                    <img
-                                                        src="../../images/front-end-img/unilogo/uni-6.jpg"
-                                                        className="img-fluid"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-12 col-md-6">
-                                <div className="mb-md-0 mb-30 p-30 bg-primary-light rounded">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <span className="badge badge-danger">Free</span>
-                                            <h3 className="my-20">
-                                                <a href="courses_details.html">
-                                                    Business Manegement <br /> Document
-                                                </a>
-                                            </h3>
-                                            <a href="courses_list.html" className="btn btn-primary">
-                                                View Courses
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <img
-                                                src="../../images/front-end-img/about/banner-img-1.png"
-                                                className="img-fluid"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 col-md-6">
-                                <div className="p-30 bg-info-light rounded">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                        <div>
-                                            <span className="badge badge-danger">new</span>
-                                            <h3 className="my-20">
-                                                <a href="courses_details.html">
-                                                    Online Courses <br />
-                                                    From Edulearn University
-                                                </a>
-                                            </h3>
-                                            <a href="courses_list.html" className="btn btn-primary">
-                                                Find Out More
-                                            </a>
-                                        </div>
-                                        <div>
-                                            <img
-                                                src="../../images/front-end-img/about/banner-img-2.png"
-                                                className="img-fluid"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50 bg-white" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-7 col-12 text-center">
-                                <h1 className="mb-15">Featured Categories</h1>
-                                <hr className="w-100 bg-primary" />
-                            </div>
-                        </div>
-                        <div className="row mt-30 justify-content-center">
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-code" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Development</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-window-restore" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Web Designing</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-leaf" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Lifestyle</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-heartbeat" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Health &amp; Fitness</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-map-marker" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Gov. Exams</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-photo" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Photography</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-server" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Finance &amp; Accounting</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div className="col-xl-3 col-lg-4 col-md-4 col-sm-6">
-                                <div className="courses_wrap style_2">
-                                    <a href="courses_list.html" className="courses_box">
-                                        <div className="courses_icon">
-                                            <i className="fa fa-scissors" />
-                                        </div>
-                                        <div className="courses_caption">
-                                            <span>Office Productivity</span>
-                                        </div>
-                                        <div className="courses_count">
-                                            <span>22 Course</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="bg-white py-50" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-7 col-12 text-center">
-                                <h1 className="mb-15">Explore our Courses</h1>
-                                <hr className="w-100 bg-primary" />
-                            </div>
-                        </div>
-                        <div className="row mt-30">
-                            <div className="col-12">
-                                <ul
-                                    className="nav nav-tabs justify-content-center bb-0 mb-10"
-                                    role="tablist"
-                                >
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link active"
-                                            data-bs-toggle="tab"
-                                            href="#all"
-                                            role="tab"
-                                        >
-                                            All
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab1"
-                                            role="tab"
-                                        >
-                                            Finance
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab2"
-                                            role="tab"
-                                        >
-                                            Operations
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab3"
-                                            role="tab"
-                                        >
-                                            Strategy &amp; Leadership
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab4"
-                                            role="tab"
-                                        >
-                                            Marketing
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab5"
-                                            role="tab"
-                                        >
-                                            Analytics
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab6"
-                                            role="tab"
-                                        >
-                                            HR
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab7"
-                                            role="tab"
-                                        >
-                                            Management
-                                        </a>{" "}
-                                    </li>
-                                </ul>
-                                <div className="tab-content">
-                                    <div className="tab-pane active" id="all" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/4.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">General</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/6.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">IT &amp; Software</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/5.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Photography</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/2.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Programming Language</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/10.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Computer Basic</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab1" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/5.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Photography</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/2.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Programming Language</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab2" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/10.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Computer Basic</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab3" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/5.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Photography</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/2.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Programming Language</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab4" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/10.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Computer Basic</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab5" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/5.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Photography</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/2.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Programming Language</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab6" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Business Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">UI Design</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/10.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Computer Basic</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab7" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/4.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">General</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/6.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">IT &amp; Software</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Manegement</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="box">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/10.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="box-body">
-                                                            <div className="text-start">
-                                                                <h4 className="box-title">Computer Basic</h4>
-                                                                <p className="mb-10 text-light fs-12">
-                                                                    <i className="fa fa-calendar me-5" /> Sept 16th,
-                                                                    2020
-                                                                </p>
-                                                                <p className="box-text">
-                                                                    Some quick example text to build on the card title
-                                                                    and make up the bulk of the card's content.
-                                                                </p>
-                                                                <a
-                                                                    href="#"
-                                                                    className="btn btn-outline btn-primary btn-sm"
-                                                                >
-                                                                    Read more
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row align-items-center justify-content-between mb-5">
-                            <div className="col-md-5 col-sm-12" data-aos="fade-up">
-                                <div className="cpt-tx">
-                                    <h2 className="mb-3">
-                                        We Have The Best Online Education in The City
-                                    </h2>
-                                    <p>
-                                        At vero eos et accusamus et iusto odio dignissimos ducimus qui
-                                        blanditiis praesentium voluptatum deleniti atque corrupti quos
-                                        dolores et quas molestias excepturi sint occaecati cupiditate non
-                                        provident, similique
-                                    </p>
-                                    <div className="mb-3 me-4 ms-lg-0 me-lg-4">
-                                        <div className="d-flex align-items-center">
-                                            <div className="rounded-circle bg-primary-light p-2 small d-flex align-items-center justify-content-center">
-                                                <i className="fa fa-check" />
-                                            </div>
-                                            <h6 className="mb-0 ms-3">Full lifetime access</h6>
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 me-4 ms-lg-0 me-lg-4">
-                                        <div className="d-flex align-items-center">
-                                            <div className="rounded-circle bg-primary-light p-2 small d-flex align-items-center justify-content-center">
-                                                <i className="fa fa-check" />
-                                            </div>
-                                            <h6 className="mb-0 ms-3">20+ downloadable resources</h6>
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 me-4 ms-lg-0 me-lg-4">
-                                        <div className="d-flex align-items-center">
-                                            <div className="rounded-circle bg-primary-light p-2 small d-flex align-items-center justify-content-center">
-                                                <i className="fa fa-check" />
-                                            </div>
-                                            <h6 className="mb-0 ms-3">Certificate of completion</h6>
-                                        </div>
-                                    </div>
-                                    <div className="mb-3 me-4 ms-lg-0 me-lg-4">
-                                        <div className="d-flex align-items-center">
-                                            <div className="rounded-circle bg-primary-light p-2 small d-flex align-items-center justify-content-center">
-                                                <i className="fa fa-check" />
-                                            </div>
-                                            <h6 className="mb-0 ms-3">Free Trial 7 Days</h6>
-                                        </div>
-                                    </div>
-                                    <div className="text-start mt-4">
-                                        <a href="#" className="btn btn-primary">
-                                            Enrolled Today
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-sm-12" data-aos="fade-up">
-                                <div className="mt-30 mt-md-0">
-                                    <img
-                                        src="../../images/front-end-img/about/about-img.png"
-                                        className="img-fluid"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-50 row align-items-center justify-content-between">
-                            <div
-                                className="col-xl-6 col-lg-6 col-md-6 col-sm-12"
-                                data-aos="fade-up"
-                            >
-                                <div className="mb-30 mb-md-0">
-                                    <img
-                                        src="../../images/front-end-img/about/4f.png"
-                                        className="img-fluid"
-                                        alt=""
-                                    />
-                                </div>
-                            </div>
-                            <div
-                                className="col-xl-5 col-lg-5 col-md-6 col-sm-12"
-                                data-aos="fade-up"
-                            >
-                                <div className="cpt-tx">
-                                    <ol className="list-unstyled p-0">
-                                        <li className="d-flex align-items-start my-3 my-md-4">
-                                            <div className="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center bg-primary">
-                                                <div className="position-absolute text-white h5 mb-0">1</div>
-                                            </div>
-                                            <div className="ms-3 ms-md-4">
-                                                <h4>Create account</h4>
-                                                <p>
-                                                    Oluptatem accusantium doloremque laudantium, totam rem
-                                                    aperiam, eaque ipsa.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li className="d-flex align-items-start my-3 my-md-4">
-                                            <div className="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center bg-primary">
-                                                <div className="position-absolute text-white h5 mb-0">3</div>
-                                            </div>
-                                            <div className="ms-3 ms-md-4">
-                                                <h4>Join Membership</h4>
-                                                <p>
-                                                    Error sit voluptatem actium doloremque laudantium, totam rem
-                                                    aperiam, eaque ipsa.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li className="d-flex align-items-start my-3 my-md-4">
-                                            <div className="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center bg-primary">
-                                                <div className="position-absolute text-white h5 mb-0">3</div>
-                                            </div>
-                                            <div className="ms-3 ms-md-4">
-                                                <h4>Start Learning</h4>
-                                                <p>
-                                                    Error sit voluptatem actium doloremque laudantium, totam rem
-                                                    aperiam, eaque ipsa.
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li className="d-flex align-items-start my-3 my-md-4">
-                                            <div className="rounded-circle p-3 p-sm-4 d-flex align-items-center justify-content-center bg-primary">
-                                                <div className="position-absolute text-white h5 mb-0">4</div>
-                                            </div>
-                                            <div className="ms-3 ms-md-4">
-                                                <h4>Get Certificate</h4>
-                                                <p>
-                                                    Unde omnis iste natus error sit voluptatem accusantium
-                                                    doloremque laudantium, totam rem aperiam, eaque ipsa.
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50 bg-white" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-7 col-12 text-center">
-                                <h1 className="mb-15">Upcoming Courses</h1>
-                                <hr className="w-100 bg-primary" />
-                            </div>
-                        </div>
-                        <div className="row mt-30">
-                            <div className="col-12">
-                                <ul
-                                    className="nav nav-tabs justify-content-center bb-0 mb-10"
-                                    role="tablist"
-                                >
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link active"
-                                            data-bs-toggle="tab"
-                                            href="#tab8"
-                                            role="tab"
-                                        >
-                                            MBA
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab9"
-                                            role="tab"
-                                        >
-                                            Machine Learning
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab10"
-                                            role="tab"
-                                        >
-                                            Software &amp; Technology
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab11"
-                                            role="tab"
-                                        >
-                                            Marketing
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab12"
-                                            role="tab"
-                                        >
-                                            Law
-                                        </a>{" "}
-                                    </li>
-                                    <li className="nav-item">
-                                        {" "}
-                                        <a
-                                            className="nav-link"
-                                            data-bs-toggle="tab"
-                                            href="#tab13"
-                                            role="tab"
-                                        >
-                                            Management
-                                        </a>{" "}
-                                    </li>
-                                </ul>
-                                <div className="tab-content">
-                                    <div className="tab-pane active" id="tab8" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/1.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Manegement</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Networking</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Security</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">IT &amp; Software</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab9" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">IT &amp; Software</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/1.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Manegement</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Networking</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Security</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab10" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Security</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">IT &amp; Software</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Networking</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/1.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Manegement</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab11" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/1.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Manegement</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">IT &amp; Software</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Networking</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Security</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab12" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Security</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">IT &amp; Software</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/1.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Manegement</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Networking</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="tab-pane" id="tab13" role="tabpanel">
-                                        <div className="px-15 pt-15">
-                                            <div className="row">
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/9.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Networking</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/8.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Security</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/1.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">Manegement</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col-lg-3 col-md-6 col-12">
-                                                    <div className="card">
-                                                        <a href="#">
-                                                            <img
-                                                                className="card-img-top"
-                                                                src="../../images/front-end-img/courses/7.jpg"
-                                                                alt="Card image cap"
-                                                            />
-                                                        </a>
-                                                        <div className="position-absolute r-10 t-10">
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-heart-o" />
-                                                            </button>
-                                                            <button
-                                                                type="button"
-                                                                className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                                            >
-                                                                <i className="fa fa-share-alt" />
-                                                            </button>
-                                                        </div>
-                                                        <div className="card-body">
-                                                            <span className="badge badge-success mb-10">
-                                                                Online
-                                                            </span>
-                                                            <h4 className="card-title">IT &amp; Software</h4>
-                                                            <div className="d-flex justify-content-between">
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Duration:</span> 6 Months
-                                                                </a>
-                                                                <a href="#">
-                                                                    <span className="fw-bold">Daily:</span> 2 Hours
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-7 col-12 text-center">
-                                <h1 className="mb-15">Reviews &amp; Ratings</h1>
-                                <hr className="w-100 bg-primary" />
-                            </div>
-                        </div>
-                        <div className="row mt-30">
-                            <div className="col-12">
-                                <div
-                                    className="owl-carousel owl-theme"
-                                    data-nav-arrow="true"
-                                    data-nav-dots="true"
-                                    data-items={2}
-                                    data-md-items={2}
-                                    data-sm-items={2}
-                                    data-xs-items={1}
-                                    data-xx-items={1}
-                                >
-                                    <div className="item">
-                                        <div className="testimonial-bx">
-                                            <div className="testimonial-thumb">
-                                                <img src="../../images/front-end-img/avatar/5.jpg" alt="" />
-                                            </div>
-                                            <div className="testimonial-info">
-                                                <h4 className="name">Peter Packer</h4>
-                                                <p>-Art Director</p>
-                                            </div>
-                                            <div className="testimonial-content">
-                                                <p className="fs-16">
-                                                    Contrary to popular belief, Lorem Ipsum is not simply random
-                                                    text. It has roots in a piece of classical Latin literature
-                                                    from 45 BC, making it over 2000 years old. Richard
-                                                    McClintock, a Latin professor at Hampden-Sydney College in
-                                                    Virginia, looked up one of the more obscure Latin words,
-                                                    consectetur, from a Lorem Ipsum passage, and going through
-                                                    the cites of the word...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item">
-                                        <div className="testimonial-bx">
-                                            <div className="testimonial-thumb">
-                                                <img src="../../images/front-end-img/avatar/2.jpg" alt="" />
-                                            </div>
-                                            <div className="testimonial-info">
-                                                <h4 className="name">Peter Packer</h4>
-                                                <p>-Art Director</p>
-                                            </div>
-                                            <div className="testimonial-content">
-                                                <p className="fs-16">
-                                                    Contrary to popular belief, Lorem Ipsum is not simply random
-                                                    text. It has roots in a piece of classical Latin literature
-                                                    from 45 BC, making it over 2000 years old. Richard
-                                                    McClintock, a Latin professor at Hampden-Sydney College in
-                                                    Virginia, looked up one of the more obscure Latin words,
-                                                    consectetur, from a Lorem Ipsum passage, and going through
-                                                    the cites of the word...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item">
-                                        <div className="testimonial-bx">
-                                            <div className="testimonial-thumb">
-                                                <img src="../../images/front-end-img/avatar/8.jpg" alt="" />
-                                            </div>
-                                            <div className="testimonial-info">
-                                                <h4 className="name">Peter Packer</h4>
-                                                <p>-Art Director</p>
-                                            </div>
-                                            <div className="testimonial-content">
-                                                <p className="fs-16">
-                                                    Contrary to popular belief, Lorem Ipsum is not simply random
-                                                    text. It has roots in a piece of classical Latin literature
-                                                    from 45 BC, making it over 2000 years old. Richard
-                                                    McClintock, a Latin professor at Hampden-Sydney College in
-                                                    Virginia, looked up one of the more obscure Latin words,
-                                                    consectetur, from a Lorem Ipsum passage, and going through
-                                                    the cites of the word...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="item">
-                                        <div className="testimonial-bx">
-                                            <div className="testimonial-thumb">
-                                                <img src="../../images/front-end-img/avatar/6.jpg" alt="" />
-                                            </div>
-                                            <div className="testimonial-info">
-                                                <h4 className="name">Peter Packer</h4>
-                                                <p>-Art Director</p>
-                                            </div>
-                                            <div className="testimonial-content">
-                                                <p className="fs-16">
-                                                    Contrary to popular belief, Lorem Ipsum is not simply random
-                                                    text. It has roots in a piece of classical Latin literature
-                                                    from 45 BC, making it over 2000 years old. Richard
-                                                    McClintock, a Latin professor at Hampden-Sydney College in
-                                                    Virginia, looked up one of the more obscure Latin words,
-                                                    consectetur, from a Lorem Ipsum passage, and going through
-                                                    the cites of the word...
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50 bg-white" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-7 col-12 text-center">
-                                <h1 className="mb-15">Try FREE courses to learn fundamentals</h1>
-                                <hr className="w-100 bg-primary" />
-                            </div>
-                        </div>
-                        <div className="row mt-30">
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="card">
-                                    <a href="#">
-                                        <img
-                                            className="card-img-top"
-                                            src="../../images/front-end-img/courses/1.jpg"
-                                            alt="Card image cap"
-                                        />
-                                    </a>
-                                    <div className="position-absolute r-10 t-10">
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-heart-o" />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-share-alt" />
-                                        </button>
-                                    </div>
-                                    <div className="card-body">
-                                        <h4 className="card-title">Data</h4>
-                                        <p className="card-text">
-                                            This is a wider card with supporting text below as a natural
-                                            lead-in to additional content.
-                                        </p>
-                                        <a href="#" className="btn btn-primary btn-outline btn-sm">
-                                            Know More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="card">
-                                    <a href="#">
-                                        <img
-                                            className="card-img-top"
-                                            src="../../images/front-end-img/courses/2.jpg"
-                                            alt="Card image cap"
-                                        />
-                                    </a>
-                                    <div className="position-absolute r-10 t-10">
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-heart-o" />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-share-alt" />
-                                        </button>
-                                    </div>
-                                    <div className="card-body">
-                                        <h4 className="card-title">Management &amp; Marketing</h4>
-                                        <p className="card-text">
-                                            This is a wider card with supporting text below as a natural
-                                            lead-in to additional content.
-                                        </p>
-                                        <a href="#" className="btn btn-primary btn-outline btn-sm">
-                                            Know More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="card">
-                                    <a href="#">
-                                        <img
-                                            className="card-img-top"
-                                            src="../../images/front-end-img/courses/3.jpg"
-                                            alt="Card image cap"
-                                        />
-                                    </a>
-                                    <div className="position-absolute r-10 t-10">
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-heart-o" />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-share-alt" />
-                                        </button>
-                                    </div>
-                                    <div className="card-body">
-                                        <h4 className="card-title">Technology</h4>
-                                        <p className="card-text">
-                                            This is a wider card with supporting text below as a natural
-                                            lead-in to additional content.
-                                        </p>
-                                        <a href="#" className="btn btn-primary btn-outline btn-sm">
-                                            Know More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="card">
-                                    <a href="#">
-                                        <img
-                                            className="card-img-top"
-                                            src="../../images/front-end-img/courses/4.jpg"
-                                            alt="Card image cap"
-                                        />
-                                    </a>
-                                    <div className="position-absolute r-10 t-10">
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-heart-o" />
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="waves-effect waves-circle btn btn-circle btn-dark btn-xs me-5"
-                                        >
-                                            <i className="fa fa-share-alt" />
-                                        </button>
-                                    </div>
-                                    <div className="card-body">
-                                        <h4 className="card-title">Digital Marketing</h4>
-                                        <p className="card-text">
-                                            This is a wider card with supporting text below as a natural
-                                            lead-in to additional content.
-                                        </p>
-                                        <a href="#" className="btn btn-primary btn-outline btn-sm">
-                                            Know More
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-12 text-center">
-                                <a href="#" className="btn btn-primary mx-auto">
-                                    View All Free Courses
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section
-                    className="py-50 bg-img countnm-bx"
-                    style={{
-                        backgroundImage: "url(../../images/front-end-img/background/bg-3.jpg)"
-                    }}
-                    data-overlay={5}
-                    data-aos="fade-up"
-                >
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="text-center">
-                                    <div className="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center mx-auto">
-                                        <span className="text-white fs-40 icon-User">
-                                            <span className="path1" />
-                                            <span className="path2" />
-                                        </span>
-                                    </div>
-                                    <h1 className="countnm my-10 text-white fw-300">5428</h1>
-                                    <div className="text-uppercase text-white">Teachers</div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="text-center">
-                                    <div className="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center mx-auto">
-                                        <span className="text-white fs-40 icon-Book" />
-                                    </div>
-                                    <h1 className="countnm my-10 text-white fw-300">120</h1>
-                                    <div className="text-uppercase text-white">Courses</div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="text-center">
-                                    <div className="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center mx-auto">
-                                        <span className="text-white fs-40 icon-Group">
-                                            <span className="path1" />
-                                            <span className="path2" />
-                                        </span>
-                                    </div>
-                                    <h1 className="countnm my-10 text-white fw-300">7485</h1>
-                                    <div className="text-uppercase text-white">Student</div>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6 col-12">
-                                <div className="text-center">
-                                    <div className="w-80 h-80 l-h-100 rounded-circle b-1 border-white text-center mx-auto">
-                                        <span className="text-white fs-40 icon-Globe">
-                                            <span className="path1" />
-                                            <span className="path2" />
-                                        </span>
-                                    </div>
-                                    <h1 className="countnm my-10 text-white fw-300">100</h1>
-                                    <div className="text-uppercase text-white">Country</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section className="py-50" data-aos="fade-up">
-                    <div className="container">
-                        <div className="row justify-content-center">
-                            <div className="col-lg-7 col-12 text-center">
-                                <h1 className="mb-15">Latest Blog</h1>
-                                <hr className="w-100 bg-primary" />
-                            </div>
-                        </div>
-                        <div className="row mt-30">
-                            <div className="col-xl-4 col-md-4 col-12">
-                                <div className="blog-post">
-                                    <div className="entry-image clearfix">
-                                        <img
-                                            className="img-fluid"
-                                            src="../../images/front-end-img/courses/1f.jpg"
-                                            alt=""
-                                        />
-                                    </div>
-                                    <div className="blog-detail">
-                                        <div className="entry-title mb-10">
-                                            <a href="#">Blog Post With Image</a>
-                                        </div>
-                                        <div className="entry-meta mb-10">
-                                            <ul className="list-unstyled">
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-folder-open-o" /> Design
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-comment-o" /> 5
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-calendar-o" /> 12 Aug 2020
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="entry-content">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Possimus fuga laborum totam itaque architecto! Laudantium sed
-                                                delectus assumenda, doloribus non.
-                                            </p>
-                                        </div>
-                                        <div className="entry-share d-flex justify-content-between align-items-center">
-                                            <div className="entry-button">
-                                                <a href="#" className="btn btn-primary btn-sm">
-                                                    Read more
-                                                </a>
-                                            </div>
-                                            <div className="social">
-                                                <strong>Share : </strong>
-                                                <ul className="list-unstyled">
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-facebook" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-twitter" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-pinterest-p" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-dribbble" />{" "}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-xl-4 col-md-4 col-12">
-                                <div className="blog-post">
-                                    <div className="entry-image clearfix">
-                                        <div
-                                            className="owl-carousel bottom-dots-center owl-theme"
-                                            data-nav-dots="true"
-                                            data-autoplay="true"
-                                            data-items={1}
-                                            data-md-items={1}
-                                            data-sm-items={1}
-                                            data-xs-items={1}
-                                            data-xx-items={1}
-                                        >
-                                            <div className="item">
-                                                <img src="../../images/front-end-img/courses/2f.jpg" alt="" />
-                                            </div>
-                                            <div className="item">
-                                                <img src="../../images/front-end-img/courses/3f.jpg" alt="" />
-                                            </div>
-                                            <div className="item">
-                                                <img src="../../images/front-end-img/courses/4f.jpg" alt="" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="blog-detail">
-                                        <div className="entry-title mb-10">
-                                            <a href="#">Blog Post With Image Slider</a>
-                                        </div>
-                                        <div className="entry-meta mb-10">
-                                            <ul className="list-unstyled">
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-folder-open-o" /> Design
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-comment-o" /> 5
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-calendar-o" /> 12 Aug 2020
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="entry-content">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Possimus fuga laborum totam itaque architecto! Laudantium sed
-                                                delectus assumenda, doloribus non.
-                                            </p>
-                                        </div>
-                                        <div className="entry-share d-flex justify-content-between align-items-center">
-                                            <div className="entry-button">
-                                                <a href="#" className="btn btn-primary btn-sm">
-                                                    Read more
-                                                </a>
-                                            </div>
-                                            <div className="social">
-                                                <strong>Share : </strong>
-                                                <ul className="list-unstyled">
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-facebook" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-twitter" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-pinterest-p" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-dribbble" />{" "}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-xl-4 col-md-4 col-12">
-                                <div className="blog-post">
-                                    <div className="entry-image clearfix">
-                                        <ul className="grid-post list-unstyled">
-                                            <li>
-                                                <img
-                                                    className="img-fluid"
-                                                    src="../../images/front-end-img/courses/5f.jpg"
-                                                    alt=""
-                                                />
-                                            </li>
-                                            <li>
-                                                <img
-                                                    className="img-fluid"
-                                                    src="../../images/front-end-img/courses/6f.jpg"
-                                                    alt=""
-                                                />
-                                            </li>
-                                            <li>
-                                                <img
-                                                    className="img-fluid"
-                                                    src="../../images/front-end-img/courses/7f.jpg"
-                                                    alt=""
-                                                />
-                                            </li>
-                                            <li>
-                                                <img
-                                                    className="img-fluid"
-                                                    src="../../images/front-end-img/courses/8f.jpg"
-                                                    alt=""
-                                                />
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="blog-detail">
-                                        <div className="entry-title mb-10">
-                                            <a href="#">Blogpost With Image Grid Gallery</a>
-                                        </div>
-                                        <div className="entry-meta mb-10">
-                                            <ul className="list-unstyled">
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-folder-open-o" /> Design
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-comment-o" /> 5
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">
-                                                        <i className="fa fa-calendar-o" /> 12 Aug 2020
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div className="entry-content">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                Possimus fuga laborum totam itaque architecto! Laudantium sed
-                                                delectus assumenda, doloribus non.
-                                            </p>
-                                        </div>
-                                        <div className="entry-share d-flex justify-content-between align-items-center">
-                                            <div className="entry-button">
-                                                <a href="#" className="btn btn-primary btn-sm">
-                                                    Read more
-                                                </a>
-                                            </div>
-                                            <div className="social">
-                                                <strong>Share : </strong>
-                                                <ul className="list-unstyled">
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-facebook" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-twitter" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-pinterest-p" />{" "}
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#">
-                                                            {" "}
-                                                            <i className="fa fa-dribbble" />{" "}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <footer className="footer_three">
-                    <div className="footer-top bg-dark3 pt-50">
+                {/* End Header Top */}
+                {/* Header 
+    ============================================= */}
+                <header id="home">
+                    {/* Start Navigation */}
+                    <nav className="navbar navbar-default navbar-sticky bootsnav">
+                        {/* Start Top Search */}
                         <div className="container">
                             <div className="row">
-                                <div className="col-lg-3 col-12">
-                                    <div className="widget">
-                                        <h4 className="footer-title">About</h4>
-                                        <hr className="bg-primary mb-10 mt-0 d-inline-block mx-auto w-60" />
-                                        <p className="text-capitalize mb-20">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                                            enim ad minim veniam, quis exercitation ullamco laboris
-                                            <br />
-                                            <br />
-                                            Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                            cillum.
+                                <div className="top-search">
+                                    <div className="input-group">
+                                        <form action="#">
+                                            <input
+                                                type="text"
+                                                name="text"
+                                                className="form-control"
+                                                placeholder="Search"
+                                            />
+                                            <button type="submit">
+                                                <i className="fas fa-search" />
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* End Top Search */}
+                        <div className="container">
+                            {/* Start Atribute Navigation */}
+                            <div className="attr-nav">
+                                <ul>
+                                    <li className="search">
+                                        <a href="#">
+                                            <i className="fa fa-search" />
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {/* End Atribute Navigation */}
+                            {/* Start Header Navigation */}
+                            <div className="navbar-header">
+                                <button
+                                    type="button"
+                                    className="navbar-toggle"
+                                    data-toggle="collapse"
+                                    data-target="#navbar-menu"
+                                >
+                                    <i className="fa fa-bars" />
+                                </button>
+                                <a className="navbar-brand" href="index.html">
+                                    <img src="assets/img/logo.png" className="logo" alt="Logo" />
+                                </a>
+                            </div>
+                            {/* End Header Navigation */}
+                            {/* Collect the nav links, forms, and other content for toggling */}
+                            <div className="collapse navbar-collapse" id="navbar-menu">
+                                <ul className="nav navbar-nav navbar-right" data-in="#" data-out="#">
+                                    <li className="dropdown">
+                                        <a
+                                            href="#"
+                                            className="dropdown-toggle active"
+                                            data-toggle="dropdown"
+                                        >
+                                            Home
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li className="dropdown">
+                                                <a
+                                                    href="#"
+                                                    className="dropdown-toggle"
+                                                    data-toggle="dropdown"
+                                                >
+                                                    Multipage
+                                                </a>
+                                                <ul className="dropdown-menu">
+                                                    <li>
+                                                        <a href="index.html">Home Version One</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-2.html">Home Version Two</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-3.html">Home Version Three</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-4.html">Home Version Four</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-5.html">Home Version Five</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-6.html">Home Version Six</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-7.html">Home Version Serven</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-8.html">Home Version Eight</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li className="dropdown">
+                                                <a
+                                                    href="#"
+                                                    className="dropdown-toggle"
+                                                    data-toggle="dropdown"
+                                                >
+                                                    Onepage
+                                                </a>
+                                                <ul className="dropdown-menu">
+                                                    <li>
+                                                        <a href="index-onepage.html">Home Version One</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-2-onepage.html">Home Version Two</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-3-onepage.html">Home Version Three</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-4-onepage.html">Home Version Four</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-5-onepage.html">Home Version Five</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-6-onepage.html">Home Version Six</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-7-onepage.html">Home Version Seven</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="index-8-onepage.html">Home Version Eight</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="dropdown megamenu-fw">
+                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                                            Pages
+                                        </a>
+                                        <ul className="dropdown-menu megamenu-content" role="menu">
+                                            <li>
+                                                <div className="row">
+                                                    <div className="col-menu col-md-3">
+                                                        <h6 className="title">Gallery</h6>
+                                                        <div className="content">
+                                                            <ul className="menu-col">
+                                                                <li>
+                                                                    <a href="gallery-2-colum.html">Gallery Two Colum</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-3-colum.html">
+                                                                        Gallery Three Colum
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-4-colum.html">
+                                                                        Gallery Four Colum
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="gallery-6-colum.html">Gallery Six Colum</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    {/* end col-3 */}
+                                                    <div className="col-menu col-md-3">
+                                                        <h6 className="title">Advisor</h6>
+                                                        <div className="content">
+                                                            <ul className="menu-col">
+                                                                <li>
+                                                                    <a href="advisor-carousel.html">Advisor Carousel</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="advisor-2-colum.html">Advisor Two Colum</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="advisor-3-colum.html">
+                                                                        Advisor Three Colum
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="advisor-carousel-2.html">
+                                                                        Advisor Carousel Two
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    {/* end col-3 */}
+                                                    <div className="col-menu col-md-3">
+                                                        <h6 className="title">User Pages</h6>
+                                                        <div className="content">
+                                                            <ul className="menu-col">
+                                                                <li>
+                                                                    <a href="profile.html">Profile</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="edit-profile.html">Edit Profile</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="login.html">login</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="register.html">register</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    {/* end col-3 */}
+                                                    <div className="col-menu col-md-3">
+                                                        <h6 className="title">Other Pages</h6>
+                                                        <div className="content">
+                                                            <ul className="menu-col">
+                                                                <li>
+                                                                    <a href="about-us.html">About Us</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="faq.html">Faq</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="pricing-table.html">Pricing Table</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="contact.html">Contact</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="404.html">Error Page</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    {/* end col-3 */}
+                                                </div>
+                                                {/* end row */}
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="dropdown">
+                                        <a
+                                            href="#"
+                                            className="dropdown-toggle active"
+                                            data-toggle="dropdown"
+                                        >
+                                            Courses
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li>
+                                                <a href="courses.html">Courses Carousel One</a>
+                                            </li>
+                                            <li>
+                                                <a href="courses-2.html">Courses Grid One</a>
+                                            </li>
+                                            <li>
+                                                <a href="courses-3.html">Courses Grid Two</a>
+                                            </li>
+                                            <li>
+                                                <a href="courses-4.html">Courses Carousel Two</a>
+                                            </li>
+                                            <li>
+                                                <a href="course-details.html">Course Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="dropdown">
+                                        <a
+                                            href="#"
+                                            className="dropdown-toggle active"
+                                            data-toggle="dropdown"
+                                        >
+                                            Teachers
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li>
+                                                <a href="teachers.html">Advisor</a>
+                                            </li>
+                                            <li>
+                                                <a href="teachers-details.html">Advisor Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="dropdown">
+                                        <a
+                                            href="#"
+                                            className="dropdown-toggle active"
+                                            data-toggle="dropdown"
+                                        >
+                                            Event
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li>
+                                                <a href="event.html">Event Mixed Colum</a>
+                                            </li>
+                                            <li>
+                                                <a href="event-2.html">Event Grid Colum</a>
+                                            </li>
+                                            <li>
+                                                <a href="event-3.html">Event Carousel</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li className="dropdown">
+                                        <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                                            Blog
+                                        </a>
+                                        <ul className="dropdown-menu">
+                                            <li>
+                                                <a href="blog-standard.html">Blog Standard</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-single-standard.html">Single Standard</a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-single-left-sidebar.html">
+                                                    Single Left Sidebar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="blog-single-right-sidebar.html">
+                                                    Single Right Sidebar
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="contact.html">contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            {/* /.navbar-collapse */}
+                        </div>
+                    </nav>
+                    {/* End Navigation */}
+                </header>
+                {/* End Header */}
+                {/* Start Login Form 
+    ============================================= */}
+                <form action="#" id="login-form" className="mfp-hide white-popup-block">
+                    <div className="col-md-4 login-social">
+                        <h4>Login with social</h4>
+                        <ul>
+                            <li className="facebook">
+                                <a href="#">
+                                    <i className="fab fa-facebook-f" />
+                                </a>
+                            </li>
+                            <li className="twitter">
+                                <a href="#">
+                                    <i className="fab fa-twitter" />
+                                </a>
+                            </li>
+                            <li className="linkedin">
+                                <a href="#">
+                                    <i className="fab fa-linkedin-in" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="col-md-8 login-custom">
+                        <h4>login to your registered account!</h4>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <div className="form-group">
+                                    <input className="form-control" placeholder="Email*" type="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        placeholder="Password*"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <label htmlFor="login-remember">
+                                    <input type="checkbox" id="login-remember" />
+                                    Remember Me
+                                </label>
+                                <a title="Lost Password" href="#" className="lost-pass-link">
+                                    Lost your password?
+                                </a>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <button type="submit">Login</button>
+                            </div>
+                        </div>
+                        <p className="link-bottom">
+                            Not a member yet? <a href="#">Register now</a>
+                        </p>
+                    </div>
+                </form>
+                {/* End Login Form */}
+                {/* Start Register Form 
+    ============================================= */}
+                <form action="#" id="register-form" className="mfp-hide white-popup-block">
+                    <div className="col-md-4 login-social">
+                        <h4>Register with social</h4>
+                        <ul>
+                            <li className="facebook">
+                                <a href="#">
+                                    <i className="fab fa-facebook-f" />
+                                </a>
+                            </li>
+                            <li className="twitter">
+                                <a href="#">
+                                    <i className="fab fa-twitter" />
+                                </a>
+                            </li>
+                            <li className="linkedin">
+                                <a href="#">
+                                    <i className="fab fa-linkedin-in" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="col-md-8 login-custom">
+                        <h4>Register a new account</h4>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <div className="form-group">
+                                    <input className="form-control" placeholder="Email*" type="email" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        placeholder="Username*"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        placeholder="Password*"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <div className="form-group">
+                                    <input
+                                        className="form-control"
+                                        placeholder="Repeat Password*"
+                                        type="text"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="row">
+                                <button type="submit">Sign up</button>
+                            </div>
+                        </div>
+                        <p className="link-bottom">
+                            Are you a member? <a href="#">Login now</a>
+                        </p>
+                    </div>
+                </form>
+                {/* End Register Form */}
+                {/* Start Banner 
+    ============================================= */}
+                <div className="banner-area content-top-heading less-paragraph text-normal">
+                    <div
+                        id="bootcarousel"
+                        className="carousel slide animate_text carousel-fade"
+                        data-ride="carousel"
+                    >
+                        {/* Wrapper for slides */}
+                        <div className="carousel-inner text-light carousel-zoom">
+                            <div className="item active">
+                                <div
+                                    className="slider-thumb bg-fixed"
+                                    style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
+                                />
+                                <div className="box-table shadow dark">
+                                    <div className="box-cell">
+                                        <div className="container">
+                                            <div className="row">
+                                                <div className="col-md-8">
+                                                    <div className="content">
+                                                        <h3 data-animation="animated slideInLeft">
+                                                            Reach you career
+                                                        </h3>
+                                                        <h1 data-animation="animated slideInUp">
+                                                            Learn from best online training course
+                                                        </h1>
+                                                        <a
+                                                            data-animation="animated slideInUp"
+                                                            className="btn btn-light border btn-md"
+                                                            href="#"
+                                                        >
+                                                            Learn more
+                                                        </a>
+                                                        <a
+                                                            data-animation="animated slideInUp"
+                                                            className="btn btn-theme effect btn-md"
+                                                            href="#"
+                                                        >
+                                                            View Courses
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div
+                                    className="slider-thumb bg-fixed"
+                                    style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
+                                />
+                                <div className="box-table shadow dark">
+                                    <div className="box-cell">
+                                        <div className="container">
+                                            <div className="row">
+                                                <div className="col-md-8">
+                                                    <div className="content">
+                                                        <h3 data-animation="animated slideInLeft">
+                                                            We're glade to see you
+                                                        </h3>
+                                                        <h1 data-animation="animated slideInUp">
+                                                            explore our brilliant graduates
+                                                        </h1>
+                                                        <a
+                                                            data-animation="animated slideInUp"
+                                                            className="btn btn-light border btn-md"
+                                                            href="#"
+                                                        >
+                                                            Learn more
+                                                        </a>
+                                                        <a
+                                                            data-animation="animated slideInUp"
+                                                            className="btn btn-theme effect btn-md"
+                                                            href="#"
+                                                        >
+                                                            View Courses
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="item">
+                                <div
+                                    className="slider-thumb bg-fixed"
+                                    style={{ backgroundImage: "url(assets/img/banner/3.jpg)" }}
+                                />
+                                <div className="box-table shadow dark">
+                                    <div className="box-cell">
+                                        <div className="container">
+                                            <div className="row">
+                                                <div className="col-md-8">
+                                                    <div className="content">
+                                                        <h3 data-animation="animated slideInLeft">
+                                                            The goal of education
+                                                        </h3>
+                                                        <h1 data-animation="animated slideInUp">
+                                                            Join the bigest comunity of eduka
+                                                        </h1>
+                                                        <a
+                                                            data-animation="animated slideInUp"
+                                                            className="btn btn-light border btn-md"
+                                                            href="#"
+                                                        >
+                                                            Learn more
+                                                        </a>
+                                                        <a
+                                                            data-animation="animated slideInUp"
+                                                            className="btn btn-theme effect btn-md"
+                                                            href="#"
+                                                        >
+                                                            View Courses
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* End Wrapper for slides */}
+                        {/* Left and right controls */}
+                        <a
+                            className="left carousel-control"
+                            href="#bootcarousel"
+                            data-slide="prev"
+                        >
+                            <i className="fa fa-angle-left" />
+                            <span className="sr-only">Previous</span>
+                        </a>
+                        <a
+                            className="right carousel-control"
+                            href="#bootcarousel"
+                            data-slide="next"
+                        >
+                            <i className="fa fa-angle-right" />
+                            <span className="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                {/* End Banner */}
+                {/* Start About 
+    ============================================= */}
+                <div className="about-area default-padding">
+                    <div className="container">
+                        <div className="row">
+                            <div className="about-info">
+                                <div className="col-md-6 thumb">
+                                    <img src="assets/img/about.jpg" alt="Thumb" />
+                                </div>
+                                <div className="col-md-6 info">
+                                    <h5>Introduction</h5>
+                                    <h2>Welcome to the beigest online learning source of Eduka</h2>
+                                    <p>
+                                        Alteration literature to or an sympathize mr imprudence. Of is
+                                        ferrars subject as enjoyed or tedious cottage. Procuring as in
+                                        resembled by in agreeable. Next long no gave mr eyes. Admiration
+                                        advantages no he celebrated so pianoforte unreserved. Not its
+                                        herself forming charmed amiable. Him why feebly expect future now.
+                                    </p>
+                                    <p>
+                                        Curiosity incommode now led smallness allowance. Favour bed assure
+                                        son things yet. She consisted consulted elsewhere happiness
+                                        disposing household any old the. Widow downs. Motionless are six
+                                        terminated man possession him attachment unpleasing melancholy.
+                                        Sir smile arose one share. No abroad in easily relied an whence
+                                        lovers temper by.
+                                    </p>
+                                    <a href="#" className="btn btn-dark border btn-md">
+                                        Read More
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="seperator col-md-12">
+                                <span className="border" />
+                            </div>
+                            <div className="our-features">
+                                <div className="col-md-4 col-sm-4">
+                                    <div className="item mariner">
+                                        <div className="icon">
+                                            <i className="flaticon-faculty-shield" />
+                                        </div>
+                                        <div className="info">
+                                            <h4>Expert faculty</h4>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-4 col-sm-4">
+                                    <div className="item java">
+                                        <div className="icon">
+                                            <i className="flaticon-book-2" />
+                                        </div>
+                                        <div className="info">
+                                            <h4>Online learning</h4>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-4 col-sm-4">
+                                    <div className="item malachite">
+                                        <div className="icon">
+                                            <i className="flaticon-education" />
+                                        </div>
+                                        <div className="info">
+                                            <h4>Scholarship</h4>
+                                            <a href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End About */}
+                {/* Start Why Chose Us 
+    ============================================= */}
+                <div className="wcs-area bg-dark text-light">
+                    <div className="container-full">
+                        <div className="row">
+                            <div
+                                className="col-md-6 thumb bg-cover"
+                                style={{ backgroundImage: "url(assets/img/banner/16.jpg)" }}
+                            />
+                            <div className="col-md-6 content">
+                                <div className="site-heading text-left">
+                                    <h2>Why chose us</h2>
+                                    <p>
+                                        Discourse assurance estimable applauded to so. Him everything
+                                        melancholy uncommonly but solicitude inhabiting projection off.
+                                        Connection stimulated estimating excellence an to impression.
+                                    </p>
+                                </div>
+                                {/* item */}
+                                <div className="item">
+                                    <div className="icon">
+                                        <i className="flaticon-trending" />
+                                    </div>
+                                    <div className="info">
+                                        <h4>
+                                            <a href="#">Trending Courses</a>
+                                        </h4>
+                                        <p>
+                                            Absolute required of reserved in offering no. How sense found
+                                            our those gay again taken the. Had mrs outweigh desirous sex
+                                            overcame. Improved property reserved disposal do offering me.
                                         </p>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 col-12">
-                                    <div className="widget">
-                                        <h4 className="footer-title">Contact Info</h4>
-                                        <hr className="bg-primary mb-10 mt-0 d-inline-block mx-auto w-60" />
-                                        <ul className="list list-unstyled mb-30">
-                                            <li>
-                                                {" "}
-                                                <i className="fa fa-map-marker" /> 123, Lorem Ipsum, Dummy
-                                                City,
-                                                <br />
-                                                FL-12345 USA
-                                            </li>
-                                            <li>
-                                                {" "}
-                                                <i className="fa fa-phone" /> <span>+(1) 123-878-1649 </span>
-                                                <br />
-                                                <span>+(1) 123-878-1649 </span>
-                                            </li>
-                                            <li>
-                                                {" "}
-                                                <i className="fa fa-envelope" />{" "}
-                                                <span>info@EduLearn.com </span>
-                                                <br />
-                                                <span>support@EduLearn.com </span>
-                                            </li>
-                                        </ul>
+                                {/* item */}
+                                {/* item */}
+                                <div className="item">
+                                    <div className="icon">
+                                        <i className="flaticon-books" />
+                                    </div>
+                                    <div className="info">
+                                        <h4>
+                                            <a href="#">Books &amp; Library</a>
+                                        </h4>
+                                        <p>
+                                            Absolute required of reserved in offering no. How sense found
+                                            our those gay again taken the. Had mrs outweigh desirous sex
+                                            overcame. Improved property reserved disposal do offering me.
+                                        </p>
                                     </div>
                                 </div>
-                                <div className="col-12 col-lg-3">
-                                    <div className="widget widget_gallery clearfix">
-                                        <h4 className="footer-title">Our Gallery</h4>
-                                        <hr className="bg-primary mb-10 mt-0 d-inline-block mx-auto w-60" />
-                                        <ul className="list-unstyled">
-                                            <li>
-                                                <img src="../../images/gallery/thumb/1.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/2.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/3.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/4.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/5.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/6.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/7.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/8.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/9.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/10.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/11.jpg" alt="" />
-                                            </li>
-                                            <li>
-                                                <img src="../../images/gallery/thumb/12.jpg" alt="" />
-                                            </li>
-                                        </ul>
+                                {/* item */}
+                                {/* item */}
+                                <div className="item">
+                                    <div className="icon">
+                                        <i className="flaticon-professor" />
+                                    </div>
+                                    <div className="info">
+                                        <h4>
+                                            <a href="#">Certified Teachers</a>
+                                        </h4>
+                                        <p>
+                                            Absolute required of reserved in offering no. How sense found
+                                            our those gay again taken the. Had mrs outweigh desirous sex
+                                            overcame. Improved property reserved disposal do offering me.
+                                        </p>
                                     </div>
                                 </div>
-                                <div className="col-lg-3 col-12">
-                                    <div className="widget">
-                                        <h4 className="footer-title">Accept Card Payments</h4>
-                                        <hr className="bg-primary mb-10 mt-0 d-inline-block mx-auto w-60" />
-                                        <ul className="payment-icon list-unstyled d-flex gap-items-1">
-                                            <li className="ps-0">
-                                                <a href="javascript:;">
-                                                    <i className="fa fa-cc-amex" aria-hidden="true" />
+                                {/* item */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Why Chose Us */}
+                {/* Start Featured Courses 
+    ============================================= */}
+                <div
+                    id="featured-courses"
+                    className="featured-courses-area left-details default-padding"
+                >
+                    <div className="container">
+                        <div className="row">
+                            <div className="featured-courses-carousel owl-carousel owl-theme">
+                                {/* Start Single Item */}
+                                <div className="item">
+                                    <div className="col-md-5">
+                                        <div className="thumb">
+                                            <img src="assets/img/courses/f1.jpg" alt="Thumb" />
+                                            <div className="live-view">
+                                                <a
+                                                    href="assets/img/courses/f1.jpg"
+                                                    className="item popup-link"
+                                                >
+                                                    <i className="fa fa-camera" />
                                                 </a>
+                                                <a
+                                                    className="popup-youtube"
+                                                    href="https://www.youtube.com/watch?v=vQqZIFCab9o"
+                                                >
+                                                    <i className="fa fa-video" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-7 info">
+                                        <h2>
+                                            <a href="#">Codecademy software programming</a>
+                                        </h2>
+                                        <h4>featured courses</h4>
+                                        <p>
+                                            Both rest of know draw fond post as. It agreement defective to
+                                            excellent. Feebly do engage of narrow. Extensive repulsive
+                                            belonging depending if promotion be zealously as. Preference
+                                            inquietude ask
+                                        </p>
+                                        <h3>Learning outcomes</h3>
+                                        <ul>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>Over 37 lectures and 55.5 hours of content!</span>
                                             </li>
                                             <li>
-                                                <a href="javascript:;">
-                                                    <i className="fa fa-cc-visa" aria-hidden="true" />
-                                                </a>
+                                                <i className="fas fa-check-double" />
+                                                <span>Testing Training Included.</span>
                                             </li>
                                             <li>
-                                                <a href="javascript:;">
-                                                    <i className="fa fa-credit-card-alt" aria-hidden="true" />
-                                                </a>
+                                                <i className="fas fa-check-double" />
+                                                <span>
+                                                    Course content designed by considering current software
+                                                    testing
+                                                </span>
                                             </li>
                                             <li>
-                                                <a href="javascript:;">
-                                                    <i className="fa fa-cc-mastercard" aria-hidden="true" />
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <i className="fa fa-cc-paypal" aria-hidden="true" />
-                                                </a>
+                                                <i className="fas fa-check-double" />
+                                                <span>
+                                                    Practical assignments at the end of every session.
+                                                </span>
                                             </li>
                                         </ul>
-                                        <h4 className="footer-title mt-20">Newsletter</h4>
-                                        <hr className="bg-primary mb-4 mt-0 d-inline-block mx-auto w-60" />
-                                        <div className="mb-20">
-                                            <form className="" action="#" method="post">
-                                                <div className="input-group">
+                                        <a
+                                            href="#"
+                                            className="btn btn-theme effect btn-md"
+                                            data-animation="animated slideInUp"
+                                        >
+                                            Enroll Now
+                                        </a>
+                                        <div className="bottom-info align-left">
+                                            <div className="item">
+                                                <h4>Author</h4>
+                                                <a href="#">
+                                                    <span>Devid Honey</span>
+                                                </a>
+                                            </div>
+                                            <div className="item">
+                                                <h4>Students enrolled</h4>
+                                                <span>5455</span>
+                                            </div>
+                                            <div className="item">
+                                                <h4>Rating</h4>
+                                                <span className="rating">
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star-half-alt" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* End Single Item */}
+                                {/* Start Single Item */}
+                                <div className="item">
+                                    <div className="col-md-5">
+                                        <div className="thumb">
+                                            <img src="assets/img/courses/f2.jpg" alt="Thumb" />
+                                            <div className="live-view">
+                                                <a
+                                                    href="assets/img/courses/f2.jpg"
+                                                    className="item popup-link"
+                                                >
+                                                    <i className="fa fa-camera" />
+                                                </a>
+                                                <a
+                                                    className="popup-youtube"
+                                                    href="https://www.youtube.com/watch?v=vQqZIFCab9o"
+                                                >
+                                                    <i className="fa fa-video" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-7 info">
+                                        <h2>
+                                            <a href="#">Data analysis and data science</a>
+                                        </h2>
+                                        <h4>featured courses</h4>
+                                        <p>
+                                            Both rest of know draw fond post as. It agreement defective to
+                                            excellent. Feebly do engage of narrow. Extensive repulsive
+                                            belonging depending if promotion be zealously as. Preference
+                                            inquietude ask
+                                        </p>
+                                        <h3>Learning outcomes</h3>
+                                        <ul>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>Over 37 lectures and 55.5 hours of content!</span>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>Testing Training Included.</span>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>
+                                                    Course content designed by considering current software
+                                                    testing
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>
+                                                    Practical assignments at the end of every session.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a
+                                            href="#"
+                                            className="btn btn-theme effect btn-md"
+                                            data-animation="animated slideInUp"
+                                        >
+                                            Enroll Now
+                                        </a>
+                                        <div className="bottom-info align-left">
+                                            <div className="item">
+                                                <h4>Author</h4>
+                                                <a href="#">
+                                                    <span>Devid Honey</span>
+                                                </a>
+                                            </div>
+                                            <div className="item">
+                                                <h4>Students enrolled</h4>
+                                                <span>5455</span>
+                                            </div>
+                                            <div className="item">
+                                                <h4>Rating</h4>
+                                                <span className="rating">
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star-half-alt" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* End Single Item */}
+                                {/* Start Single Item */}
+                                <div className="item">
+                                    <div className="col-md-5">
+                                        <div className="thumb">
+                                            <img src="assets/img/courses/f3.jpg" alt="Thumb" />
+                                            <div className="live-view">
+                                                <a
+                                                    href="assets/img/courses/f3.jpg"
+                                                    className="item popup-link"
+                                                >
+                                                    <i className="fa fa-camera" />
+                                                </a>
+                                                <a
+                                                    className="popup-youtube"
+                                                    href="https://www.youtube.com/watch?v=vQqZIFCab9o"
+                                                >
+                                                    <i className="fa fa-video" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-7 info">
+                                        <h2>
+                                            <a href="#">Graphic and interactive design</a>
+                                        </h2>
+                                        <h4>featured courses</h4>
+                                        <p>
+                                            Both rest of know draw fond post as. It agreement defective to
+                                            excellent. Feebly do engage of narrow. Extensive repulsive
+                                            belonging depending if promotion be zealously as. Preference
+                                            inquietude ask
+                                        </p>
+                                        <h3>Learning outcomes</h3>
+                                        <ul>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>Over 37 lectures and 55.5 hours of content!</span>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>Testing Training Included.</span>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>
+                                                    Course content designed by considering current software
+                                                    testing
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-check-double" />
+                                                <span>
+                                                    Practical assignments at the end of every session.
+                                                </span>
+                                            </li>
+                                        </ul>
+                                        <a
+                                            href="#"
+                                            className="btn btn-theme effect btn-md"
+                                            data-animation="animated slideInUp"
+                                        >
+                                            Enroll Now
+                                        </a>
+                                        <div className="bottom-info align-left">
+                                            <div className="item">
+                                                <h4>Author</h4>
+                                                <a href="#">
+                                                    <span>Devid Honey</span>
+                                                </a>
+                                            </div>
+                                            <div className="item">
+                                                <h4>Students enrolled</h4>
+                                                <span>5455</span>
+                                            </div>
+                                            <div className="item">
+                                                <h4>Rating</h4>
+                                                <span className="rating">
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star" />
+                                                    <i className="fas fa-star-half-alt" />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* End Single Item */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Featured Courses */}
+                {/* Start Popular Courses 
+    ============================================= */}
+                <div className="popular-courses circle bg-gray carousel-shadow default-padding">
+                    <div className="container">
+                        <div className="row">
+                            <div className="site-heading text-center">
+                                <div className="col-md-8 col-md-offset-2">
+                                    <h2>Popular Courses</h2>
+                                    <p>
+                                        Discourse assurance estimable applauded to so. Him everything
+                                        melancholy uncommonly but solicitude inhabiting projection off.
+                                        Connection stimulated estimating excellence an to impression.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="popular-courses-items popular-courses-carousel owl-carousel owl-theme">
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/courses/1.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="price">Price: Free</div>
+                                        </div>
+                                        <div className="info">
+                                            <div className="author-info">
+                                                <div className="thumb">
+                                                    <a href="#">
+                                                        <img src="assets/img/team/7.jpg" alt="Thumb" />
+                                                    </a>
+                                                </div>
+                                                <div className="others">
+                                                    <a href="#">Munil Druva</a>
+                                                    <div className="rating">
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star-half-alt" />
+                                                        <span>4.5 (23,890)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>
+                                                <a href="#">data science and software</a>
+                                            </h4>
+                                            <p>
+                                                Would day nor ask walls known. But preserved advantage are but
+                                                and certainty earnestly enjoyment.
+                                            </p>
+                                            <div className="bottom-info">
+                                                <ul>
+                                                    <li>
+                                                        <i className="fas fa-user" /> 6,690
+                                                    </li>
+                                                    <li>
+                                                        <i className="fas fa-clock" /> 16:00
+                                                    </li>
+                                                </ul>
+                                                <a href="#">Enroll Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/courses/2.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="price">Price: $12</div>
+                                        </div>
+                                        <div className="info">
+                                            <div className="author-info">
+                                                <div className="thumb">
+                                                    <a href="#">
+                                                        <img src="assets/img/team/8.jpg" alt="Thumb" />
+                                                    </a>
+                                                </div>
+                                                <div className="others">
+                                                    <a href="#">Akua Paul</a>
+                                                    <div className="rating">
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star-half-alt" />
+                                                        <span>5 (867)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>
+                                                <a href="#">Stanford Engineering</a>
+                                            </h4>
+                                            <p>
+                                                Would day nor ask walls known. But preserved advantage are but
+                                                and certainty earnestly enjoyment.
+                                            </p>
+                                            <div className="bottom-info">
+                                                <ul>
+                                                    <li>
+                                                        <i className="fas fa-user" /> 6,690
+                                                    </li>
+                                                    <li>
+                                                        <i className="fas fa-clock" /> 16:00
+                                                    </li>
+                                                </ul>
+                                                <a href="#">Enroll Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/courses/3.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="price">Price: Free</div>
+                                        </div>
+                                        <div className="info">
+                                            <div className="author-info">
+                                                <div className="thumb">
+                                                    <a href="#">
+                                                        <img src="assets/img/team/9.jpg" alt="Thumb" />
+                                                    </a>
+                                                </div>
+                                                <div className="others">
+                                                    <a href="#">Jonathom Kiyam</a>
+                                                    <div className="rating">
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <span>4.9 (2,655)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>
+                                                <a href="#">Covers Big Data analysis</a>
+                                            </h4>
+                                            <p>
+                                                Would day nor ask walls known. But preserved advantage are but
+                                                and certainty earnestly enjoyment.
+                                            </p>
+                                            <div className="bottom-info">
+                                                <ul>
+                                                    <li>
+                                                        <i className="fas fa-user" /> 6,690
+                                                    </li>
+                                                    <li>
+                                                        <i className="fas fa-clock" /> 16:00
+                                                    </li>
+                                                </ul>
+                                                <a href="#">Enroll Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/courses/4.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="price">Price: $46</div>
+                                        </div>
+                                        <div className="info">
+                                            <div className="author-info">
+                                                <div className="thumb">
+                                                    <a href="#">
+                                                        <img src="assets/img/team/2.jpg" alt="Thumb" />
+                                                    </a>
+                                                </div>
+                                                <div className="others">
+                                                    <a href="#">Huma Park</a>
+                                                    <div className="rating">
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star-half-alt" />
+                                                        <span>4.4 (16,465)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>
+                                                <a href="#">professional web development</a>
+                                            </h4>
+                                            <p>
+                                                Would day nor ask walls known. But preserved advantage are but
+                                                and certainty earnestly enjoyment.
+                                            </p>
+                                            <div className="bottom-info">
+                                                <ul>
+                                                    <li>
+                                                        <i className="fas fa-user" /> 6,690
+                                                    </li>
+                                                    <li>
+                                                        <i className="fas fa-clock" /> 16:00
+                                                    </li>
+                                                </ul>
+                                                <a href="#">Enroll Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/courses/5.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="price">Price: $124</div>
+                                        </div>
+                                        <div className="info">
+                                            <div className="author-info">
+                                                <div className="thumb">
+                                                    <a href="#">
+                                                        <img src="assets/img/team/3.jpg" alt="Thumb" />
+                                                    </a>
+                                                </div>
+                                                <div className="others">
+                                                    <a href="#">Prokash Timer</a>
+                                                    <div className="rating">
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star" />
+                                                        <i className="fas fa-star-half-alt" />
+                                                        <span>5 (7,890)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h4>
+                                                <a href="#">Java Programming Masterclass</a>
+                                            </h4>
+                                            <p>
+                                                Would day nor ask walls known. But preserved advantage are but
+                                                and certainty earnestly enjoyment.
+                                            </p>
+                                            <div className="bottom-info">
+                                                <ul>
+                                                    <li>
+                                                        <i className="fas fa-user" /> 6,690
+                                                    </li>
+                                                    <li>
+                                                        <i className="fas fa-clock" /> 16:00
+                                                    </li>
+                                                </ul>
+                                                <a href="#">Enroll Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* End Single Item */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Popular Courses */}
+                {/* Start Top Categories 
+    ============================================= */}
+                <div id="top-categories" className="top-cat-area default-padding bottom-less">
+                    <div className="container">
+                        <div className="row">
+                            <div className="site-heading text-center">
+                                <div className="col-md-8 col-md-offset-2">
+                                    <h2>Top Categories</h2>
+                                    <p>
+                                        Discourse assurance estimable applauded to so. Him everything
+                                        melancholy uncommonly but solicitude inhabiting projection off.
+                                        Connection stimulated estimating excellence an to impression.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="top-cat-items">
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/1.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-feature" />
+                                            <div className="info">
+                                                <h4>software engineering</h4>
+                                                <span>(1,226) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/2.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-interaction" />
+                                            <div className="info">
+                                                <h4>Interactive Programming</h4>
+                                                <span>(2,366) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/3.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-conveyor" />
+                                            <div className="info">
+                                                <h4>Quantum Mechanics</h4>
+                                                <span>(766) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/4.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-education" />
+                                            <div className="info">
+                                                <h4>Preventing Dementia</h4>
+                                                <span>(4,500) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/5.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-potential" />
+                                            <div className="info">
+                                                <h4>Hidden Potential</h4>
+                                                <span>(975) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/6.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-print" />
+                                            <div className="info">
+                                                <h4>Introduction Programming</h4>
+                                                <span>(3,340) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/7.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-translate" />
+                                            <div className="info">
+                                                <h4>Machine Learning</h4>
+                                                <span>(7,800) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-md-3 col-sm-6 equal-height">
+                                    <div
+                                        className="item"
+                                        style={{ backgroundImage: "url(assets/img/category/8.jpg)" }}
+                                    >
+                                        <a href="#">
+                                            <i className="flaticon-firewall" />
+                                            <div className="info">
+                                                <h4>Maintaining a Mindful</h4>
+                                                <span>(24,80) Topics</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Top Categories */}
+                {/* Start Advisor Area
+    ============================================= */}
+                <section
+                    id="advisor"
+                    className="advisor-area bg-gray carousel-shadow default-padding bottom-less"
+                >
+                    <div className="container">
+                        <div className="row">
+                            <div className="site-heading text-center">
+                                <div className="col-md-8 col-md-offset-2">
+                                    <h2>Experience Advisors</h2>
+                                    <p>
+                                        Able an hope of body. Any nay shyness article matters own removal
+                                        nothing his forming. Gay own additions education satisfied the
+                                        perpetual. If he cause manor happy. Without farther she exposed
+                                        saw man led. Along on happy could cease green oh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="advisor-items advisor-carousel-solid owl-carousel owl-theme text-center text-light">
+                                    {/* Single Item */}
+                                    <div className="advisor-item">
+                                        <div className="info-box">
+                                            <img src="assets/img/advisor/1.jpg" alt="Thumb" />
+                                            <div className="info-title">
+                                                <h4>Professon. Nuri Paul</h4>
+                                                <span>Chemistry specialist</span>
+                                                <div className="social">
+                                                    <ul>
+                                                        <li className="facebook">
+                                                            <a href="#">
+                                                                <i className="fab fa-facebook-f" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="twitter">
+                                                            <a href="#">
+                                                                <i className="fab fa-twitter" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="pinterest">
+                                                            <a href="#">
+                                                                <i className="fab fa-pinterest" />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="advisor-item">
+                                        <div className="info-box">
+                                            <img src="assets/img/advisor/2.jpg" alt="Thumb" />
+                                            <div className="info-title">
+                                                <h4>Monayem Pruda</h4>
+                                                <span>Senior Developer</span>
+                                                <div className="social">
+                                                    <ul>
+                                                        <li className="facebook">
+                                                            <a href="#">
+                                                                <i className="fab fa-facebook-f" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="twitter">
+                                                            <a href="#">
+                                                                <i className="fab fa-twitter" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="pinterest">
+                                                            <a href="#">
+                                                                <i className="fab fa-pinterest" />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="advisor-item">
+                                        <div className="info-box">
+                                            <img src="assets/img/advisor/3.jpg" alt="Thumb" />
+                                            <div className="info-title">
+                                                <h4>Dr. Bubly Minu</h4>
+                                                <span>Science specialist</span>
+                                                <div className="social">
+                                                    <ul>
+                                                        <li className="facebook">
+                                                            <a href="#">
+                                                                <i className="fab fa-facebook-f" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="twitter">
+                                                            <a href="#">
+                                                                <i className="fab fa-twitter" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="pinterest">
+                                                            <a href="#">
+                                                                <i className="fab fa-pinterest" />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="advisor-item">
+                                        <div className="info-box">
+                                            <img src="assets/img/advisor/4.jpg" alt="Thumb" />
+                                            <div className="info-title">
+                                                <h4>Professon. John Doe</h4>
+                                                <span>Senior Writter</span>
+                                                <div className="social">
+                                                    <ul>
+                                                        <li className="facebook">
+                                                            <a href="#">
+                                                                <i className="fab fa-facebook-f" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="twitter">
+                                                            <a href="#">
+                                                                <i className="fab fa-twitter" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="pinterest">
+                                                            <a href="#">
+                                                                <i className="fab fa-pinterest" />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="advisor-item">
+                                        <div className="info-box">
+                                            <img src="assets/img/advisor/5.jpg" alt="Thumb" />
+                                            <div className="info-title">
+                                                <h4>Professon. John Doe</h4>
+                                                <span>Senior Writter</span>
+                                                <div className="social">
+                                                    <ul>
+                                                        <li className="facebook">
+                                                            <a href="#">
+                                                                <i className="fab fa-facebook-f" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="twitter">
+                                                            <a href="#">
+                                                                <i className="fab fa-twitter" />
+                                                            </a>
+                                                        </li>
+                                                        <li className="pinterest">
+                                                            <a href="#">
+                                                                <i className="fab fa-pinterest" />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/*End Advisor Area */}
+                {/* Start Fun Factor 
+    ============================================= */}
+                <div
+                    className="fun-factor-area default-padding bottom-less text-center bg-fixed shadow dark-hard"
+                    style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
+                >
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-3 col-sm-6 item">
+                                <div className="fun-fact">
+                                    <div className="icon">
+                                        <i className="flaticon-contract" />
+                                    </div>
+                                    <div className="info">
+                                        <span className="timer" data-to={212} data-speed={5000} />
+                                        <span className="medium">National Awards</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3 col-sm-6 item">
+                                <div className="fun-fact">
+                                    <div className="icon">
+                                        <i className="flaticon-professor" />
+                                    </div>
+                                    <div className="info">
+                                        <span className="timer" data-to={128} data-speed={5000} />
+                                        <span className="medium">Best Teachers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3 col-sm-6 item">
+                                <div className="fun-fact">
+                                    <div className="icon">
+                                        <i className="flaticon-online" />
+                                    </div>
+                                    <div className="info">
+                                        <span className="timer" data-to={8970} data-speed={5000} />
+                                        <span className="medium">Students Enrolled</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-md-3 col-sm-6 item">
+                                <div className="fun-fact">
+                                    <div className="icon">
+                                        <i className="flaticon-reading" />
+                                    </div>
+                                    <div className="info">
+                                        <span className="timer" data-to={640} data-speed={5000} />
+                                        <span className="medium">Cources</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Fun Factor */}
+                {/* Start Event
+    ============================================= */}
+                <section id="event" className="event-area default-padding">
+                    <div className="container">
+                        <div className="row">
+                            <div className="site-heading text-center">
+                                <div className="col-md-8 col-md-offset-2">
+                                    <h2>Upcoming Events</h2>
+                                    <p>
+                                        Able an hope of body. Any nay shyness article matters own removal
+                                        nothing his forming. Gay own additions education satisfied the
+                                        perpetual. If he cause manor happy. Without farther she exposed
+                                        saw man led. Along on happy could cease green oh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="event-items">
+                                {/* Single Item */}
+                                <div className="item horizontal col-md-12">
+                                    <div
+                                        className="col-md-6 thumb bg-cover"
+                                        style={{ backgroundImage: "url(assets/img/event/1.jpg)" }}
+                                    >
+                                        <div className="date">
+                                            <h4>
+                                                <span>12</span> Dec, 2018
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 info">
+                                        <h4>
+                                            <a href="#">Secondary Schools United Nations</a>
+                                        </h4>
+                                        <div className="meta">
+                                            <ul>
+                                                <li>
+                                                    <i className="fas fa-calendar-alt" /> 15 Oct, 2019
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-clock" /> 8:00 AM - 5:00 PM
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-map" /> California, TX 70240{" "}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p>
+                                            Early had add equal china quiet visit. Appear an manner as no
+                                            limits either praise in. In in written on charmed justice is
+                                            amiable farther besides. Law insensible middletons unsatiable
+                                            for apartments boy delightful unreserved.
+                                        </p>
+                                        <a href="#" className="btn btn-dark effect btn-sm">
+                                            <i className="fas fa-chart-bar" /> Book Now
+                                        </a>
+                                        <a href="#" className="btn btn-gray btn-sm">
+                                            <i className="fas fa-ticket-alt" /> 43 Available
+                                        </a>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                                {/* Single Item */}
+                                <div className="item vertical col-md-6">
+                                    <div className="thumb">
+                                        <img src="assets/img/event/2.jpg" alt="Thumb" />
+                                        <div className="date">
+                                            <h4>
+                                                <span>27</span> Feb, 2019
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div className="info">
+                                        <h4>
+                                            <a href="#">Social Science &amp; Humanities</a>
+                                        </h4>
+                                        <div className="meta">
+                                            <ul>
+                                                <li>
+                                                    <i className="fas fa-calendar-alt" /> 15 Oct, 2019
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-clock" /> 8:00 AM - 5:00 PM
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-map" /> California, TX 70240{" "}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p>
+                                            Early had add equal china quiet visit. Appear an manner as no
+                                            limits either praise in. In in written on charmed justice is
+                                            amiable farther besides. Law insensible middletons unsatiable
+                                            for apartments boy delightful unreserved.
+                                        </p>
+                                        <a href="#" className="btn btn-dark effect btn-sm">
+                                            <i className="fas fa-chart-bar" /> Book Now
+                                        </a>
+                                        <a href="#" className="btn btn-gray btn-sm">
+                                            <i className="fas fa-ticket-alt" /> 189 Available
+                                        </a>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                                {/* Single Item */}
+                                <div className="item vertical col-md-6">
+                                    <div className="thumb">
+                                        <img src="assets/img/event/3.jpg" alt="Thumb" />
+                                        <div className="date">
+                                            <h4>
+                                                <span>15</span> Mar, 2019
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div className="info">
+                                        <h4>
+                                            <a href="#">Actualized Leadership Network Seminar</a>
+                                        </h4>
+                                        <div className="meta">
+                                            <ul>
+                                                <li>
+                                                    <i className="fas fa-calendar-alt" /> 15 Oct, 2019
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-clock" /> 8:00 AM - 5:00 PM
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-map" /> California, TX 70240{" "}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p>
+                                            Early had add equal china quiet visit. Appear an manner as no
+                                            limits either praise in. In in written on charmed justice is
+                                            amiable farther besides. Law insensible middletons unsatiable
+                                            for apartments boy delightful unreserved.
+                                        </p>
+                                        <a href="#" className="btn btn-dark effect btn-sm">
+                                            <i className="fas fa-chart-bar" /> Book Now
+                                        </a>
+                                        <a href="#" className="btn btn-gray btn-sm">
+                                            <i className="fas fa-ticket-alt" /> 32 Available
+                                        </a>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                                {/* Single Item */}
+                                <div className="item horizontal col-md-12">
+                                    <div
+                                        className="col-md-6 thumb bg-cover"
+                                        style={{ backgroundImage: "url(assets/img/event/4.jpg)" }}
+                                    >
+                                        <div className="date">
+                                            <h4>
+                                                <span>24</span> Apr, 2019
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div className="col-md-6 info">
+                                        <h4>
+                                            <a href="#">International Conference on Art Business</a>
+                                        </h4>
+                                        <div className="meta">
+                                            <ul>
+                                                <li>
+                                                    <i className="fas fa-calendar-alt" /> 15 Oct, 2019
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-clock" /> 8:00 AM - 5:00 PM
+                                                </li>
+                                                <li>
+                                                    <i className="fas fa-map" /> California, TX 70240{" "}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <p>
+                                            Early had add equal china quiet visit. Appear an manner as no
+                                            limits either praise in. In in written on charmed justice is
+                                            amiable farther besides. Law insensible middletons unsatiable
+                                            for apartments boy delightful unreserved.
+                                        </p>
+                                        <a href="#" className="btn btn-dark effect btn-sm">
+                                            <i className="fas fa-chart-bar" /> Book Now
+                                        </a>
+                                        <a href="#" className="btn btn-gray btn-sm">
+                                            <i className="fas fa-ticket-alt" /> 12 Available
+                                        </a>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                                <div className="more-btn col-md-12 text-center">
+                                    <a href="#" className="btn btn-dark border btn-md">
+                                        View All Events
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {/* End Event */}
+                {/* Start Registration 
+    ============================================= */}
+                <div className="reg-area default-padding-top bg-gray">
+                    <div className="container">
+                        <div className="row">
+                            <div className="reg-items">
+                                <div className="col-md-6 reg-form default-padding-bottom">
+                                    <div className="site-heading text-left">
+                                        <h2>Get a Free online Registration</h2>
+                                        <p>
+                                            written on charmed justice is amiable farther besides. Law
+                                            insensible middletons unsatiable for apartments boy delightful
+                                            unreserved.
+                                        </p>
+                                    </div>
+                                    <form action="#">
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <div className="form-group">
                                                     <input
-                                                        name="email"
-                                                        required="required"
                                                         className="form-control"
-                                                        placeholder="Your Email Address"
+                                                        placeholder="First Name"
+                                                        type="text"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="form-group">
+                                                    <input
+                                                        className="form-control"
+                                                        placeholder="Last Name"
+                                                        type="text"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-12">
+                                                <div className="form-group">
+                                                    <input
+                                                        className="form-control"
+                                                        placeholder="Email*"
                                                         type="email"
                                                     />
-                                                    <button
-                                                        name="submit"
-                                                        value="Submit"
-                                                        type="submit"
-                                                        className="btn btn-primary"
-                                                    >
-                                                        {" "}
-                                                        <i className="fa fa-envelope" />{" "}
+                                                </div>
+                                            </div>
+                                            <div className="col-md-12">
+                                                <div className="form-group">
+                                                    <select>
+                                                        <option value={1}>Chose Subject</option>
+                                                        <option value={2}>Computer Engineering</option>
+                                                        <option value={4}>Accounting Technologies</option>
+                                                        <option value={5}>Web Development</option>
+                                                        <option value={6}>Machine Language</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-12">
+                                                <div className="form-group">
+                                                    <input
+                                                        className="form-control"
+                                                        placeholder="Phone"
+                                                        type="text"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="col-md-12">
+                                                <button type="submit">Rigister Now</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div className="col-md-6 thumb">
+                                    <img src="assets/img/contact.png" alt="Thumb" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Registration */}
+                {/* Start Testimonials 
+    ============================================= */}
+                <div className="testimonials-area carousel-shadow default-padding bg-dark text-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="site-heading text-center">
+                                <div className="col-md-8 col-md-offset-2">
+                                    <h2>Students Review</h2>
+                                    <p>
+                                        Able an hope of body. Any nay shyness article matters own removal
+                                        nothing his forming. Gay own additions education satisfied the
+                                        perpetual. If he cause manor happy. Without farther she exposed
+                                        saw man led. Along on happy could cease green oh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="clients-review-carousel owl-carousel owl-theme">
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="col-md-5 thumb">
+                                            <img src="assets/img/team/2.jpg" alt="Thumb" />
+                                        </div>
+                                        <div className="col-md-7 info">
+                                            <p>
+                                                Procuring continued suspicion its ten. Pursuit brother are had
+                                                fifteen distant has. Early had add equal china quiet visit.
+                                                Appear an manner as no limits either praise..
+                                            </p>
+                                            <h4>Druna Patia</h4>
+                                            <span>Biology Student</span>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="col-md-5 thumb">
+                                            <img src="assets/img/team/3.jpg" alt="Thumb" />
+                                        </div>
+                                        <div className="col-md-7 info">
+                                            <p>
+                                                Procuring continued suspicion its ten. Pursuit brother are had
+                                                fifteen distant has. Early had add equal china quiet visit.
+                                                Appear an manner as no limits either praise..
+                                            </p>
+                                            <h4>Astron Brun</h4>
+                                            <span>Science Student</span>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="col-md-5 thumb">
+                                            <img src="assets/img/team/4.jpg" alt="Thumb" />
+                                        </div>
+                                        <div className="col-md-7 info">
+                                            <p>
+                                                Procuring continued suspicion its ten. Pursuit brother are had
+                                                fifteen distant has. Early had add equal china quiet visit.
+                                                Appear an manner as no limits either praise..
+                                            </p>
+                                            <h4>Paol Druva</h4>
+                                            <span>Development Student</span>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                    {/* Single Item */}
+                                    <div className="item">
+                                        <div className="col-md-5 thumb">
+                                            <img src="assets/img/team/7.jpg" alt="Thumb" />
+                                        </div>
+                                        <div className="col-md-7 info">
+                                            <p>
+                                                Procuring continued suspicion its ten. Pursuit brother are had
+                                                fifteen distant has. Early had add equal china quiet visit.
+                                                Appear an manner as no limits either praise..
+                                            </p>
+                                            <h4>Druna Patia</h4>
+                                            <span>Biology Student</span>
+                                        </div>
+                                    </div>
+                                    {/* Single Item */}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Testimonials */}
+                {/* Start Blog 
+    ============================================= */}
+                <div id="blog" className="blog-area default-padding bottom-less">
+                    <div className="container">
+                        <div className="row">
+                            <div className="site-heading text-center">
+                                <div className="col-md-8 col-md-offset-2">
+                                    <h2>Latest News</h2>
+                                    <p>
+                                        Able an hope of body. Any nay shyness article matters own removal
+                                        nothing his forming. Gay own additions education satisfied the
+                                        perpetual. If he cause manor happy. Without farther she exposed
+                                        saw man led. Along on happy could cease green oh.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="blog-items">
+                                {/* Single Item */}
+                                <div className="col-md-4 single-item">
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/blog/1.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="date">
+                                                <h4>
+                                                    <span>24</span> Nov, 2018
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div className="info">
+                                            <h4>
+                                                <a href="#">Objection happiness something</a>
+                                            </h4>
+                                            <p>
+                                                Sitting mistake towards his few country ask. You delighted two
+                                                rapturous six depending objection happiness something the
+                                                partiality unaffected
+                                            </p>
+                                            <a href="#">
+                                                Read More <i className="fas fa-angle-double-right" />
+                                            </a>
+                                            <div className="meta">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i className="fas fa-user" /> Author
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i className="fas fa-comments" /> 23 Comments
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                                {/* Single Item */}
+                                <div className="col-md-4 single-item">
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/blog/2.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="date">
+                                                <h4>
+                                                    <span>12</span> Sep, 2018
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div className="info">
+                                            <h4>
+                                                <a href="#">Meant to learn of vexed</a>
+                                            </h4>
+                                            <p>
+                                                Sitting mistake towards his few country ask. You delighted two
+                                                rapturous six depending objection happiness something the
+                                                partiality unaffected
+                                            </p>
+                                            <a href="#">
+                                                Read More <i className="fas fa-angle-double-right" />
+                                            </a>
+                                            <div className="meta">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i className="fas fa-user" /> Author
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i className="fas fa-comments" /> 23 Comments
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                                {/* Single Item */}
+                                <div className="col-md-4 single-item">
+                                    <div className="item">
+                                        <div className="thumb">
+                                            <a href="#">
+                                                <img src="assets/img/blog/3.jpg" alt="Thumb" />
+                                            </a>
+                                            <div className="date">
+                                                <h4>
+                                                    <span>29</span> Dec, 2018
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div className="info">
+                                            <h4>
+                                                <a href="#">Delightful up dissimilar</a>
+                                            </h4>
+                                            <p>
+                                                Sitting mistake towards his few country ask. You delighted two
+                                                rapturous six depending objection happiness something the
+                                                partiality unaffected
+                                            </p>
+                                            <a href="#">
+                                                Read More <i className="fas fa-angle-double-right" />
+                                            </a>
+                                            <div className="meta">
+                                                <ul>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i className="fas fa-user" /> Author
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <i className="fas fa-comments" /> 23 Comments
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Single Item */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Blog */}
+                {/* Start Clients Area 
+    ============================================= */}
+                <div className="clients-area default-padding bg-gray">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-4 info">
+                                <h4>Our largest education campus</h4>
+                                <p>
+                                    Seeing rather her you not esteem men settle genius excuse. Deal say
+                                    over you age from. Comparison new ham melancholy son themselves.
+                                </p>
+                            </div>
+                            <div className="col-md-8 clients">
+                                <div className="clients-items owl-carousel owl-theme text-center">
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/1.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/2.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/3.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/4.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/5.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/6.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/7.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/8.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                    <div className="single-item">
+                                        <a href="#">
+                                            <img src="assets/img/clients/9.png" alt="Clients" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* End Clients Area */}
+                {/* Start Footer 
+    ============================================= */}
+                <footer className="bg-dark default-padding-top text-light">
+                    <div className="container">
+                        <div className="row">
+                            <div className="f-items">
+                                <div className="col-md-4 item">
+                                    <div className="f-item">
+                                        <img src="assets/img/logo-light.png" alt="Logo" />
+                                        <p>
+                                            Excellence decisively nay man yet impression for contrasted
+                                            remarkably. There spoke happy for you are out. Fertile how old
+                                            address did showing because sitting replied six. Had arose guest
+                                            visit going off child she new.
+                                        </p>
+                                        <p className="text-italic">
+                                            Please write your email and get our amazing updates, news and
+                                            support
+                                        </p>
+                                        <div className="subscribe">
+                                            <form action="#">
+                                                <div className="input-group stylish-input-group">
+                                                    <input
+                                                        type="email"
+                                                        placeholder="Enter your e-mail here"
+                                                        className="form-control"
+                                                        name="email"
+                                                    />
+                                                    <button type="submit">
+                                                        <i className="fa fa-paper-plane" />
                                                     </button>
                                                 </div>
                                             </form>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="by-1 bg-dark3 py-10 border-dark">
-                        <div className="container">
-                            <div className="text-center footer-links">
-                                <a href="#" className="btn btn-link">
-                                    Home
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    About Us
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    Pricing
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    Courses
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    Blog
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    Contact Us
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    Privacy Policy
-                                </a>
-                                <a href="#" className="btn btn-link">
-                                    Terms Of Conditions
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="footer-bottom bg-dark3">
-                        <div className="container">
-                            <div className="row align-items-center">
-                                <div className="col-md-6 col-12 text-md-start text-center">
-                                    {" "}
-                                    © <span className="text-white">EduLearn</span> All Rights Reserved.
+                                <div className="col-md-2 col-sm-6 item">
+                                    <div className="f-item link">
+                                        <h4>Links</h4>
+                                        <ul>
+                                            <li>
+                                                <a href="#">Courses</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Event</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Gallery</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Faqs</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Teachers</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Contact</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div className="col-md-6 mt-md-0 mt-20">
-                                    <div className="social-icons">
-                                        <ul className="list-unstyled d-flex gap-items-1 justify-content-md-end justify-content-center">
+                                <div className="col-md-2 col-sm-6 item">
+                                    <div className="f-item link">
+                                        <h4>Support</h4>
+                                        <ul>
                                             <li>
-                                                <a
-                                                    href="#"
-                                                    className="waves-effect waves-circle btn btn-social-icon btn-circle btn-facebook"
-                                                >
-                                                    <i className="fa fa-facebook" />
-                                                </a>
+                                                <a href="#">Documentation</a>
                                             </li>
                                             <li>
-                                                <a
-                                                    href="#"
-                                                    className="waves-effect waves-circle btn btn-social-icon btn-circle btn-twitter"
-                                                >
-                                                    <i className="fa fa-twitter" />
-                                                </a>
+                                                <a href="#">Forums</a>
                                             </li>
                                             <li>
-                                                <a
-                                                    href="#"
-                                                    className="waves-effect waves-circle btn btn-social-icon btn-circle btn-linkedin"
-                                                >
-                                                    <i className="fa fa-linkedin" />
-                                                </a>
+                                                <a href="#">Language Packs</a>
                                             </li>
                                             <li>
-                                                <a
-                                                    href="#"
-                                                    className="waves-effect waves-circle btn btn-social-icon btn-circle btn-youtube"
-                                                >
-                                                    <i className="fa fa-youtube" />
-                                                </a>
+                                                <a href="#">Release Status</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">LearnPress</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Feedback</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div className="col-md-4 item">
+                                    <div className="f-item address">
+                                        <h4>Address</h4>
+                                        <ul>
+                                            <li>
+                                                <i className="fas fa-envelope" />
+                                                <p>
+                                                    Email{" "}
+                                                    <span>
+                                                        <a href="mailto:support@validtheme.com">
+                                                            support@validtheme.com
+                                                        </a>
+                                                    </span>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <i className="fas fa-map" />
+                                                <p>
+                                                    Office <span>123 6th St. Melbourne, FL 32904</span>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                        <div className="opening-info">
+                                            <h5>Opening Hours</h5>
+                                            <ul>
+                                                <li>
+                                                    {" "}
+                                                    <span> Mon - Tues :</span>
+                                                    <div className="pull-right"> 6.00 am - 10.00 pm </div>
+                                                </li>
+                                                <li>
+                                                    {" "}
+                                                    <span> Wednes - Thurs :</span>
+                                                    <div className="pull-right"> 8.00 am - 6.00 pm </div>
+                                                </li>
+                                                <li>
+                                                    {" "}
+                                                    <span> Sun : </span>
+                                                    <div className="pull-right closed"> Closed </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* Start Footer Bottom */}
+                    <div className="footer-bottom">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <div className="col-md-6">
+                                        <p>
+                                            © Copyright 2019. All Rights Reserved by{" "}
+                                            <a href="#">validthemes</a>
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6 text-right link">
+                                        <ul>
+                                            <li>
+                                                <a href="#">Terms of user</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">License</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Support</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -4136,11 +2487,13 @@ function Home() {
                             </div>
                         </div>
                     </div>
+                    {/* End Footer Bottom */}
                 </footer>
-                {/* Vendor JS */}
-                {/* Corenav Master JavaScript */}
-                {/* EduLearn front end */}
+                {/* End Footer */}
+                {/* jQuery Frameworks
+    ============================================= */}
             </>
+
 
         </div>
     )
