@@ -19,6 +19,7 @@ function Login() {
 
 
         try {
+            console.log("Bat dau login")
             const response = await axios.post('http://localhost:3000/users/login', {
                 username: username,
                 password: password
@@ -27,11 +28,12 @@ function Login() {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('accountid', response.data.accountid);
                 localStorage.setItem('admin', response.data.admin);
+                console.log("Da login")
 
 
-                navigate('/home')
+                // navigate('/home')
                 toast.success('Login successfully');
-                // window.location.href = '/home';
+                window.location.href = '/home';
 
             } else {
                 toast.error('Invalid username or password');
