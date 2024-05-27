@@ -9,6 +9,7 @@ import ProfileUser from './components/ProfileUser';
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from './context/authContext';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/home" exact element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<ProfileUser />} />
+            <Route path="/register" element={<Register />} />
 
           </Routes>
           <Footer />
