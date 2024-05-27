@@ -10,3 +10,13 @@ export const getAccountById = (id, accessToken) => {
 
     return axios.get(ACCOUNT_API_BASE_URL + id, config);
 };
+
+export const register = (account, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.post(`${ACCOUNT_API_BASE_URL}signup`, account, config);
+};
