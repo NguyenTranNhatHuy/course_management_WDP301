@@ -217,7 +217,7 @@ function Home() {
                     >
                         {/* Wrapper for slides */}
                         <div className="carousel-inner text-light carousel-zoom">
-                            <div className="item active">
+                            <div style={{ height: '700px' }} className="item active">
                                 <div
                                     className="slider-thumb bg-fixed"
                                     style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
@@ -255,7 +255,7 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="item">
+                            <div style={{ height: '700px' }} className="item">
                                 <div
                                     className="slider-thumb bg-fixed"
                                     style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
@@ -293,7 +293,7 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="item">
+                            <div style={{ height: '700px' }} className="item">
                                 <div
                                     className="slider-thumb bg-fixed"
                                     style={{ backgroundImage: "url(assets/img/banner/3.jpg)" }}
