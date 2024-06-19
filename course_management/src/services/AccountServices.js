@@ -20,3 +20,42 @@ export const register = (account, accessToken) => {
 
     return axios.post(`${ACCOUNT_API_BASE_URL}signup`, account, config);
 };
+
+
+
+// Get all accounts (admin only)
+export const getAllAccounts = (accessToken, page, limit) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+        params: {
+            page,
+            limit,
+        },
+    };
+
+    return axios.get(ACCOUNT_API_BASE_URL, config);
+};
+
+// Update an account by ID
+export const updateAccountById = (id, account, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.put(ACCOUNT_API_BASE_URL + id, account, config);
+};
+
+// Delete an account by ID
+export const deleteAccountById = (id, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.delete(ACCOUNT_API_BASE_URL + id, config);
+};
