@@ -18,195 +18,13 @@ function Home() {
                 {/* Preloader Ends */}
                 {/* Start Header Top 
     ============================================= */}
-                <div className="top-bar-area address-two-lines bg-dark text-light">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-md-8 address-info">
-                                <div className="info box">
-                                    <ul>
-                                        <li>
-                                            <span>
-                                                <i className="fas fa-map" /> Address
-                                            </span>
-                                            California, TX 70240
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <i className="fas fa-envelope-open" /> Email
-                                            </span>
-                                            Info@gmail.com
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <i className="fas fa-phone" /> Contact
-                                            </span>
-                                            +123 456 7890
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="user-login text-right col-md-4">
-                                {!authToken && (
-                                    <Link className="popup-with-form" to={"/register"}>
-                                        <i className="fas fa-edit" /> Register
-                                    </Link>
-                                )}
-                                {!authToken && (
-                                    <Link className="popup-with-form" to={"/login"}>
-                                        <i className="fas fa-user" /> Login
-                                    </Link>
-                                )}
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 {/* End Header Top */}
                 {/* Header 
     ============================================= */}
                 {/* <Header /> */}
                 {/* End Header */}
-                {/* Start Login Form 
-    ============================================= */}
-                {/* <form action="#" id="login-form" className="mfp-hide white-popup-block">
-                    <div className="col-md-4 login-social">
-                        <h4>Login with social</h4>
-                        <ul>
-                            <li className="facebook">
-                                <a href="#">
-                                    <i className="fab fa-facebook-f" />
-                                </a>
-                            </li>
-                            <li className="twitter">
-                                <a href="#">
-                                    <i className="fab fa-twitter" />
-                                </a>
-                            </li>
-                            <li className="linkedin">
-                                <a href="#">
-                                    <i className="fab fa-linkedin-in" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-8 login-custom">
-                        <h4>login to your registered account!</h4>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="form-group">
-                                    <input className="form-control" placeholder="Email*" type="email" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="form-group">
-                                    <input
-                                        className="form-control"
-                                        placeholder="Password*"
-                                        type="text"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <label htmlFor="login-remember">
-                                    <input type="checkbox" id="login-remember" />
-                                    Remember Me
-                                </label>
-                                <a title="Lost Password" href="#" className="lost-pass-link">
-                                    Lost your password?
-                                </a>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <button type="submit">Login</button>
-                            </div>
-                        </div>
-                        <p className="link-bottom">
-                            Not a member yet? <a href="#">Register now</a>
-                        </p>
-                    </div>
-                </form> */}
-                {/* End Login Form */}
-                {/* Start Register Form 
-    ============================================= */}
-                {/* <form action="#" id="register-form" className="mfp-hide white-popup-block">
-                    <div className="col-md-4 login-social">
-                        <h4>Register with social</h4>
-                        <ul>
-                            <li className="facebook">
-                                <a href="#">
-                                    <i className="fab fa-facebook-f" />
-                                </a>
-                            </li>
-                            <li className="twitter">
-                                <a href="#">
-                                    <i className="fab fa-twitter" />
-                                </a>
-                            </li>
-                            <li className="linkedin">
-                                <a href="#">
-                                    <i className="fab fa-linkedin-in" />
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className="col-md-8 login-custom">
-                        <h4>Register a new account</h4>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="form-group">
-                                    <input className="form-control" placeholder="Email*" type="email" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="form-group">
-                                    <input
-                                        className="form-control"
-                                        placeholder="Username*"
-                                        type="text"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="form-group">
-                                    <input
-                                        className="form-control"
-                                        placeholder="Password*"
-                                        type="text"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <div className="form-group">
-                                    <input
-                                        className="form-control"
-                                        placeholder="Repeat Password*"
-                                        type="text"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-12">
-                            <div className="row">
-                                <button type="submit">Sign up</button>
-                            </div>
-                        </div>
-                        <p className="link-bottom">
-                            Are you a member? <a href="#">Login now</a>
-                        </p>
-                    </div>
-                </form> */}
-                {/* End Register Form */}
+
                 {/* Start Banner 
     ============================================= */}
                 <div className="banner-area content-top-heading less-paragraph text-normal">
@@ -217,7 +35,7 @@ function Home() {
                     >
                         {/* Wrapper for slides */}
                         <div className="carousel-inner text-light carousel-zoom">
-                            <div className="item active">
+                            <div style={{ height: '700px' }} className="item active">
                                 <div
                                     className="slider-thumb bg-fixed"
                                     style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
@@ -255,7 +73,7 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="item">
+                            <div style={{ height: '700px' }} className="item">
                                 <div
                                     className="slider-thumb bg-fixed"
                                     style={{ backgroundImage: "url(assets/img/banner/2.jpg)" }}
@@ -293,7 +111,7 @@ function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="item">
+                            <div style={{ height: '700px' }} className="item">
                                 <div
                                     className="slider-thumb bg-fixed"
                                     style={{ backgroundImage: "url(assets/img/banner/3.jpg)" }}

@@ -47,6 +47,49 @@ function Header() {
 
     return (
         <div>
+            <div className="top-bar-area address-two-lines bg-dark text-light">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-8 address-info">
+                            <div className="info box">
+                                <ul>
+                                    <li>
+                                        <span>
+                                            <i className="fas fa-map" /> Address
+                                        </span>
+                                        California, TX 70240
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i className="fas fa-envelope-open" /> Email
+                                        </span>
+                                        Info@gmail.com
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i className="fas fa-phone" /> Contact
+                                        </span>
+                                        +123 456 7890
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="user-login text-right col-md-4">
+                            {!authToken && (
+                                <Link className="popup-with-form" to={"/register"}>
+                                    <i className="fas fa-edit" /> Register
+                                </Link>
+                            )}
+                            {!authToken && (
+                                <Link className="popup-with-form" to={"/login"}>
+                                    <i className="fas fa-user" /> Login
+                                </Link>
+                            )}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             <header id="home">
                 {/* Start Navigation */}
                 <nav className="navbar navbar-default navbar-sticky bootsnav">
@@ -94,7 +137,7 @@ function Header() {
                                 <i className="fa fa-bars" />
                             </button>
                             <a href='/home' className="navbar-brand" >
-                                <img src="assets/img/logo.png" className="logo" alt="Logo" />
+                                <img src="../assets/img/logo.png" className="logo" alt="Logo" />
                             </a>
                         </div>
                         {/* End Header Navigation */}
@@ -358,6 +401,11 @@ function Header() {
                                         <li>
                                             <a href="/profile">View Profile</a>
                                         </li>
+                                        {admin && (
+                                            <li>
+                                                <a href="/admin/accountManage">Management</a>
+                                            </li>
+                                        )}
                                         <li>
                                             <a href='' onClick={logout} >Logout</a>
                                         </li>

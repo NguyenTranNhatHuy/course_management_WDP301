@@ -30,14 +30,8 @@ function Login() {
                 localStorage.setItem('admin', response.data.admin);
                 console.log("Da login")
 
-<<<<<<< HEAD
-
-                // navigate('/home')
-                toast.success('Login successfully');
-=======
                 toast.success('Login successfully');
                 // navigate('/home')
->>>>>>> 1d7cefecbbb2a77832b3c74d17cc8e3301b1ab4c
                 window.location.href = '/home';
 
             } else {
