@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { getAccountById } from '../services/AccountServices';
+import { getAccountById } from '../../services/AccountServices';
 
 function Header() {
     const navigator = useNavigate();
@@ -94,7 +94,10 @@ function Header() {
                                 <i className="fa fa-bars" />
                             </button>
                             <a href='/home' className="navbar-brand" >
-                                <img src="assets/img/logo.png" className="logo" alt="Logo" />
+                                <img
+                                //  src="assets/img/logo.png" 
+                                 src={`${process.env.PUBLIC_URL}/assets/img/logo.png`}
+                                 className="logo" alt="Logo" />
                             </a>
                         </div>
                         {/* End Header Navigation */}

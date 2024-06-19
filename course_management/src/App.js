@@ -1,15 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import Home from './components/Home';
-import Login from './components/Login';
+// Hooks import
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ProfileUser from './components/ProfileUser';
-import { ToastContainer } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
 import { AuthProvider } from './context/authContext';
-import Register from './components/Register';
+import "react-toastify/dist/ReactToastify.css";
+
+// Libs import
+import { ToastContainer } from 'react-toastify';
+
+// Pages import
+import Header from './components/layouts/Header';
+import Footer from './components/layouts/Footer';
+import Home from './components/pages/HomePage';
+import Login from './components/pages/LoginPage';
+import Register from './components/pages/RegisterPage';
+import ProfileUser from './components/pages/ProfilePage';
+import CoursesPage from './components/pages/CoursesPage';
+import CourseDetail from './components/pages/CourseDetailPage';
+import Breadcrumb from './components/layouts/Breadcrumb';
+import MyCoursesPage from './components/pages/MyCoursesPage';
 
 function App() {
   return (
@@ -23,7 +30,11 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<ProfileUser />} />
             <Route path="/register" element={<Register />} />
-
+            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/myCourses" element={<MyCoursesPage />} />
+            <Route path="/courses/:id" element={<CourseDetail />} />
+            <Route path="/courses/detailTest" element={<CourseDetail />} />
+            <Route path="/br" element={<Breadcrumb />} />
           </Routes>
           <Footer />
         </BrowserRouter>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../services/AccountServices';
+import { register } from '../../services/AccountServices';
 
 function Register() {
     const [email, setEmail] = useState('');
