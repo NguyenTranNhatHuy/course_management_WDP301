@@ -15,10 +15,14 @@ class AuthProvider extends React.Component {
     const storedAccountId = localStorage.getItem("accountId");
     const storedToken = localStorage.getItem("token");
 
+    console.log("Retrieved from localStorage:", { storedAccountId, storedToken });
+
     if (storedAccountId && storedToken) {
       this.setState({
         accountId: storedAccountId,
         token: storedToken,
+      }, () => {
+        console.log("State updated in componentDidMount:", this.state);
       });
     }
   }
@@ -27,16 +31,25 @@ class AuthProvider extends React.Component {
     const { accountId, token } = this.state;
     localStorage.setItem("accountId", accountId);
     localStorage.setItem("token", token);
+
+    console.log("State updated in componentDidUpdate:", { accountId, token });
   }
+
+  setAccountId = (newAccountId) => {
+    this.setState({ accountId: newAccountId });
+  };
+
+  setToken = (newToken) => {
+    this.setState({ token: newToken });
+  };
 
   render() {
     const { accountId, token } = this.state;
     const contextValue = {
       accountId,
       token,
-      setAccountId: (newAccountId) =>
-        this.setState({ accountId: newAccountId }),
-      setToken: (newToken) => this.setState({ token: newToken }),
+      setAccountId: this.setAccountId,
+      setToken: this.setToken,
     };
 
     return (

@@ -17,6 +17,7 @@ import CoursesPage from './components/pages/CoursesPage';
 import CourseDetail from './components/pages/CourseDetailPage';
 import Breadcrumb from './components/layouts/Breadcrumb';
 import MyCoursesPage from './components/pages/MyCoursesPage';
+import CreateCourse from './components/pages/CreateCourse';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/courses/:id" element={<CourseDetail />} />
             <Route path="/courses/detailTest" element={<CourseDetail />} />
             <Route path="/br" element={<Breadcrumb />} />
+            <Route path="/createCourse" element={<CreateCourse />} />
           </Routes>
           <Footer />
         </BrowserRouter>
