@@ -12,11 +12,11 @@ export default function CoursesPage() {
     if (token) {
       console.log("Have token:", token);
       getAllCourses(token)
-        .then(response => {
+        .then((response) => {
           setCourses(response.data);
         })
-        .catch(error => {
-          console.error('Error fetching courses:', error);
+        .catch((error) => {
+          console.error("Error fetching courses:", error);
         });
     } else {
       console.log("No token found");
@@ -25,13 +25,13 @@ export default function CoursesPage() {
 
   return (
     <div>
-       <Breadcrumb name={"Courses"} numOfImage={2} />
+      <Breadcrumb name={"Courses"} numOfImage={2} />
       {/* Start Popular Courses */}
       <div className="popular-courses default-padding bottom-less without-carousel">
         <div className="container">
           <div className="row">
             <div className="popular-courses-items">
-              {courses.map(course => (
+              {courses.map((course) => (
                 <Course
                   key={course._id}
                   price={course.price}

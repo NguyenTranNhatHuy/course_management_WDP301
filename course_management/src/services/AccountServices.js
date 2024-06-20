@@ -20,3 +20,4 @@ export const register = (account, accessToken) => {
 
     return axios.post(`${ACCOUNT_API_BASE_URL}signup`, account, config);
 };
+

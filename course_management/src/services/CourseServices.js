@@ -22,3 +22,13 @@ export const createCourse = (course, accessToken) => {
 
     return axios.post(COURSE_API_BASE_URL, course, config);
 };
+
+export const getCollectionsByCurrentUser = (accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.get(`${COURSE_API_BASE_URL}mycollections`, config);
+};
