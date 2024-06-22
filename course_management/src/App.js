@@ -13,6 +13,11 @@ import Register from './components/Register';
 import AccountManage from './components/admin/AccountManage';
 import CollectionManage from './components/admin/CollectionManage';
 import QuestionManage from './components/admin/QuestionManage';
+import CoursesPage from './components/CoursesPage';
+import MyCoursesPage from './components/MyCoursesPage';
+import CreateCourse from './components/CreateCourse';
+import ViewAllQuestion from './components/ViewAllQuestion';
+
 
 function App() {
   return (
@@ -26,6 +31,10 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<ProfileUser />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/mycourses" element={<MyCoursesPage />} />
+            <Route path="/createcourse" element={<CreateCourse />} />
+            <Route path="/course/:id" element={<ViewAllQuestion />} />
             <Route path="/admin/accountManage" element={<AccountManage />} />
             <Route path="/admin/collectionManage" element={<CollectionManage />} />
             <Route path="/admin/questionManage" element={<QuestionManage />} />

@@ -338,20 +338,14 @@ function Header() {
                                     </a>
                                     <ul className="dropdown-menu">
                                         <li>
-                                            <a href="courses.html">Courses Carousel One</a>
+                                            <a href="/courses">All courses</a>
                                         </li>
                                         <li>
-                                            <a href="courses-2.html">Courses Grid One</a>
+                                            <a href="/mycourses">My courses</a>
                                         </li>
                                         <li>
-                                            <a href="courses-3.html">Courses Grid Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="courses-4.html">Courses Carousel Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="course-details.html">Course Details</a>
-                                        </li>
+                                            <a href="/createcourse">Create new course</a>
+                                        </li>                                
                                     </ul>
                                 </li>
                                 <li className="dropdown">
