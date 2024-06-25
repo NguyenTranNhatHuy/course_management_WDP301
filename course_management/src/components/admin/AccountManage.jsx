@@ -1,10 +1,10 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck, faCheckCircle, faGauge, faPenToSquare, faQuestion, faQuestionCircle, faTrash, faUsers, faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle, faGauge, faMagnifyingGlass, faPenToSquare, faQuestionCircle, faTrash, faUsersRectangle } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useState } from 'react';
 import { deleteAccountById, getAllAccounts, register, updateAccountById } from '../../services/AccountServices';
-import Pagination from './Pagination';
 import { toast } from 'react-toastify';
+import Pagination from './Pagination';
+
 function AccountManage() {
 
     function getAuthToken() {
@@ -14,9 +14,10 @@ function AccountManage() {
 
     const authToken = getAuthToken();
     const [accounts, setAccounts] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [filteredAccounts, setFilteredAccounts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
-    const itemsPerPage = 1;
+    const [accountsPerPage] = useState(10);
     const [updateData, setUpdateData] = useState({
         _id: '',
         username: '',
@@ -29,47 +30,50 @@ function AccountManage() {
         password: '',
     });
     const [showUpdateModal, setShowUpdateModal] = useState(false);
-    const fetchAccounts = async (page) => {
+    const [accountIndex, setStartIndex] = useState(0);
+
+    const fetchAccounts = async () => {
         try {
-            const response = await getAllAccounts(authToken, page, itemsPerPage);
+            const response = await getAllAccounts(authToken);
             setAccounts(response.data);
-            setTotalPages(response.data.totalPages);
+            setFilteredAccounts(response.data);
         } catch (error) {
             console.error('Error fetching accounts:', error);
             setAccounts([]);
-            setTotalPages(1);
+            setFilteredAccounts([]);
         }
     };
 
     useEffect(() => {
-        fetchAccounts(currentPage);
-    }, [currentPage]);
+        fetchAccounts();
+    }, []);
 
     const handleDeleteAccount = async (accountId) => {
+        const shouldDelete = window.confirm(
+            "Are you sure you want to delete this account?"
+        );
         try {
-            const response = await deleteAccountById(accountId, authToken);
-            console.log('Account deleted:', response.data);
+            if (shouldDelete) {
 
-            toast.success('Account deleted successfully');
-
-            fetchAccounts(currentPage);
+                const response = await deleteAccountById(accountId, authToken);
+                console.log('Account deleted:', response.data);
+                toast.success('Account deleted successfully');
+                fetchAccounts();
+            }
         } catch (error) {
             console.error('Error deleting account:', error);
             toast.error('Error deleting account');
         }
     };
 
-    const handlePageChange = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
-
-    const handleUpdateAccount = async () => {
+    const handleUpdateAccount = async (e) => {
+        e.preventDefault();
         try {
             const response = await updateAccountById(updateData._id, updateData, authToken);
             console.log('Account updated:', response.data);
             toast.success('Account updated successfully');
-            fetchAccounts(currentPage);
-            closeUpdateModal();
+            fetchAccounts();
+            window.location.href = "/admin/accountManage"
         } catch (error) {
             console.error('Error updating account:', error);
             toast.error('Error updating account');
@@ -102,20 +106,42 @@ function AccountManage() {
     const handleAddAccountSubmit = async (e) => {
         e.preventDefault();
         try {
-            const authToken = getAuthToken();
             const response = await register(newAccount, authToken);
             console.log('New account added:', response.data);
             toast.success('New account added successfully');
-            fetchAccounts(currentPage);
-            closeUpdateModal();
+            fetchAccounts();
+            window.location.href = "/admin/accountManage"
         } catch (error) {
             console.error('Error adding new account:', error);
             toast.error('Error adding new account');
         }
     };
 
-    return (
+    const handleSearchChange = (e) => {
+        const query = e.target.value;
+        setSearchQuery(query);
 
+        if (query === '') {
+            setFilteredAccounts(accounts);
+        } else {
+            const filtered = accounts.filter(account =>
+                account.username.toLowerCase().includes(query.toLowerCase())
+            );
+            setFilteredAccounts(filtered);
+        }
+    };
+
+    const indexOfLastAccount = currentPage * accountsPerPage;
+    const indexOfFirstAccount = indexOfLastAccount - accountsPerPage;
+    const currentAccounts = filteredAccounts.slice(indexOfFirstAccount, indexOfLastAccount);
+
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        setStartIndex((pageNumber - 1) * accountsPerPage);
+    };
+
+    return (
         <div>
             <div className="sb-nav-fixed">
                 <div id="layoutSidenav">
@@ -125,40 +151,37 @@ function AccountManage() {
                                 <ul style={{ marginTop: '100px', textAlign: 'justify' }} className="nav">
                                     <li>
                                         <a className="nav-link" href="/admin/accountManage">
-                                            <FontAwesomeIcon icon={faUsersRectangle} fade /> <span style={{ marginLeft: '3px' }}>Manage Accounts</span>
+                                            <FontAwesomeIcon icon={faUsersRectangle} /> <span style={{ marginLeft: '3px' }}>Manage Accounts</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a className="nav-link" href="/admin/collectionManage">
-                                            <FontAwesomeIcon icon={faCheckCircle} fade /> <span style={{ marginLeft: '3px' }}>Manage Collections</span>
+                                            <FontAwesomeIcon icon={faCheckCircle} /> <span style={{ marginLeft: '3px' }}>Manage Collections</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a className="nav-link" href="/admin/questionManage">
-                                            <FontAwesomeIcon icon={faQuestionCircle} fade /> <span style={{ marginLeft: '3px' }}>Manage Questions</span>
+                                            <FontAwesomeIcon icon={faQuestionCircle} /> <span style={{ marginLeft: '3px' }}>Manage Questions</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a className="nav-link" href="/admin/dashboard">
-                                            <FontAwesomeIcon icon={faGauge} fade /> <span style={{ marginLeft: '3px' }}>Dashboard</span>
+                                            <FontAwesomeIcon icon={faGauge} /> <span style={{ marginLeft: '3px' }}>Dashboard</span>
                                         </a>
                                     </li>
-
                                 </ul>
                             </div>
                         </nav>
                     </div>
                     <div id="layoutSidenav_content">
-                        {/* <!-- Trigger the modal with a button --> */}
-                        <button style={{ marginBottom: 15 }} type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addAccount">Add account</button>
-
-
-                        {/* Modal for adding account */}
-                        <div className="modal fade " id="addAccount" role="dialog">
+                        <div className=''>
+                            <button style={{ marginBottom: '15px' }} type="button" className="btn btn-info btn-lg" data-toggle="modal" data-target="#addAccount">Add account</button>
+                        </div>
+                        <div className="modal fade" id="addAccount" role="dialog">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <button type="button" className="close" data-dismiss="modal" >&times;</button>
+                                        <button type="button" className="close" data-dismiss="modal">&times;</button>
                                         <h4 className="modal-title">Add Account</h4>
                                     </div>
                                     <div className="modal-body">
@@ -185,23 +208,21 @@ function AccountManage() {
                                                     onChange={handleAddAccountChange}
                                                 />
                                             </div>
-
                                             <button type="submit" className="btn btn-primary">Add Account</button>
                                         </form>
                                     </div>
                                     <div className="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Modal for updating account */}
                         <div className={`modal fade ${showUpdateModal ? 'show' : ''}`} id="updateAccount" role="dialog" style={{ display: showUpdateModal ? 'block' : 'none' }}>
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <button type="button" className="close" data-dismiss="modal" >&times;</button>
+                                        <button onClick={() => closeUpdateModal()} type="button" className="close" data-dismiss="modal">&times;</button>
                                         <h4 className="modal-title">Update Account</h4>
                                     </div>
                                     <div className="modal-body">
@@ -249,23 +270,37 @@ function AccountManage() {
                                             <button type="submit" className="btn btn-primary">Update</button>
                                         </form>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <div className="modal-footer">
+                                        <button onClick={() => closeUpdateModal()} type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <main>
                             <div className="container-fluid">
                                 <div className="panel panel-default">
                                     <div className="panel-heading">
                                         <i className="fa fa-table" /> Account Manage
                                     </div>
+                                    <div style={{ width: '200px', margin: '20px' }} className="input-group">
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            placeholder="Search by username"
+                                            value={searchQuery}
+                                            onChange={handleSearchChange}
+                                        />
+                                        <span className="input-group-addon">
+                                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                        </span>
+                                    </div>
+
                                     <div className="panel-body">
                                         <table className="table table-striped table-bordered" style={{ width: "100%" }}>
                                             <thead>
                                                 <tr>
-                                                    <th>Id</th>
+                                                    <th>No</th>
                                                     <th>Username</th>
                                                     <th>Password</th>
                                                     <th>Email</th>
@@ -274,10 +309,10 @@ function AccountManage() {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                {accounts && accounts.length > 0 ? (
-                                                    accounts.map((account, index) => (
+                                                {currentAccounts && currentAccounts.length > 0 ? (
+                                                    currentAccounts.map((account, index) => (
                                                         <tr key={account._id}>
-                                                            <td>{index + 1}</td>
+                                                            <td>{accountIndex + index + 1}</td>
                                                             <td>{account.username}</td>
                                                             <td>{account.password}</td>
                                                             <td>{account.email}</td>
@@ -304,10 +339,13 @@ function AccountManage() {
 
                                         <div style={{ float: 'right' }}>
                                             <Pagination
-                                                currentPage={currentPage}
-                                                totalPages={totalPages}
-                                                onPageChange={handlePageChange}
+                                                accountsPerPage={accountsPerPage}
+                                                totalAccounts={filteredAccounts.length}
+                                                paginate={handlePageChange}
                                             />
+                                        </div>
+                                        <div style={{ clear: 'both' }}>
+                                            Size: {filteredAccounts.length} accounts.
                                         </div>
                                     </div>
                                 </div>
@@ -316,10 +354,8 @@ function AccountManage() {
                     </div>
                 </div>
             </div>
-
-
         </div>
-    )
+    );
 }
 
-export default AccountManage
+export default AccountManage;
