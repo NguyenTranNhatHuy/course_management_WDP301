@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function getAuthToken() {
   const token = localStorage.getItem("token");
@@ -9,7 +9,7 @@ function getAuthToken() {
 
 // Service function to create a new course
 export const createCourse = async (course, accessToken) => {
-  const COURSE_API_BASE_URL = 'http://localhost:3000/collections';
+  const COURSE_API_BASE_URL = "http://localhost:3000/collections";
 
   const config = {
     headers: {
@@ -26,16 +26,16 @@ export const createCourse = async (course, accessToken) => {
 };
 
 export default function CreateCourse() {
-  const [courseName, setCourseName] = useState('');
+  const [courseName, setCourseName] = useState("");
   const [price, setPrice] = useState(0);
   const [questions, setQuestions] = useState([
     {
-      detail: '',
-      answerA: '',
-      answerB: '',
-      answerC: '',
-      answerD: '',
-      trueAnswer: 'A', // Defaulting to A
+      detail: "",
+      answerA: "",
+      answerB: "",
+      answerC: "",
+      answerD: "",
+      trueAnswer: "A", // Defaulting to A
     },
   ]);
 
@@ -49,12 +49,12 @@ export default function CreateCourse() {
     setQuestions([
       ...questions,
       {
-        detail: '',
-        answerA: '',
-        answerB: '',
-        answerC: '',
-        answerD: '',
-        trueAnswer: 'A', // Defaulting to A
+        detail: "",
+        answerA: "",
+        answerB: "",
+        answerC: "",
+        answerD: "",
+        trueAnswer: "A", // Defaulting to A
       },
     ]);
   };
@@ -62,34 +62,51 @@ export default function CreateCourse() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!courseName || !price || questions.some(q => !q.detail || !q.answerA || !q.answerB || !q.answerC || !q.answerD || !q.trueAnswer)) {
-      toast.error('Please fill in all fields for each question.');
+    if (
+      !courseName ||
+      !price ||
+      questions.some(
+        (q) =>
+          !q.detail ||
+          !q.answerA ||
+          !q.answerB ||
+          !q.answerC ||
+          !q.answerD ||
+          !q.trueAnswer
+      )
+    ) {
+      toast.error("Please fill in all fields for each question.");
       return;
     }
 
-    const accessToken = getAuthToken()
+    const accessToken = getAuthToken();
     console.log("bat dau add");
     try {
-      const createdCourse = await createCourse({
-        name: courseName,
-        price: price,
-        numberOfQuestions: questions.length,
-        questions: questions.map(({ detail, answerA, answerB, answerC, answerD, trueAnswer }) => ({
-          detail,
-          answerA,
-          answerB,
-          answerC,
-          answerD,
-          trueAnswer,
-        })),
-      }, accessToken);
+      const createdCourse = await createCourse(
+        {
+          name: courseName,
+          price: price,
+          numberOfQuestions: questions.length,
+          questions: questions.map(
+            ({ detail, answerA, answerB, answerC, answerD, trueAnswer }) => ({
+              detail,
+              answerA,
+              answerB,
+              answerC,
+              answerD,
+              trueAnswer,
+            })
+          ),
+        },
+        accessToken
+      );
 
-      console.log('Course created:', createdCourse);
-      toast.success('Course created successfully.');
+      console.log("Course created:", createdCourse);
+      toast.success("Course created successfully.");
       // Optionally redirect or navigate to another page after successful creation
     } catch (error) {
-      console.error('Error creating course:', error);
-      toast.error('Failed to create course. Please try again.');
+      console.error("Error creating course:", error);
+      toast.error("Failed to create course. Please try again.");
       // Handle error, e.g., display error message to the user
     }
   };
@@ -97,6 +114,9 @@ export default function CreateCourse() {
   return (
     <div className="container">
       <h2>Create Course</h2>
+      <a href="/addbyfile">
+        <button>Upload file</button>
+      </a>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="courseName">Course Name:</label>
@@ -132,7 +152,9 @@ export default function CreateCourse() {
                 className="form-control"
                 id={`questionDetail${index}`}
                 value={question.detail}
-                onChange={(e) => handleQuestionChange(index, 'detail', e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(index, "detail", e.target.value)
+                }
                 required
               />
             </div>
@@ -143,7 +165,9 @@ export default function CreateCourse() {
                 className="form-control"
                 id={`answerA${index}`}
                 value={question.answerA}
-                onChange={(e) => handleQuestionChange(index, 'answerA', e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(index, "answerA", e.target.value)
+                }
                 required
               />
             </div>
@@ -154,7 +178,9 @@ export default function CreateCourse() {
                 className="form-control"
                 id={`answerB${index}`}
                 value={question.answerB}
-                onChange={(e) => handleQuestionChange(index, 'answerB', e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(index, "answerB", e.target.value)
+                }
                 required
               />
             </div>
@@ -165,7 +191,9 @@ export default function CreateCourse() {
                 className="form-control"
                 id={`answerC${index}`}
                 value={question.answerC}
-                onChange={(e) => handleQuestionChange(index, 'answerC', e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(index, "answerC", e.target.value)
+                }
                 required
               />
             </div>
@@ -176,7 +204,9 @@ export default function CreateCourse() {
                 className="form-control"
                 id={`answerD${index}`}
                 value={question.answerD}
-                onChange={(e) => handleQuestionChange(index, 'answerD', e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(index, "answerD", e.target.value)
+                }
                 required
               />
             </div>
@@ -186,7 +216,9 @@ export default function CreateCourse() {
                 className="form-control"
                 id={`trueAnswer${index}`}
                 value={question.trueAnswer}
-                onChange={(e) => handleQuestionChange(index, 'trueAnswer', e.target.value)}
+                onChange={(e) =>
+                  handleQuestionChange(index, "trueAnswer", e.target.value)
+                }
                 required
               >
                 <option value="A">A</option>
