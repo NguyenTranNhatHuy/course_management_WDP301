@@ -5,6 +5,7 @@ export default function Course({ id, price, name, description }) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
+    console.log("id = ",id);
     navigate(`/course/${id}`);
   };
 

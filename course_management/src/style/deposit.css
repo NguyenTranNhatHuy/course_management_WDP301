@@ -1,0 +1,64 @@
+/* Định dạng card và form */
+.card {
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+}
+
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-title {
+  margin-bottom: 0;
+}
+
+.card-body {
+  padding: 20px;
+  flex: 1; /* Cho phép phần nội dung mở rộng theo chiều ngang */
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: center;
+  justify-content: center;
+}
+
+.input-group{
+    margin-left: 160px;
+}
+
+.input-group-append{
+    margin-top: 70px;
+}
+
+/* Định dạng nút Deposit */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Định dạng hình ảnh Deposit */
+.img-square {
+  width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của card */
+  height: 100%; /* Chiều cao của hình ảnh bằng chiều cao của card */
+  object-fit: cover; /* Đảm bảo hình ảnh không bị kéo dãn */
+}
+
+
+/* Warning */
+.warning{
+    margin-top: 200px;
+}
+
+.content{
+    font-weight: bold;
+    font-size: 20px;
+}

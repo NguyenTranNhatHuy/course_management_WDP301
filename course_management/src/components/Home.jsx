@@ -62,7 +62,7 @@ function Home() {
                                                         <a
                                                             data-animation="animated slideInUp"
                                                             className="btn btn-theme effect btn-md"
-                                                            href="#"
+                                                            href="/courses"
                                                         >
                                                             View Courses
                                                         </a>

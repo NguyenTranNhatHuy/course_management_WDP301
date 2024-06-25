@@ -68,7 +68,7 @@ export default function CreateCourse() {
     }
 
     const accessToken = getAuthToken()
-
+    console.log("bat dau add");
     try {
       const createdCourse = await createCourse({
         name: courseName,

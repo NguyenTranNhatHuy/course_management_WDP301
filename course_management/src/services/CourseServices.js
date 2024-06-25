@@ -43,3 +43,4 @@ export const getCollectionById = (id, accessToken) => {
 
     return axios.get(`${COURSE_API_BASE_URL}${id}`, config);
 };
+

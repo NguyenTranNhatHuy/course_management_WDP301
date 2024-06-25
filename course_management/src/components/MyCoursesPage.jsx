@@ -37,6 +37,7 @@ export default function MyCoursesPage() {
             <div className="popular-courses-items">
               {courses.map(course => (
                 <Course
+                  id={course._id}
                   key={course._id}
                   price={course.price}
                   name={course.name}

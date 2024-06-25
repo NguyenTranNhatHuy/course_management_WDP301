@@ -59,3 +59,15 @@ export const deleteAccountById = (id, accessToken) => {
 
     return axios.delete(ACCOUNT_API_BASE_URL + id, config);
 };
+
+
+// Function to get all favorite courses
+export const getAllFavoriteCourses = (id, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.get(ACCOUNT_API_BASE_URL+id+"/favoriteCollections", config);
+};

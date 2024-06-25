@@ -17,6 +17,8 @@ import CoursesPage from './components/CoursesPage';
 import MyCoursesPage from './components/MyCoursesPage';
 import CreateCourse from './components/CreateCourse';
 import ViewAllQuestion from './components/ViewAllQuestion';
+import FavoriteCourse from './components/FavoriteCourse'
+import Deposit from './components/Deposit'
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
             <Route path="/admin/accountManage" element={<AccountManage />} />
             <Route path="/admin/collectionManage" element={<CollectionManage />} />
             <Route path="/admin/questionManage" element={<QuestionManage />} />
+            <Route path="/favorite" element={<FavoriteCourse />} /> 
+            <Route path="/deposit" element={<Deposit />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>
