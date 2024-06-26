@@ -140,6 +140,7 @@ function App() {
           required
         />
       </div>
+      
 
       <div className="form-group">
         <label htmlFor="price">Price:</label>

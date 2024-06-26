@@ -418,7 +418,7 @@ function QuestionManage() {
                                                     ))
                                                 ) : (
                                                     <tr>
-                                                        <td colSpan="6">No accounts found</td>
+                                                        <td colSpan="6">No questions found</td>
                                                     </tr>
                                                 )}
                                             </tbody>
