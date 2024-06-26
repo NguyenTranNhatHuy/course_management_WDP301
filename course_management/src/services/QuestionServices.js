@@ -1,5 +1,5 @@
 import axios from "axios";
-const QUESTION_API_BASE_URL = "http://localhost:3000/question/";
+const QUESTION_API_BASE_URL = "http://localhost:3000/questions/";
 
 
 // Get all collection (admin only)
