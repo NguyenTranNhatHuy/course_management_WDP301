@@ -46,6 +46,20 @@ export const updateAccountById = (id, account, accessToken) => {
     return axios.put(ACCOUNT_API_BASE_URL + id, account, config);
 };
 
+export const updateWalletByAccountId = (id, wallet, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    const data = {
+        wallet: wallet
+    };
+
+    return axios.put(`${ACCOUNT_API_BASE_URL}${id}`, data, config);
+};
+
 // Delete an account by ID
 export const deleteAccountById = (id, accessToken) => {
     const config = {
@@ -66,5 +80,5 @@ export const getAllFavoriteCourses = (id, accessToken) => {
         },
     };
 
-    return axios.get(ACCOUNT_API_BASE_URL+id+"/favoriteCollections", config);
+    return axios.get(ACCOUNT_API_BASE_URL + id + "/favoriteCollections", config);
 };

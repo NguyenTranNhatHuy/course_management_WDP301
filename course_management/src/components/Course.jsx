@@ -1,12 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Course({ id, price, name, description }) {
+export default function Course({ id, price, name, description, enrolled, onLearnNowClick }) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    console.log("id = ",id);
+    console.log("id = ", id);
     navigate(`/course/${id}`);
+  };
+
+  const handleLearnNowClick = (event) => {
+    event.stopPropagation();
+    onLearnNowClick();
+    // handleNavigate(); 
   };
 
   return (
@@ -50,7 +56,9 @@ export default function Course({ id, price, name, description }) {
                   <i className="fas fa-clock" /> 16:00
                 </li>
               </ul>
-              <a href="#">Learn Now</a>
+              <a href="#" onClick={handleLearnNowClick} style={{ cursor: 'pointer' }}>
+                {enrolled ? 'View Detail' : 'Learn Now'}
+              </a>
             </div>
           </div>
         </div>
