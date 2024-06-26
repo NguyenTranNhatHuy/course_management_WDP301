@@ -24,15 +24,12 @@ export const register = (account, accessToken) => {
 
 
 // Get all accounts (admin only)
-export const getAllAccounts = (accessToken, page, limit) => {
+export const getAllAccounts = (accessToken) => {
     const config = {
         headers: {
             Authorization: `Bearer ${accessToken}`,
-        },
-        params: {
-            page,
-            limit,
-        },
+        }
+
     };
 
     return axios.get(ACCOUNT_API_BASE_URL, config);
