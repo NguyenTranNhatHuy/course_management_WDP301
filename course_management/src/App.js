@@ -20,6 +20,9 @@ import ViewAllQuestion from './components/ViewAllQuestion';
 import FavoriteCourse from './components/FavoriteCourse'
 import AddByFile from './components/AddByFile'
 import DepositManage from './components/admin/DepositManage'
+import Deposit from './components/DepositOption'
+import DepositSuccess from './components/DepositSuccess'
+import DepositCancel from './components/DepositCancel'
 
 
 function App() {
@@ -45,6 +48,8 @@ function App() {
             <Route path="/deposit" element={<Deposit />} /> 
             <Route path="/addbyfile" element={<AddByFile />} /> 
             <Route path="/admin/depositManage" element={<DepositManage />} /> 
+            <Route path="/depositSuccess" element={<DepositSuccess />} /> 
+            <Route path="/depositCancel" element={<DepositCancel />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>

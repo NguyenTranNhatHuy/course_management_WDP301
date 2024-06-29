@@ -82,3 +82,13 @@ export const getAllFavoriteCourses = (id, accessToken) => {
 
     return axios.get(ACCOUNT_API_BASE_URL + id + "/favoriteCollections", config);
 };
+
+export const addMoney = (id, amount, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.post(ACCOUNT_API_BASE_URL + id + "/add-money", amount, config);
+};

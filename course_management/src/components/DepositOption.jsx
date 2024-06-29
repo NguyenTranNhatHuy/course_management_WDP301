@@ -28,9 +28,12 @@ export default function DepositPage() {
 
       const response = await createDeposit({number}, token);
       console.log("Deposit successful:", response.data);
+      localStorage.setItem('deposit', number);
+
       toast.success('Deposit successful');
 
       // Redirect user to the checkout URL
+      console.log("CheckoutURL:",response.data.checkoutUrl)
       window.location.href = response.data.checkoutUrl;
 
       setNumber(0);

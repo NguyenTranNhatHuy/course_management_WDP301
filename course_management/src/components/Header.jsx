@@ -28,6 +28,7 @@ function Header() {
     localStorage.removeItem("token");
     localStorage.removeItem("accountid");
     localStorage.removeItem("admin");
+    localStorage.removeItem("deposit");
 
     window.location.href = "/home";
     toast.success("Logout Successfully");
@@ -47,6 +48,7 @@ function Header() {
         setUser(response.data);
         setIsAdmin(response.data.admin || false);
         setWallet(response.data.wallet || 0);
+        console.log("wallet = ",response);
       })
       .catch((error) => {
         console.error("Error fetching account:", error);
