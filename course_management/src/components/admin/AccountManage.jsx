@@ -165,13 +165,8 @@ function AccountManage() {
                                         </a>
                                     </li>
                                     <li>
-                                        <a className="nav-link" href="/admin/depositManage">
+                                        <a target='_blank' className="nav-link" href="https://my.payos.vn/57d24797345811ef915f0242ac110002/dashboard">
                                             <FontAwesomeIcon icon={faQuestionCircle} /> <span style={{ marginLeft: '3px' }}>Manage Deposit</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a className="nav-link" href="/admin/dashboard">
-                                            <FontAwesomeIcon icon={faGauge} /> <span style={{ marginLeft: '3px' }}>Dashboard</span>
                                         </a>
                                     </li>
                                 </ul>
