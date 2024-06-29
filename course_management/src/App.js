@@ -29,6 +29,8 @@ import Result from './components/Result';
 import { DataProvider } from './context/DataProvider';
 import ExamList from './components/ExamList';
 import ExamCheck from './components/ExamCheck';
+import Test from './components/admin/Test';
+import DetailCourse from './components/DetailCourse';
 
 function App() {
   return (
@@ -60,6 +62,8 @@ function App() {
               <Route path="/result" element={<Result />} />
               <Route path="/examlist" element={<ExamList />} />
               <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
+              <Route path="/test" element={<Test />} />
+              <Route path="/detail" element={<DetailCourse />} />
             </Routes>
             <Footer />
           </BrowserRouter>
