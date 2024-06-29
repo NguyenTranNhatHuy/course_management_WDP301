@@ -72,12 +72,16 @@ const ExamCheck = () => {
       (question) => selectedAnswers[question._id] === question.trueAnswer
     ).length;
     const totalQuestions = collection.questions.length;
+    const grade = (correctAnswers / totalQuestions) * 10;
 
     return (
       <div className="container">
         <h2>Exam Results</h2>
         <p>
           You answered {correctAnswers} out of {totalQuestions} questions correctly.
+        </p>
+        <p>
+          Your grade is: {grade.toFixed(1)}
         </p>
         <button className="btn btn-primary" onClick={() => navigate('/examList')}>
           Back to Exam List

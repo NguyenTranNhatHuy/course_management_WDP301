@@ -20,6 +20,7 @@ export default function ViewAllQuestion() {
   const [questionCount, setQuestionCount] = useState(0);
   const [time, setTime] = useState(0); // State to hold time input
   const [pass, setPass] = useState(''); // State to hold password input
+  const [examName, setExamName] = useState(''); // State to hold exam name input
   const { startQuiz } = useContext(DataContext);
   const navigate = useNavigate();
 
@@ -94,9 +95,14 @@ export default function ViewAllQuestion() {
       toast.error('Time must be more than 1 minute.');
       return;
     }
+    if (!examName) {
+      toast.error('Exam name is required.');
+      return;
+    }
 
     try {
       const examData = {
+        examName,
         userId: '', // You need to set the userId here if needed
         collectionId: id,
         pass,
@@ -262,6 +268,17 @@ export default function ViewAllQuestion() {
                 <h4 className="modal-title">Enter Exam Details</h4>
               </div>
               <div className="modal-body">
+                <div className="form-group">
+                  <label htmlFor="examNameInput">Exam Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="examNameInput"
+                    value={examName}
+                    onChange={(e) => setExamName(e.target.value)}
+                    placeholder="Enter exam name"
+                  />
+                </div>
                 <div className="form-group">
                   <label htmlFor="timeInput">Time (in minutes)</label>
                   <input

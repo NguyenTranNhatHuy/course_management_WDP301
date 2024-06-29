@@ -52,28 +52,30 @@ const ExamList = () => {
   return (
     <div className="container">
       <h2>All Exams</h2>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Exam name</th>
-            <th>Time</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {exams.map((exam, index) => (
-            <tr key={exam._id}>
-              <td>{index + 1}</td>
-              <td>{exam.examName}</td>
-              <td>{exam.time}'</td>
-              <td>
-                <button className="btn btn-primary" onClick={() => handleJoinExam(exam)}>Join</button>
-              </td>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th className="text-center">#</th>
+              <th className="text-center">Exam Name</th>
+              <th className="text-center">Time</th>
+              <th className="text-center">Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {exams.map((exam, index) => (
+              <tr key={exam._id}>
+                <td className="text-center">{index + 1}</td>
+                <td>{exam.examName}</td>
+                <td className="text-center">{exam.time}'</td>
+                <td className="text-center">
+                  <button className="btn btn-primary" onClick={() => handleJoinExam(exam)}>Join</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {showPasswordModal && (
         <div className="modal show" role="dialog" style={{ display: 'block' }}>
