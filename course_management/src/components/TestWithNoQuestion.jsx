@@ -1,41 +1,84 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import DataContext from '../context/DataProvider';
 
-export default function TestWithNoQuestion() {
-  const location = useLocation();
-  const { questions } = location.state;
+const TestWithNoQuestion = () => {
+  const {
+    showQuiz,
+    question,
+    checkAnswer,
+    correctAnswer,
+    selectedAnswer,
+    questionIndex,
+    nextQuestion,
+    showTheResult,
+    quizs,
+  } = useContext(DataContext);
+
+  if (!showQuiz) {
+    return null;
+  }
+
+  const isAnswerCorrect = (option) => {
+    return selectedAnswer === option && selectedAnswer === question.trueAnswer;
+  };
+
+  const isAnswerWrong = (option) => {
+    return selectedAnswer === option && selectedAnswer !== question.trueAnswer;
+  };
 
   return (
     <div className="container">
-      <h2>Test with Selected Questions</h2>
-      {questions.map((question, index) => (
-        <div key={question._id} className="question">
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h4 className="panel-title">Question {index + 1}</h4>
-            </div>
-            <div className="panel-body">
-              <p>
-                <strong>Detail:</strong> {question.detail}
-              </p>
-              <ul className="list-group">
-                <li className="list-group-item">
-                  <strong>Answer A:</strong> {question.answerA}
-                </li>
-                <li className="list-group-item">
-                  <strong>Answer B:</strong> {question.answerB}
-                </li>
-                <li className="list-group-item">
-                  <strong>Answer C:</strong> {question.answerC}
-                </li>
-                <li className="list-group-item">
-                  <strong>Answer D:</strong> {question.answerD}
-                </li>
-              </ul>
-            </div>
+      <h3>Question {questionIndex + 1}/{quizs.length}</h3>
+      <div className="panel panel-default">
+        <div className="panel-body">
+          <p>{question.detail}</p>
+          <div className="list-group">
+            <button
+              className={`list-group-item btn ${isAnswerCorrect(question.answerA) ? 'btn-success' : isAnswerWrong(question.answerA) ? 'btn-danger' : 'btn-default'}`}
+              onClick={(e) => checkAnswer(e, question.answerA)}
+              disabled={selectedAnswer !== ''}
+            >
+              A. {question.answerA}
+            </button>
+            <button
+              className={`list-group-item btn ${isAnswerCorrect(question.answerB) ? 'btn-success' : isAnswerWrong(question.answerB) ? 'btn-danger' : 'btn-default'}`}
+              onClick={(e) => checkAnswer(e, question.answerB)}
+              disabled={selectedAnswer !== ''}
+            >
+              B. {question.answerB}
+            </button>
+            <button
+              className={`list-group-item btn ${isAnswerCorrect(question.answerC) ? 'btn-success' : isAnswerWrong(question.answerC) ? 'btn-danger' : 'btn-default'}`}
+              onClick={(e) => checkAnswer(e, question.answerC)}
+              disabled={selectedAnswer !== ''}
+            >
+              C. {question.answerC}
+            </button>
+            <button
+              className={`list-group-item btn ${isAnswerCorrect(question.answerD) ? 'btn-success' : isAnswerWrong(question.answerD) ? 'btn-danger' : 'btn-default'}`}
+              onClick={(e) => checkAnswer(e, question.answerD)}
+              disabled={selectedAnswer !== ''}
+            >
+              D. {question.answerD}
+            </button>
           </div>
+          {selectedAnswer && (
+            <div>
+              <p>Correct Answer: {correctAnswer}</p>
+              <button className="btn btn-primary" onClick={nextQuestion}>
+                Next Question
+              </button>
+            </div>
+          )}
+          {questionIndex + 1 === quizs.length && (
+            <button className="btn btn-success" onClick={showTheResult}>
+              Show Results
+            </button>
+          )}
         </div>
-      ))}
+      </div>
     </div>
   );
-}
+};
+
+export default TestWithNoQuestion;

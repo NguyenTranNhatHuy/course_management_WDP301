@@ -21,12 +21,17 @@ import FavoriteCourse from './components/FavoriteCourse'
 import Deposit from './components/Deposit'
 import AddByFile from './components/AddByFile'
 import TestWithNoQuestion from './components/TestWithNoQuestion';
-
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import Result from './components/Result';
+import { DataProvider } from './context/DataProvider';
+import ExamList from './components/ExamList';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+      <DataProvider>
+
         <BrowserRouter>
           <Header />
           <ToastContainer />
@@ -46,9 +51,14 @@ function App() {
             <Route path="/deposit" element={<Deposit />} /> 
             <Route path="/addbyfile" element={<AddByFile />} /> 
             <Route path="/test" element={<TestWithNoQuestion />} />
+            <Route path="/result" element={<Result />} />
+            <Route path="/examlist" element={<ExamList />} />
+
           </Routes>
           <Footer />
         </BrowserRouter>
+        </DataProvider>
+
       </AuthProvider>
     </div>
   );

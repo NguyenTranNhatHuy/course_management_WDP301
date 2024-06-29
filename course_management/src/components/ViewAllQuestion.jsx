@@ -1,21 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { getCollectionById } from "../services/CourseServices";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { useEffect, useState, useContext } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { getCollectionById } from '../services/CourseServices';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import DataContext from '../context/DataProvider';
+import { createExam } from '../services/ExamServices'; // Assuming you place the createExam function here
 
 function getAuthToken() {
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
   return token;
 }
 
 export default function ViewAllQuestion() {
-  const { id } = useParams(); // Get collection ID from URL params
+  const { id } = useParams();
   const [collection, setCollection] = useState(null);
   const [selectedQuestion, setSelectedQuestion] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
+  const [showCreateExamModal, setShowCreateExamModal] = useState(false);
   const [questionCount, setQuestionCount] = useState(0);
+  const [time, setTime] = useState(0); // State to hold time input
+  const [pass, setPass] = useState(''); // State to hold password input
+  const { startQuiz } = useContext(DataContext);
   const navigate = useNavigate();
+
+  function getAuthToken() {
+    const token = localStorage.getItem('token');
+    return token;
+  }
+
+  const authToken = getAuthToken();
 
   useEffect(() => {
     const fetchCollection = async () => {
@@ -24,8 +37,8 @@ export default function ViewAllQuestion() {
         const response = await getCollectionById(id, accessToken);
         setCollection(response.data);
       } catch (error) {
-        toast.error("Error fetching collection. Please try again.");
-        console.error("Error fetching collection:", error);
+        toast.error('Error fetching collection. Please try again.');
+        console.error('Error fetching collection:', error);
       }
     };
 
@@ -36,29 +49,56 @@ export default function ViewAllQuestion() {
     setSelectedQuestion(question);
   };
 
-  const handleCloseModal = () => {
+  const handleCloseAnswerModal = () => {
     setSelectedQuestion(null);
   };
 
-  const handleOpenTestModal = () => {
-    setShowModal(true);
+  const handleOpenReviewModal = () => {
+    setShowReviewModal(true);
   };
 
-  const handleCloseTestModal = () => {
-    setShowModal(false);
+  const handleCloseReviewModal = () => {
+    setShowReviewModal(false);
   };
 
   const handleStartTest = () => {
     if (questionCount > 0 && questionCount <= collection.questions.length) {
-      const shuffledQuestions = collection.questions.sort(
-        () => 0.5 - Math.random()
-      );
+      const shuffledQuestions = collection.questions.sort(() => 0.5 - Math.random());
       const selectedQuestions = shuffledQuestions.slice(0, questionCount);
-      navigate("/test", { state: { questions: selectedQuestions } });
+      startQuiz(selectedQuestions);
+      navigate('/test');
     } else {
-      toast.error("Invalid number of questions.");
+      toast.error('Invalid number of questions.');
     }
-    setShowModal(false);
+    setShowReviewModal(false);
+  };
+
+  const handleOpenCreateExamModal = () => {
+    setShowCreateExamModal(true);
+  };
+
+  const handleCloseCreateExamModal = () => {
+    setShowCreateExamModal(false);
+  };
+
+  const handleCreateExam = async () => {
+    try {
+      const examData = {
+        userId: '', // You need to set the userId here if needed
+        collectionId: id,
+        pass,
+        time: parseInt(time), // Convert time to number
+        numberOfQuestion: questionCount
+      };
+      console.log(examData)
+      const createdExam = await createExam(authToken, examData);
+      console.log('Created Exam:', createdExam); // Handle success as needed
+      toast.success('Exam created successfully');
+    } catch (error) {
+      toast.error('Failed to create exam. Please try again.');
+      console.error('Error creating exam:', error);
+    }
+    setShowCreateExamModal(false);
   };
 
   if (!collection) {
@@ -68,8 +108,11 @@ export default function ViewAllQuestion() {
   return (
     <div className="container">
       <h2>Collection: {collection.name}</h2>
-      <button className="btn btn-success" onClick={handleOpenTestModal}>
+      <button className="btn btn-success" onClick={handleOpenReviewModal}>
         Review course
+      </button>
+      <button className="btn btn-primary" onClick={handleOpenCreateExamModal}>
+        Create Exam
       </button>
       <h3>Questions</h3>
       {collection.questions.map((question, index) => (
@@ -107,31 +150,31 @@ export default function ViewAllQuestion() {
         </div>
       ))}
 
+      {/* Modal for viewing correct answer */}
       {selectedQuestion && (
-        <div className="modal show" role="dialog" style={{ display: "block" }}>
+        <div className="modal show" role="dialog" style={{ display: 'block' }}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
                 <button
                   type="button"
                   className="close"
-                  onClick={handleCloseModal}
+                  onClick={handleCloseAnswerModal}
                 >
                   &times;
                 </button>
                 <h4 className="modal-title">Correct Answer</h4>
               </div>
               <div className="modal-body">
-                <h4>Question: {selectedQuestion.detail}</h4>
                 <p>
-                  <strong>True Answer:</strong> {selectedQuestion.trueAnswer}
+                  <strong>Correct Answer:</strong> {selectedQuestion.trueAnswer}
                 </p>
               </div>
               <div className="modal-footer">
                 <button
                   type="button"
                   className="btn btn-default"
-                  onClick={handleCloseModal}
+                  onClick={handleCloseAnswerModal}
                 >
                   Close
                 </button>
@@ -140,28 +183,34 @@ export default function ViewAllQuestion() {
           </div>
         </div>
       )}
-      {showModal && (
-        <div className="modal show" role="dialog" style={{ display: "block" }}>
+
+      {/* Modal for entering number of questions */}
+      {showReviewModal && (
+        <div className="modal show" role="dialog" style={{ display: 'block' }}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
                 <button
                   type="button"
                   className="close"
-                  onClick={handleCloseTestModal}
+                  onClick={handleCloseReviewModal}
                 >
                   &times;
                 </button>
-                <h4 className="modal-title">Enter Number of Questions</h4>
+                <h4 className="modal-title">Review Course</h4>
               </div>
               <div className="modal-body">
-                <input
-                  type="number"
-                  className="form-control"
-                  value={questionCount}
-                  onChange={(e) => setQuestionCount(e.target.value)}
-                  placeholder="Enter number of questions"
-                />
+                <div className="form-group">
+                  <label htmlFor="questionCountInput">Number of Questions</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="questionCountInput"
+                    value={questionCount}
+                    onChange={(e) => setQuestionCount(e.target.value)}
+                    placeholder="Enter number of questions"
+                  />
+                </div>
               </div>
               <div className="modal-footer">
                 <button
@@ -169,12 +218,83 @@ export default function ViewAllQuestion() {
                   className="btn btn-primary"
                   onClick={handleStartTest}
                 >
-                  Start review
+                  Start Test
                 </button>
                 <button
                   type="button"
                   className="btn btn-default"
-                  onClick={handleCloseTestModal}
+                  onClick={handleCloseReviewModal}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Modal for creating an exam */}
+      {showCreateExamModal && (
+        <div className="modal show" role="dialog" style={{ display: 'block' }}>
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button
+                  type="button"
+                  className="close"
+                  onClick={handleCloseCreateExamModal}
+                >
+                  &times;
+                </button>
+                <h4 className="modal-title">Enter Exam Details</h4>
+              </div>
+              <div className="modal-body">
+                <div className="form-group">
+                  <label htmlFor="timeInput">Time (in minutes)</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="timeInput"
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                    placeholder="Enter time in minutes"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="passInput">Password</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="passInput"
+                    value={pass}
+                    onChange={(e) => setPass(e.target.value)}
+                    placeholder="Enter password"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="questionCountInput">Number of Questions</label>
+                  <input
+                    type="number"
+                    className="form-control"
+                    id="questionCountInput"
+                    value={questionCount}
+                    onChange={(e) => setQuestionCount(e.target.value)}
+                    placeholder="Enter number of questions"
+                  />
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={handleCreateExam}
+                >
+                  Create Exam
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-default"
+                  onClick={handleCloseCreateExamModal}
                 >
                   Close
                 </button>
