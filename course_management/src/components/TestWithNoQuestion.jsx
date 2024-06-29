@@ -65,15 +65,16 @@ const TestWithNoQuestion = () => {
           {selectedAnswer && (
             <div>
               <p>Correct Answer: {correctAnswer}</p>
-              <button className="btn btn-primary" onClick={nextQuestion}>
-                Next Question
-              </button>
+              {questionIndex + 1 < quizs.length ? (
+                <button className="btn btn-primary" onClick={nextQuestion}>
+                  Next Question
+                </button>
+              ) : (
+                <button className="btn btn-success" onClick={showTheResult}>
+                  Back to Collections
+                </button>
+              )}
             </div>
-          )}
-          {questionIndex + 1 === quizs.length && (
-            <button className="btn btn-success" onClick={showTheResult}>
-              Show Results
-            </button>
           )}
         </div>
       </div>
