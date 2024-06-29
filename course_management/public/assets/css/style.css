@@ -7261,3 +7261,35 @@ footer .footer-bottom.bg-light p {
 .sb-sidenav-dark .sb-sidenav-menu .nav-link .active {
   color: #000;
 }
+
+
+
+.flip-container {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+
+.flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: #f8f8f8;
+}

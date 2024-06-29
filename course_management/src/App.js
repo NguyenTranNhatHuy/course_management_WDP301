@@ -22,6 +22,7 @@ import Deposit from './components/Deposit'
 import AddByFile from './components/AddByFile'
 import DepositManage from './components/admin/DepositManage'
 import Test from './components/admin/Test';
+import DetailCourse from './components/DetailCourse';
 
 
 function App() {
@@ -48,6 +49,8 @@ function App() {
             <Route path="/addbyfile" element={<AddByFile />} />
             <Route path="/admin/depositManage" element={<DepositManage />} />
             <Route path="/test" element={<Test />} />
+            <Route path="/detail" element={<DetailCourse />} />
+
           </Routes>
           <Footer />
         </BrowserRouter>
