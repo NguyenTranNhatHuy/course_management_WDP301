@@ -362,20 +362,12 @@ function Header() {
                 </li>
                 <li className="dropdown">
                   <a
-                    href="#"
-                    className="dropdown-toggle active"
-                    data-toggle="dropdown"
+                    href="/examList"
+
                   >
-                    Teachers
+                    Exams
                   </a>
-                  <ul className="dropdown-menu">
-                    <li>
-                      <a href="teachers.html">Advisor</a>
-                    </li>
-                    <li>
-                      <a href="teachers-details.html">Advisor Details</a>
-                    </li>
-                  </ul>
+                  
                 </li>
                 {/* <li className="dropdown">
                                     <a

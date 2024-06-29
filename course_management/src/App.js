@@ -25,6 +25,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Result from './components/Result';
 import { DataProvider } from './context/DataProvider';
 import ExamList from './components/ExamList';
+import ExamCheck from './components/ExamCheck';
 
 function App() {
   return (
@@ -53,7 +54,7 @@ function App() {
             <Route path="/test" element={<TestWithNoQuestion />} />
             <Route path="/result" element={<Result />} />
             <Route path="/examlist" element={<ExamList />} />
-
+            <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
           </Routes>
           <Footer />
         </BrowserRouter>
