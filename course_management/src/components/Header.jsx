@@ -37,9 +37,9 @@ function Header() {
   const accountid = getAccountId();
   const admin = getRole();
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('vi-VN', {
-      style: 'currency',
-      currency: 'VND',
+    return new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
     }).format(amount);
   };
   useEffect(() => {
@@ -48,7 +48,7 @@ function Header() {
         setUser(response.data);
         setIsAdmin(response.data.admin || false);
         setWallet(response.data.wallet || 0);
-        console.log("wallet = ",response);
+        console.log("wallet = ", response);
       })
       .catch((error) => {
         console.error("Error fetching account:", error);
@@ -356,22 +356,20 @@ function Header() {
                     <li>
                       <a href="/courses">All courses</a>
                     </li>
-                    <li>
-                      <a href="/mycourses">My courses</a>
-                    </li>
-                    <li>
-                      <a href="/createcourse">Create new course</a>
-                    </li>
+                    {user && (
+                      <li>
+                        <a href="/mycourses">My courses</a>
+                      </li>
+                    )}
+                    {user && (
+                      <li>
+                        <a href="/createcourse">Create new course</a>
+                      </li>
+                    )}
                   </ul>
                 </li>
                 <li className="dropdown">
-                  <a
-                    href="/examList"
-
-                  >
-                    Exams
-                  </a>
-                  
+                  <a href="/examList">Exams</a>
                 </li>
                 <li className="dropdown">
                   {user && (
@@ -409,16 +407,26 @@ function Header() {
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <a>
-                    <FontAwesomeIcon icon={faWallet} /> : {walletVisible ? formatCurrency(wallet) : '******'}
-                  </a>
-                </li>
-                <li>
-                  <a onClick={toggleWalletVisibility} style={{ cursor: 'pointer' }}>
-                    <FontAwesomeIcon icon={walletVisible ? faEyeSlash : faEye} />
-                  </a>
-                </li>
+                {user && (
+                  <li>
+                    <a>
+                      <FontAwesomeIcon icon={faWallet} /> :{" "}
+                      {walletVisible ? formatCurrency(wallet) : "******"}
+                    </a>
+                  </li>
+                )}
+                {user && (
+                  <li>
+                    <a
+                      onClick={toggleWalletVisibility}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <FontAwesomeIcon
+                        icon={walletVisible ? faEyeSlash : faEye}
+                      />
+                    </a>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
