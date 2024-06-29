@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import Breadcrumb from "./layouts/Breadcrumb";
-import axios from "axios";
-import Deposit from "../img/deposit.jpg";
 import { toast } from 'react-toastify';
 import "../style/deposit.css";
+import { createDeposit } from '../services/DepositService';
 
 export default function DepositPage() {
   const [number, setNumber] = useState(0);
 
   const handleNumberChange = (event) => {
     setNumber(event.target.value);
+    console.log("number = ",number);
+    console.log("type of number = ",typeof(number));
   };
 
   const handleSubmit = async (event) => {
@@ -21,54 +22,35 @@ export default function DepositPage() {
 
       if (!token) {
         console.error("No token found");
+        toast.error('No token found');
         return;
       }
-      const content = accountId+"-"+number.toString();
 
-      const response = await axios.post(
-        "http://localhost:3000/deposit",
-        {
-          userId: accountId,
-          content: content,
-          number: number,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
+      const response = await createDeposit({number}, token);
       console.log("Deposit successful:", response.data);
-      // alert("Deposit successful!");
       toast.success('Deposit successful');
+
+      // Redirect user to the checkout URL
+      window.location.href = response.data.checkoutUrl;
 
       setNumber(0);
     } catch (error) {
       console.error("Error depositing:", error);
-      // alert("Failed to deposit. Check console for details.");
-      toast.success('Failed to deposit. Check console for details');
-      
+      toast.error('Failed to deposit. Check console for details.');
     }
   };
 
   return (
     <div>
       <Breadcrumb name={"Deposit"} numOfImage={2} />
-      <div className="container">
+      <div className="container center-container">
         <div className="row">
-          <div className="col-md-6">
-            <div className="warning">
-              <h4>Vui lòng Chuyển tiền qua tài khoản trên màn hình</h4>
-              <p className="content">Nội dung chuyển khoản: username + số tiền</p>
-              <p>Việc nạp tiền sẽ mất vài phút, vui lòng đợi.</p>
-            </div>
+          <div className="col-md-12">
             <div className="card">
               <div className="card-body">
                 <form onSubmit={handleSubmit}>
                   <div className="form-group">
-                    <h4>Số tiền nạp:</h4>
+                    <h3>Số tiền nạp:</h3>
                     <div className="input-group">
                       <input
                         type="number"
@@ -88,13 +70,6 @@ export default function DepositPage() {
                 </form>
               </div>
             </div>
-          </div>
-          <div className="col-md-6">
-            <img
-              src={Deposit}
-              alt="Deposit Icon"
-              className="img-fluid float-right"
-            />
           </div>
         </div>
       </div>

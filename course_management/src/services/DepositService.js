@@ -1,5 +1,6 @@
 import axios from "axios";
 const DEPOSIT_API_BASE_URL = "http://localhost:3000/deposit/";
+const PAYOS_API_BASE_URL = "http://localhost:3000/create-payment-link"
 
 // Get all deposit (admin only)
 export const getAllDeposit = (accessToken) => {
@@ -11,6 +12,17 @@ export const getAllDeposit = (accessToken) => {
     };
 
     return axios.get(DEPOSIT_API_BASE_URL, config);
+};
+
+// Create an deposit by ID
+export const createDeposit = (number, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.post(PAYOS_API_BASE_URL, number, config);
 };
 
 // Update an deposit by ID

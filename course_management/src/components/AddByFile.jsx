@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from 'react-toastify';
 
 function App() {
   const [fileContent, setFileContent] = useState("");
@@ -88,8 +89,10 @@ function App() {
       setQuestions(data.questionIds);
       console.log("Successfully added questions:", data.questionIds);
       console.log("Type: ", typeof(data.questionIds));
+      toast.success('Added questions successful');
     } catch (error) {
       console.error("Error adding questions:", error.message);
+      toast.success('Error Adding questions');
     }
   };
 
@@ -120,9 +123,11 @@ function App() {
 
       const data = await response.json();
       console.log("Successfully created course:", data);
+      toast.success('Successfully created course');
       // Optionally, you can handle the response data or update state accordingly
     } catch (error) {
       console.error("Error creating course:", error.message);
+      toast.success('Error creating course');
     }
   };
 

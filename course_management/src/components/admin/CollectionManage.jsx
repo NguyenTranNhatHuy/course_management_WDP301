@@ -176,6 +176,11 @@ function CollectionManage() {
                                         </a>
                                     </li>
                                     <li>
+                                        <a className="nav-link" href="/admin/depositManage">
+                                            <FontAwesomeIcon icon={faQuestionCircle} /> <span style={{ marginLeft: '3px' }}>Manage Deposit</span>
+                                        </a>
+                                    </li>
+                                    <li>
                                         <a className="nav-link" href="/admin/dashboard">
                                             <FontAwesomeIcon icon={faGauge} fade /> <span style={{ marginLeft: '3px' }}>Dashboard</span>
                                         </a>

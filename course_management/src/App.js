@@ -18,9 +18,9 @@ import MyCoursesPage from './components/MyCoursesPage';
 import CreateCourse from './components/CreateCourse';
 import ViewAllQuestion from './components/ViewAllQuestion';
 import FavoriteCourse from './components/FavoriteCourse'
-import Deposit from './components/Deposit'
 import AddByFile from './components/AddByFile'
 import DepositManage from './components/admin/DepositManage'
+import DepositOption from './components/DepositOption'
 
 
 function App() {
@@ -43,7 +43,7 @@ function App() {
             <Route path="/admin/collectionManage" element={<CollectionManage />} />
             <Route path="/admin/questionManage" element={<QuestionManage />} />
             <Route path="/favorite" element={<FavoriteCourse />} /> 
-            <Route path="/deposit" element={<Deposit />} /> 
+            <Route path="/deposit" element={<DepositOption />} /> 
             <Route path="/addbyfile" element={<AddByFile />} /> 
             <Route path="/admin/depositManage" element={<DepositManage />} /> 
           </Routes>

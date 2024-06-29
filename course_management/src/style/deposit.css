@@ -1,64 +1,63 @@
-/* Định dạng card và form */
-.card {
-  margin-bottom: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex; /* Sử dụng flexbox để căn giữa nội dung */
-}
-
-.card-header {
-  background-color: #007bff;
-  color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-}
-
-.card-title {
-  margin-bottom: 0;
-}
-
-.card-body {
-  padding: 20px;
-  flex: 1; /* Cho phép phần nội dung mở rộng theo chiều ngang */
-}
-
-.form-group {
-  margin-bottom: 15px;
-  text-align: center;
+/* Center the container */
+.center-container {
+  display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f8f9fa; /* Light background color */
 }
 
-.input-group{
-    margin-left: 160px;
+/* Style for the card */
+.card {
+  width: 100%; 
+  max-width: 500px; /* Max width for card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
 }
 
-.input-group-append{
-    margin-top: 70px;
+/* Style for the card body */
+.card-body {
+  padding: 2rem; /* Padding inside the card */
 }
 
-/* Định dạng nút Deposit */
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+/* Style for the form */
+.form-group {
+  margin-bottom: 1.5rem; /* Space between form elements */
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+/* Style for the input group */
+.input-group {
+  display: flex;
+  align-items: center;
 }
 
-/* Định dạng hình ảnh Deposit */
-.img-square {
-  width: 100%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của card */
-  height: 100%; /* Chiều cao của hình ảnh bằng chiều cao của card */
-  object-fit: cover; /* Đảm bảo hình ảnh không bị kéo dãn */
+/* Style for the input field */
+.form-control {
+  flex: 1;
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0.75rem; /* Padding inside the input */
+  font-size: 2rem; /* Font size */
 }
 
-
-/* Warning */
-.warning{
-    margin-top: 200px;
+/* Style for the input group append button */
+.input-group-append .btn {
+  border-radius: 4px; /* Rounded corners */
+  margin-left: 0.5rem; /* Space between input and button */
+  padding: 0.75rem 1.5rem; /* Padding inside the button */
+  font-size: 1rem; /* Font size */
 }
 
-.content{
-    font-weight: bold;
-    font-size: 20px;
+/* Style for the heading */
+h4 {
+  margin-bottom: 1rem; /* Space below heading */
+  font-size: 1.25rem; /* Font size */
+  color: #495057; /* Text color */
+}
+
+/* Additional styling for the toast notifications */
+.toast-success, .toast-error {
+  background-color: #28a745; /* Success color */
+  color: #fff; /* Text color */
 }
