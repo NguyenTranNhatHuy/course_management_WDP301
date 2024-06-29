@@ -23,11 +23,6 @@ export default function ViewAllQuestion() {
   const { startQuiz } = useContext(DataContext);
   const navigate = useNavigate();
 
-  function getAuthToken() {
-    const token = localStorage.getItem('token');
-    return token;
-  }
-
   const authToken = getAuthToken();
 
   useEffect(() => {
@@ -62,14 +57,19 @@ export default function ViewAllQuestion() {
   };
 
   const handleStartTest = () => {
-    if (questionCount > 0 && questionCount <= collection.questions.length) {
-      const shuffledQuestions = collection.questions.sort(() => 0.5 - Math.random());
-      const selectedQuestions = shuffledQuestions.slice(0, questionCount);
-      startQuiz(selectedQuestions);
-      navigate('/test');
-    } else {
-      toast.error('Invalid number of questions.');
+    if (questionCount < 1) {
+      toast.error('Number of questions must be at least 1.');
+      return;
     }
+    if (questionCount > collection.questions.length) {
+      toast.error('Invalid number of questions.');
+      return;
+    }
+
+    const shuffledQuestions = collection.questions.sort(() => 0.5 - Math.random());
+    const selectedQuestions = shuffledQuestions.slice(0, questionCount);
+    startQuiz(selectedQuestions);
+    navigate('/test');
     setShowReviewModal(false);
   };
 
@@ -82,15 +82,28 @@ export default function ViewAllQuestion() {
   };
 
   const handleCreateExam = async () => {
+    if (questionCount < 1) {
+      toast.error('Number of questions must be at least 1.');
+      return;
+    }
+    if (!pass) {
+      toast.error('Password is required.');
+      return;
+    }
+    if (time <= 1) {
+      toast.error('Time must be more than 1 minute.');
+      return;
+    }
+
     try {
       const examData = {
         userId: '', // You need to set the userId here if needed
         collectionId: id,
         pass,
         time: parseInt(time), // Convert time to number
-        numberOfQuestion: questionCount
+        numberOfQuestion: questionCount,
       };
-      console.log(examData)
+      console.log(examData);
       const createdExam = await createExam(authToken, examData);
       console.log('Created Exam:', createdExam); // Handle success as needed
       toast.success('Exam created successfully');

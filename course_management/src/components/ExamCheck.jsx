@@ -79,7 +79,7 @@ const ExamCheck = () => {
         <p>
           You answered {correctAnswers} out of {totalQuestions} questions correctly.
         </p>
-        <button className="btn btn-primary" onClick={() => navigate('/')}>
+        <button className="btn btn-primary" onClick={() => navigate('/examList')}>
           Back to Exam List
         </button>
       </div>
