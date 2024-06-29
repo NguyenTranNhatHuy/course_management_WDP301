@@ -28,6 +28,7 @@ import DetailCourse from './components/DetailCourse';
 function App() {
   return (
     <div className="App">
+      <div className="se-pre-con" />
       <AuthProvider>
         <BrowserRouter>
           <Header />

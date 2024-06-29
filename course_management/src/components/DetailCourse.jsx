@@ -10,6 +10,7 @@ export default function DetailCourse() {
 
     return (
         <div>
+
             <Breadcrumb name={"Course"} numOfImage={10} />
             <div className="course-details-area default-padding">
                 <div className="container">
