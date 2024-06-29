@@ -19,14 +19,14 @@ import CreateCourse from './components/CreateCourse';
 import ViewAllQuestion from './components/ViewAllQuestion';
 import FavoriteCourse from './components/FavoriteCourse'
 import AddByFile from './components/AddByFile'
-import DepositManage from './components/admin/DepositManage'
-import DepositOption from './components/DepositOption'
 
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
+      <DataProvider>
+
         <BrowserRouter>
           <Header />
           <ToastContainer />
@@ -45,10 +45,11 @@ function App() {
             <Route path="/favorite" element={<FavoriteCourse />} /> 
             <Route path="/deposit" element={<DepositOption />} /> 
             <Route path="/addbyfile" element={<AddByFile />} /> 
-            <Route path="/admin/depositManage" element={<DepositManage />} /> 
           </Routes>
           <Footer />
         </BrowserRouter>
+        </DataProvider>
+
       </AuthProvider>
     </div>
   );
