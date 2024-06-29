@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getAccountById } from "../services/AccountServices";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWallet, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const navigator = useNavigate();
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [wallet, setWallet] = useState("");
+  const [walletVisible, setWalletVisible] = useState(false); // State to control wallet visibility
+
   function getAuthToken() {
     const token = localStorage.getItem("token");
     return token;
@@ -24,23 +29,33 @@ function Header() {
     localStorage.removeItem("accountid");
     localStorage.removeItem("admin");
 
-    // navigator('/home');
     window.location.href = "/home";
     toast.success("Logout Successfully");
   }
   const authToken = getAuthToken();
   const accountid = getAccountId();
   const admin = getRole();
+  const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+    }).format(amount);
+  };
   useEffect(() => {
     getAccountById(accountid, authToken)
       .then((response) => {
         setUser(response.data);
         setIsAdmin(response.data.admin || false);
+        setWallet(response.data.wallet || 0);
       })
       .catch((error) => {
         console.error("Error fetching account:", error);
       });
   }, [accountid]);
+
+  const toggleWalletVisibility = () => {
+    setWalletVisible(!walletVisible);
+  };
 
   return (
     <div>
@@ -87,9 +102,7 @@ function Header() {
         </div>
       </div>
       <header id="home">
-        {/* Start Navigation */}
         <nav className="navbar navbar-default navbar-sticky bootsnav">
-          {/* Start Top Search */}
           <div className="container">
             <div className="row">
               <div className="top-search">
@@ -109,9 +122,7 @@ function Header() {
               </div>
             </div>
           </div>
-          {/* End Top Search */}
           <div className="container">
-            {/* Start Atribute Navigation */}
             <div className="attr-nav">
               <ul>
                 <li className="search">
@@ -121,8 +132,6 @@ function Header() {
                 </li>
               </ul>
             </div>
-            {/* End Atribute Navigation */}
-            {/* Start Header Navigation */}
             <div className="navbar-header">
               <button
                 type="button"
@@ -136,8 +145,6 @@ function Header() {
                 <img src="../assets/img/logo.png" className="logo" alt="Logo" />
               </a>
             </div>
-            {/* End Header Navigation */}
-            {/* Collect the nav links, forms, and other content for toggling */}
             <div className="collapse navbar-collapse" id="navbar-menu">
               <ul
                 className="nav navbar-nav navbar-right"
@@ -263,7 +270,6 @@ function Header() {
                             </ul>
                           </div>
                         </div>
-                        {/* end col-3 */}
                         <div className="col-menu col-md-3">
                           <h6 className="title">Advisor</h6>
                           <div className="content">
@@ -291,7 +297,6 @@ function Header() {
                             </ul>
                           </div>
                         </div>
-                        {/* end col-3 */}
                         <div className="col-menu col-md-3">
                           <h6 className="title">User Pages</h6>
                           <div className="content">
@@ -311,7 +316,6 @@ function Header() {
                             </ul>
                           </div>
                         </div>
-                        {/* end col-3 */}
                         <div className="col-menu col-md-3">
                           <h6 className="title">Other Pages</h6>
                           <div className="content">
@@ -334,9 +338,7 @@ function Header() {
                             </ul>
                           </div>
                         </div>
-                        {/* end col-3 */}
                       </div>
-                      {/* end row */}
                     </li>
                   </ul>
                 </li>
@@ -377,26 +379,6 @@ function Header() {
                     </li>
                   </ul>
                 </li>
-                {/* <li className="dropdown">
-                                    <a
-                                        href="#"
-                                        className="dropdown-toggle active"
-                                        data-toggle="dropdown"
-                                    >
-                                        Event
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        <li>
-                                            <a href="event.html">Event Mixed Colum</a>
-                                        </li>
-                                        <li>
-                                            <a href="event-2.html">Event Grid Colum</a>
-                                        </li>
-                                        <li>
-                                            <a href="event-3.html">Event Carousel</a>
-                                        </li>
-                                    </ul>
-                                </li> */}
                 <li className="dropdown">
                   {user && (
                     <a
@@ -413,12 +395,12 @@ function Header() {
                     </li>
                     {user && (
                       <>
-                      <li>
-                        <a href="/favorite">Favorite</a>
-                      </li>
-                      <li>
-                        <a href="/deposit">Deposit</a>
-                      </li>
+                        <li>
+                          <a href="/favorite">Favorite</a>
+                        </li>
+                        <li>
+                          <a href="/deposit">Deposit</a>
+                        </li>
                       </>
                     )}
                     {admin && (
@@ -431,36 +413,22 @@ function Header() {
                         Logout
                       </a>
                     </li>
-                    {/* <li>
-                                            <a href="blog-left-sidebar.html">Blog Left Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-right-sidebar.html">Blog Right Sidebar</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-single-standard.html">Single Standard</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-single-left-sidebar.html">
-                                                Single Left Sidebar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-single-right-sidebar.html">
-                                                Single Right Sidebar
-                                            </a>
-                                        </li> */}
                   </ul>
                 </li>
-                {/* <li>
-                                    <a href="contact.html">contact</a>
-                                </li> */}
+                <li>
+                  <a>
+                    <FontAwesomeIcon icon={faWallet} /> : {walletVisible ? formatCurrency(wallet) : '******'}
+                  </a>
+                </li>
+                <li>
+                  <a onClick={toggleWalletVisibility} style={{ cursor: 'pointer' }}>
+                    <FontAwesomeIcon icon={walletVisible ? faEyeSlash : faEye} />
+                  </a>
+                </li>
               </ul>
             </div>
-            {/* /.navbar-collapse */}
           </div>
         </nav>
-        {/* End Navigation */}
       </header>
     </div>
   );
