@@ -35,6 +35,7 @@ import DetailCourse from './components/DetailCourse';
 function App() {
   return (
     <div className="App">
+      <div className="se-pre-con" />
       <AuthProvider>
         <DataProvider>
           <BrowserRouter>
@@ -62,7 +63,7 @@ function App() {
               <Route path="/result" element={<Result />} />
               <Route path="/examlist" element={<ExamList />} />
               <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
-              <Route path="/test" element={<Test />} />
+              <Route path="/testcheat" element={<Test />} />
               <Route path="/detail" element={<DetailCourse />} />
             </Routes>
             <Footer />
