@@ -9,6 +9,7 @@ import {
 } from "../services/AccountServices";
 import { toast } from "react-toastify";
 import GPT from "./popup/App";
+import "../style/coursePage.css"
 
 export default function CoursesPage() {
   function getAuthToken() {
@@ -22,6 +23,7 @@ export default function CoursesPage() {
     return accountId;
   }
   const [courses, setCourses] = useState([]);
+  const [originalCourses, setOriginalCourses] = useState([]);  // New state to hold original courses
   const [account, setAccount] = useState(null);
   const [enrolledCourses, setEnrolledCourses] = useState([]);
 
@@ -46,6 +48,7 @@ export default function CoursesPage() {
       getAllCourses(token)
         .then((response) => {
           setCourses(response.data);
+          setOriginalCourses(response.data);  // Store original courses
         })
         .catch((error) => {
           console.error("Error fetching courses:", error);
@@ -97,11 +100,18 @@ export default function CoursesPage() {
       }
     }
   };
-  function searchByName(){
-    const searchByName = document.getElementById("searchByName").value;
-    const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchByName.toLowerCase()));
-    setCourses(filteredCourses);
-  }
+
+  const searchByName = () => {
+    const searchByName = document.getElementById("searchByName").value.trim();
+    if (searchByName) {
+      const filteredCourses = originalCourses.filter((course) =>
+        course.name.toLowerCase().includes(searchByName.toLowerCase())
+      );
+      setCourses(filteredCourses);
+    } else {
+      setCourses(originalCourses);
+    }
+  };
 
   return (
     <div>
@@ -115,8 +125,9 @@ export default function CoursesPage() {
               placeholder="Search for courses..."
               id="searchByName"
               className="form-control"
+              onChange={searchByName}  // Call searchByName on input change
             />
-            <button onClick={() => searchByName()}>
+            <button onClick={searchByName}>
               <i className="fas fa-search" />
             </button>
           </div>

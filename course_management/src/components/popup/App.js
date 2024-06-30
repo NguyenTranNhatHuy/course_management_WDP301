@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import GPT from './GPT';
 import './App.css';
 
@@ -16,7 +16,7 @@ function App() {
       <div className={`popup ${isPopupOpen ? 'open' : 'closed'}`}>
         {isPopupOpen ? (
           <div className="popup-content">
-            <button className="close-button" onClick={togglePopup}>Close</button>
+            <button className="popup-button" onClick={togglePopup}><FontAwesomeIcon icon={faCircleXmark} beatFade style={{color: "#ff0000",}} /></button>
             <GPT />
           </div>
         ) : (

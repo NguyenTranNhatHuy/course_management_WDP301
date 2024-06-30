@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "./layouts/Breadcrumb";
-import Course from "./Course";
+import Course from "./CourseCard";
 import { getCollectionsByCurrentUser } from "../services/CourseServices";
 import GPT from './popup/App'
 
@@ -12,6 +12,8 @@ export default function MyCoursesPage() {
   }
   
   const [courses, setCourses] = useState([]);
+  const [enrolledCourses, setEnrolledCourses] = useState([]);
+
 
   useEffect(() => {
     if (getAuthToken()) {
@@ -28,6 +30,7 @@ export default function MyCoursesPage() {
       console.log("No token found");
     }
   }, [getAuthToken()]);
+
 
   return (
     <div>

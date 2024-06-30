@@ -7,6 +7,7 @@ import GPT from "./popup/App";
 const ExamList = () => {
   const navigate = useNavigate();
   const [exams, setExams] = useState([]);
+  const [filteredExams, setFilteredExams] = useState([]);
   const [selectedExam, setSelectedExam] = useState(null);
   const [numberQuestion, setNumberQuestion] = useState(null);
   const [password, setPassword] = useState("");
@@ -22,6 +23,7 @@ const ExamList = () => {
       try {
         const response = await getAllExams(getAuthToken());
         setExams(response.data);
+        setFilteredExams(response.data);  // Set both exams and filteredExams
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching exams:", error);
@@ -57,10 +59,34 @@ const ExamList = () => {
     }
   };
 
+  const searchByName = () => {
+    const searchTerm = document.getElementById("searchByName").value.trim();
+    if (searchTerm) {
+      const filteredExams = exams.filter((exam) =>
+        exam.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredExams(filteredExams);  // Update filteredExams
+    } else {
+      setFilteredExams(exams);  // Reset to the original list if search term is empty
+    }
+  };
+
   return (
     <div className="container">
       <h2>All Exams</h2>
       <div className="table-responsive">
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Search for courses..."
+            id="searchByName"
+            className="form-control"
+            onChange={searchByName}  // Call searchByName on input change
+          />
+          <button onClick={searchByName}>
+            <i className="fas fa-search" />
+          </button>
+        </div>
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
@@ -71,7 +97,7 @@ const ExamList = () => {
             </tr>
           </thead>
           <tbody>
-            {exams.map((exam, index) => (
+            {filteredExams.map((exam, index) => (
               <tr key={exam._id}>
                 <td className="text-center">{index + 1}</td>
                 <td>{exam.name}</td>

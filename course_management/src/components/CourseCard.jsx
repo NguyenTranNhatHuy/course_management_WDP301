@@ -1,18 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Course({ id, price, name, description, enrolled, onLearnNowClick }) {
+export default function CourseCard({ id, price, name, description }) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
     console.log("id = ", id);
     navigate(`/course/${id}`);
-  };
-
-  const handleLearnNowClick = (event) => {
-    event.stopPropagation();
-    onLearnNowClick();
-    // handleNavigate(); 
   };
 
   return (
@@ -47,19 +41,6 @@ export default function Course({ id, price, name, description, enrolled, onLearn
               <a onClick={handleNavigate} style={{ cursor: 'pointer' }}>{name}</a>
             </h4>
             <p>{description}</p>
-            <div className="bottom-info">
-              <ul>
-                <li>
-                  <i className="fas fa-user" /> 6,690
-                </li>
-                <li>
-                  <i className="fas fa-clock" /> 16:00
-                </li>
-              </ul>
-              <a onClick={handleLearnNowClick} style={{ cursor: 'pointer' }}>
-                {enrolled ? 'View Detail' : 'Learn Now'}
-              </a>
-            </div>
           </div>
         </div>
       </div>
