@@ -103,12 +103,14 @@ export default function ViewAllQuestion() {
       return;
     }
 
+    const accountid = localStorage.getItem("accountid");
+
     try {
       const examData = {
-        examName,
-        userId: "", // You need to set the userId here if needed
+        name: examName,
+        userId: accountid, // You need to set the userId here if needed
         collectionId: id,
-        pass,
+        pass: pass,
         time: parseInt(time), // Convert time to number
         numberOfQuestion: questionCount,
       };

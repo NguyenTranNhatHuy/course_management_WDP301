@@ -44,3 +44,13 @@ export const getCollectionById = (id, accessToken) => {
     return axios.get(`${COURSE_API_BASE_URL}${id}`, config);
 };
 
+// Function to get a specific collection by ID and number question
+export const getCollectionByIdRandomNum = (id, number, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.get(`${COURSE_API_BASE_URL}${id}/random/${number}`, config);
+};
