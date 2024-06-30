@@ -31,7 +31,6 @@ import ExamList from './components/ExamList';
 import ExamCheck from './components/ExamCheck';
 import Test from './components/admin/Test';
 import DetailCourse from './components/DetailCourse';
-import GPT from './components/popup/App'
 
 function App() {
   return (
@@ -43,6 +42,7 @@ function App() {
             <Header />
             <ToastContainer />
             <Routes>
+              <Route path="/" exact element={<Home />} />
               <Route path="/home" exact element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<ProfileUser />} />
