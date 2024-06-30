@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "./layouts/Breadcrumb";
-import { useNavigate } from "react-router-dom"; import { getAllCourses } from "../services/CourseServices";
+import { useNavigate } from "react-router-dom";
+import { getAllCourses } from "../services/CourseServices";
 import Course from "./Course";
-import { getAccountById, updateWalletByAccountId } from "../services/AccountServices";
+import {
+  getAccountById,
+  updateWalletByAccountId,
+} from "../services/AccountServices";
 import { toast } from "react-toastify";
 import GPT from "./popup/App";
-
 
 export default function CoursesPage() {
   function getAuthToken() {
@@ -51,7 +54,8 @@ export default function CoursesPage() {
       console.log("No token found");
     }
     // Load enrolled courses from localStorage
-    const storedEnrolledCourses = JSON.parse(localStorage.getItem("enrolledCourses")) || [];
+    const storedEnrolledCourses =
+      JSON.parse(localStorage.getItem("enrolledCourses")) || [];
     setEnrolledCourses(storedEnrolledCourses);
   }, []);
 
@@ -60,18 +64,27 @@ export default function CoursesPage() {
       // Nếu khóa học đã được enroll, chuyển hướng đến trang chi tiết
       navigate(`/course/${course._id}`);
     } else {
-      const confirmEnroll = window.confirm(`Are you sure you want to enroll in "${course.name}"?`);
+      const confirmEnroll = window.confirm(
+        `Are you sure you want to enroll in "${course.name}"?`
+      );
       if (confirmEnroll) {
         if (account.wallet >= course.price) {
           const newWalletAmount = account.wallet - course.price;
-          updateWalletByAccountId(getAccountId(), newWalletAmount, getAuthToken())
+          updateWalletByAccountId(
+            getAccountId(),
+            newWalletAmount,
+            getAuthToken()
+          )
             .then((response) => {
               setAccount(response.data);
               console.log("Wallet updated successfully");
 
               const updatedEnrolledCourses = [...enrolledCourses, course._id];
               setEnrolledCourses(updatedEnrolledCourses);
-              localStorage.setItem("enrolledCourses", JSON.stringify(updatedEnrolledCourses));
+              localStorage.setItem(
+                "enrolledCourses",
+                JSON.stringify(updatedEnrolledCourses)
+              );
               toast.success("Enroll Collection Successfully!");
               navigate(`/course/${course._id}`);
             })
@@ -84,6 +97,11 @@ export default function CoursesPage() {
       }
     }
   };
+  function searchByName(){
+    const searchByName = document.getElementById("searchByName").value;
+    const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchByName.toLowerCase()));
+    setCourses(filteredCourses);
+  }
 
   return (
     <div>
@@ -91,6 +109,17 @@ export default function CoursesPage() {
       {/* Start Popular Courses */}
       <div className="popular-courses default-padding bottom-less without-carousel">
         <div className="container">
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search for courses..."
+              id="searchByName"
+              className="form-control"
+            />
+            <button onClick={() => searchByName()}>
+              <i className="fas fa-search" />
+            </button>
+          </div>
           <div className="row">
             <div className="popular-courses-items">
               {courses.map((course) => (

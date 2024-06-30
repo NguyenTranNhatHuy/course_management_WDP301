@@ -21,7 +21,7 @@ function App() {
           </div>
         ) : (
           <button className="popup-button" onClick={togglePopup}>
-            <FontAwesomeIcon icon={faComment} />
+            <FontAwesomeIcon icon={faComment} bounce style={{color: "#FFD43B",}} />
           </button>
         )}
       </div>
