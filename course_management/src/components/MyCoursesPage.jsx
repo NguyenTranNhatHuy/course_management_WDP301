@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Breadcrumb from "./layouts/Breadcrumb";
 import Course from "./Course";
 import { getCollectionsByCurrentUser } from "../services/CourseServices";
+import GPT from './popup/App'
+
 
 export default function MyCoursesPage() {
   function getAuthToken() {
@@ -48,6 +50,7 @@ export default function MyCoursesPage() {
           </div>
         </div>
       </div>
+      <GPT />
       {/* End User's Courses */}
     </div>
   );

@@ -3,6 +3,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { getCollectionById } from '../services/CourseServices';
 import { toast } from 'react-toastify';
 
+
 function getAuthToken() {
   const token = localStorage.getItem('token');
   return token;

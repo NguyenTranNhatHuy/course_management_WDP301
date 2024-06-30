@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import GPT from "./popup/App";
 import DataContext from '../context/DataProvider';
 
 const TestWithNoQuestion = () => {
@@ -78,6 +79,7 @@ const TestWithNoQuestion = () => {
           )}
         </div>
       </div>
+      <GPT />
     </div>
   );
 };

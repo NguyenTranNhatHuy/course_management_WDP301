@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { toast } from 'react-toastify';
+import GPT from './popup/App'
+
 
 function App() {
   const [fileContent, setFileContent] = useState("");
@@ -162,6 +164,7 @@ function App() {
       <input type="file" accept=".txt" onChange={handleFileChange} />
       <button onClick={parseFileContent}>Confirm</button>
       <button onClick={createCollection}>Create Course</button>
+      <GPT />
     </div>
   );
 }

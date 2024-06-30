@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom"; import { getAllCourses } from ".
 import Course from "./Course";
 import { getAccountById, updateWalletByAccountId } from "../services/AccountServices";
 import { toast } from "react-toastify";
+import GPT from "./popup/App";
+
 
 export default function CoursesPage() {
   function getAuthToken() {
@@ -106,6 +108,7 @@ export default function CoursesPage() {
           </div>
         </div>
       </div>
+      <GPT />
       {/* End Popular Courses */}
     </div>
   );

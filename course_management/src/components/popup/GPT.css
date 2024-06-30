@@ -1,0 +1,87 @@
+.base-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 9999; 
+  }
+  
+  .messages-container {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+  }
+  
+  .message-container {
+    margin: 10px 0;
+  }
+  
+  .user .message-box-user,
+  .HytechAI .message-box-HytechAI {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+  .message-box-user {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+  }
+  
+  .message-box-HytechAI {
+    background-color: #e1e1e1;
+    color: black;
+    align-self: flex-start;
+  }
+  
+  .sender-HytechAI {
+    text-align: left;
+  }
+  
+  .sender-user {
+    text-align: right;
+  }
+  
+  .typing-message {
+    color: #666;
+    font-style: italic;
+    margin: 10px 0;
+  }
+  
+  .message-form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .hytech-ai-main {
+    display: flex;
+    width: 100%;
+  }
+  
+  .text-input {
+    flex: 1;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+  }
+  
+  .send-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  

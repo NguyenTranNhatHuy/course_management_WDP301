@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import GPT from './popup/App'
+
 
 function getAuthToken() {
   const token = localStorage.getItem("token");
@@ -238,6 +240,7 @@ export default function CreateCourse() {
           Create Course
         </button>
       </form>
+      <GPT />
     </div>
   );
 }

@@ -31,6 +31,7 @@ import ExamList from './components/ExamList';
 import ExamCheck from './components/ExamCheck';
 import Test from './components/admin/Test';
 import DetailCourse from './components/DetailCourse';
+import GPT from './components/popup/App'
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
             </Routes>
             <Footer />
           </BrowserRouter>
+          {/* <GPT/> */}
         </DataProvider>
       </AuthProvider>
     </div>

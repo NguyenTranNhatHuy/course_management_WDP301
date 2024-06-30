@@ -1,13 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { getCollectionById } from '../services/CourseServices';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import DataContext from '../context/DataProvider';
-import { createExam } from '../services/ExamServices'; // Assuming you place the createExam function here
+import React, { useEffect, useState, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { getCollectionById } from "../services/CourseServices";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import DataContext from "../context/DataProvider";
+import { createExam } from "../services/ExamServices"; // Assuming you place the createExam function here
+import GPT from "./popup/App";
 
 function getAuthToken() {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   return token;
 }
 
@@ -19,8 +20,8 @@ export default function ViewAllQuestion() {
   const [showCreateExamModal, setShowCreateExamModal] = useState(false);
   const [questionCount, setQuestionCount] = useState(0);
   const [time, setTime] = useState(0); // State to hold time input
-  const [pass, setPass] = useState(''); // State to hold password input
-  const [examName, setExamName] = useState(''); // State to hold exam name input
+  const [pass, setPass] = useState(""); // State to hold password input
+  const [examName, setExamName] = useState(""); // State to hold exam name input
   const { startQuiz } = useContext(DataContext);
   const navigate = useNavigate();
 
@@ -33,8 +34,8 @@ export default function ViewAllQuestion() {
         const response = await getCollectionById(id, accessToken);
         setCollection(response.data);
       } catch (error) {
-        toast.error('Error fetching collection. Please try again.');
-        console.error('Error fetching collection:', error);
+        toast.error("Error fetching collection. Please try again.");
+        console.error("Error fetching collection:", error);
       }
     };
 
@@ -59,18 +60,20 @@ export default function ViewAllQuestion() {
 
   const handleStartTest = () => {
     if (questionCount < 1) {
-      toast.error('Number of questions must be at least 1.');
+      toast.error("Number of questions must be at least 1.");
       return;
     }
     if (questionCount > collection.questions.length) {
-      toast.error('Invalid number of questions.');
+      toast.error("Invalid number of questions.");
       return;
     }
 
-    const shuffledQuestions = collection.questions.sort(() => 0.5 - Math.random());
+    const shuffledQuestions = collection.questions.sort(
+      () => 0.5 - Math.random()
+    );
     const selectedQuestions = shuffledQuestions.slice(0, questionCount);
     startQuiz(selectedQuestions);
-    navigate('/test');
+    navigate("/test");
     setShowReviewModal(false);
   };
 
@@ -84,26 +87,26 @@ export default function ViewAllQuestion() {
 
   const handleCreateExam = async () => {
     if (questionCount < 1) {
-      toast.error('Number of questions must be at least 1.');
+      toast.error("Number of questions must be at least 1.");
       return;
     }
     if (!pass) {
-      toast.error('Password is required.');
+      toast.error("Password is required.");
       return;
     }
     if (time <= 1) {
-      toast.error('Time must be more than 1 minute.');
+      toast.error("Time must be more than 1 minute.");
       return;
     }
     if (!examName) {
-      toast.error('Exam name is required.');
+      toast.error("Exam name is required.");
       return;
     }
 
     try {
       const examData = {
         examName,
-        userId: '', // You need to set the userId here if needed
+        userId: "", // You need to set the userId here if needed
         collectionId: id,
         pass,
         time: parseInt(time), // Convert time to number
@@ -111,11 +114,11 @@ export default function ViewAllQuestion() {
       };
       console.log(examData);
       const createdExam = await createExam(authToken, examData);
-      console.log('Created Exam:', createdExam); // Handle success as needed
-      toast.success('Exam created successfully');
+      console.log("Created Exam:", createdExam); // Handle success as needed
+      toast.success("Exam created successfully");
     } catch (error) {
-      toast.error('Failed to create exam. Please try again.');
-      console.error('Error creating exam:', error);
+      toast.error("Failed to create exam. Please try again.");
+      console.error("Error creating exam:", error);
     }
     setShowCreateExamModal(false);
   };
@@ -171,7 +174,7 @@ export default function ViewAllQuestion() {
 
       {/* Modal for viewing correct answer */}
       {selectedQuestion && (
-        <div className="modal show" role="dialog" style={{ display: 'block' }}>
+        <div className="modal show" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -205,7 +208,7 @@ export default function ViewAllQuestion() {
 
       {/* Modal for entering number of questions */}
       {showReviewModal && (
-        <div className="modal show" role="dialog" style={{ display: 'block' }}>
+        <div className="modal show" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -220,7 +223,9 @@ export default function ViewAllQuestion() {
               </div>
               <div className="modal-body">
                 <div className="form-group">
-                  <label htmlFor="questionCountInput">Number of Questions</label>
+                  <label htmlFor="questionCountInput">
+                    Number of Questions
+                  </label>
                   <input
                     type="number"
                     className="form-control"
@@ -254,7 +259,7 @@ export default function ViewAllQuestion() {
 
       {/* Modal for creating an exam */}
       {showCreateExamModal && (
-        <div className="modal show" role="dialog" style={{ display: 'block' }}>
+        <div className="modal show" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -302,7 +307,9 @@ export default function ViewAllQuestion() {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="questionCountInput">Number of Questions</label>
+                  <label htmlFor="questionCountInput">
+                    Number of Questions
+                  </label>
                   <input
                     type="number"
                     className="form-control"
@@ -333,6 +340,7 @@ export default function ViewAllQuestion() {
           </div>
         </div>
       )}
+      <GPT />
     </div>
   );
 }

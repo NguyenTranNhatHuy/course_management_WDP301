@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllExams } from "../services/ExamServices";
 import { toast } from 'react-toastify';
+import GPT from './popup/App'
 
 const ExamList = () => {
   const navigate = useNavigate();
@@ -107,6 +108,7 @@ const ExamList = () => {
           </div>
         </div>
       )}
+      <GPT />
     </div>
   );
 };
