@@ -16,7 +16,7 @@ function App() {
       <div className={`popup ${isPopupOpen ? 'open' : 'closed'}`}>
         {isPopupOpen ? (
           <div className="popup-content">
-            <button className="popup-button" onClick={togglePopup}><FontAwesomeIcon icon={faCircleXmark} beatFade style={{color: "#ff0000",}} /></button>
+            <button className="close-button" onClick={togglePopup}><FontAwesomeIcon icon={faCircleXmark} beatFade style={{color: "#ff0000",}} /></button>
             <GPT />
           </div>
         ) : (
