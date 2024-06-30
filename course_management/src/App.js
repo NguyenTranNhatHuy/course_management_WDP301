@@ -50,7 +50,7 @@ function App() {
               <Route path="/courses" element={<CoursesPage />} />
               <Route path="/mycourses" element={<MyCoursesPage />} />
               <Route path="/createcourse" element={<CreateCourse />} />
-              <Route path="/course/:id" element={<ViewAllQuestion />} />
+              {/* <Route path="/course/:id" element={<ViewAllQuestion />} /> */}
               <Route path="/admin/accountManage" element={<AccountManage />} />
               <Route path="/admin/collectionManage" element={<CollectionManage />} />
               <Route path="/admin/questionManage" element={<QuestionManage />} />
@@ -65,7 +65,7 @@ function App() {
               <Route path="/examlist" element={<ExamList />} />
               <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
               <Route path="/testcheat" element={<Test />} />
-              <Route path="/detail" element={<DetailCourse />} />
+              <Route path="/course/:id" element={<DetailCourse />} />
             </Routes>
             <Footer />
           </BrowserRouter>
