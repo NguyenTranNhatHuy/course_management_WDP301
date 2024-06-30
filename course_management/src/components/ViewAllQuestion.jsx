@@ -4,7 +4,8 @@ import { getCollectionById } from "../services/CourseServices";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DataContext from "../context/DataProvider";
-import { createExam } from "../services/ExamServices"; // Assuming you place the createExam function here
+import { createExam } from "../services/ExamServices";
+import { addFavoriteCourse } from "../services/AccountServices";
 import GPT from "./popup/App";
 
 function getAuthToken() {
@@ -129,6 +130,25 @@ export default function ViewAllQuestion() {
     return <div>Loading...</div>;
   }
 
+  // Hàm để ghi nhận điểm cho user
+  const fetchNewFavorite = async () => {
+    try {
+      const accountid = localStorage.getItem("accountid");
+      console.log("id collection = ", id);
+      
+      const response = await addFavoriteCourse(
+        accountid,
+        id,
+        getAuthToken()
+      );
+      console.log("data enrollemt: ", response.data);
+      toast.success("Add favorite successfully");
+    } catch (error) {
+      toast.error("Error fetching collection. Please try again.");
+      console.error("Error fetching collection:", error);
+    }
+  };
+
   return (
     <div className="container">
       <h2>Collection: {collection.name}</h2>
@@ -137,6 +157,9 @@ export default function ViewAllQuestion() {
       </button>
       <button className="btn btn-primary" onClick={handleOpenCreateExamModal}>
         Create Exam
+      </button>
+      <button className="btn btn-primary" onClick={fetchNewFavorite}>
+        Add to favorite
       </button>
       <h3>Questions</h3>
       {collection.questions.map((question, index) => (
