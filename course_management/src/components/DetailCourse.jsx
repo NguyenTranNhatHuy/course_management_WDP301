@@ -39,8 +39,8 @@ export default function DetailCourse() {
                                                         <p>
                                                             <strong>Câu hỏi:</strong> Nội dung câu hỏi ở đây
                                                         </p>
-                                                        <ul className="list-group">
-                                                            <li className="list-group-item">A. Đáp án A</li>
+                                                        <ul style={{ textAlign: 'justify' }} className="list-group">
+                                                            <li className="list-group-item">A. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, inventore. Fugit quisquam culpa ex inventore obcaecati soluta, sed officiis perspiciatis a ad sit quaerat quas id, iste dolorum libero ipsum?</li>
                                                             <li className="list-group-item">B. Đáp án B</li>
                                                             <li className="list-group-item">C. Đáp án C</li>
                                                             <li className="list-group-item">D. Đáp án D</li>
