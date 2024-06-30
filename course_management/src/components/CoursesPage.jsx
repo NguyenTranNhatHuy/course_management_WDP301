@@ -97,7 +97,7 @@ export default function CoursesPage() {
       }
     }
   };
-  function searchByName(){
+  function searchByName() {
     const searchByName = document.getElementById("searchByName").value;
     const filteredCourses = courses.filter(course => course.name.toLowerCase().includes(searchByName.toLowerCase()));
     setCourses(filteredCourses);

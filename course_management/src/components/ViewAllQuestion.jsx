@@ -135,7 +135,7 @@ export default function ViewAllQuestion() {
     try {
       const accountid = localStorage.getItem("accountid");
       console.log("id collection = ", id);
-      
+
       const response = await addFavoriteCourse(
         accountid,
         id,
