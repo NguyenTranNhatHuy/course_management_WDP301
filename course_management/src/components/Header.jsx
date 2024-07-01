@@ -47,6 +47,7 @@ function Header() {
       .then((response) => {
         setUser(response.data);
         setIsAdmin(response.data.admin || false);
+        console.log(admin);
         setWallet(response.data.wallet || 0);
         console.log("wallet = ", response);
       })
@@ -395,7 +396,7 @@ function Header() {
                         </li>
                       </>
                     )}
-                    {admin && (
+                    {isAdmin && (
                       <li>
                         <a href="/admin/accountManage">Management</a>
                       </li>

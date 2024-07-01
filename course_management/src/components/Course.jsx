@@ -20,7 +20,7 @@ export default function Course({ id, price, name, description, enrolled, onLearn
       {/* Single Item */}
       <div className="col-md-4 col-sm-6 equal-height">
         <div className="item">
-          <div className="thumb" onClick={handleNavigate} style={{ cursor: 'pointer' }}>
+          <div className="thumb" style={{ cursor: 'pointer' }}>
             <img src="assets/img/courses/5.jpg" alt="Thumb" />
             <div className="price">Price: {price}</div>
           </div>
@@ -44,7 +44,7 @@ export default function Course({ id, price, name, description, enrolled, onLearn
               </div>
             </div>
             <h4>
-              <a onClick={handleNavigate} style={{ cursor: 'pointer' }}>{name}</a>
+              <a style={{ cursor: 'pointer' }}>{name}</a>
             </h4>
             <p>{description}</p>
             <div className="bottom-info">
