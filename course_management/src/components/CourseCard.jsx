@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CourseCard({ id, price, name, description }) {
+export default function CourseCard({ id, price, name, description, author }) {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -26,7 +26,7 @@ export default function CourseCard({ id, price, name, description }) {
                 </a>
               </div>
               <div className="others">
-                <a href="#">Munil Druva</a>
+                <a href="#">{author}</a>
                 <div className="rating">
                   <i className="fas fa-star" />
                   <i className="fas fa-star" />

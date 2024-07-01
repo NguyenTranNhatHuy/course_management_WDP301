@@ -12,12 +12,11 @@ export default function MyCoursesPage() {
   }
   
   const [courses, setCourses] = useState([]);
-  const [enrolledCourses, setEnrolledCourses] = useState([]);
 
 
   useEffect(() => {
     if (getAuthToken()) {
-      console.log("Have token:", getAuthToken());
+      // console.log("Have token:", getAuthToken());
       getCollectionsByCurrentUser(getAuthToken())
         .then(response => {
           console.log(response.data)
@@ -47,6 +46,7 @@ export default function MyCoursesPage() {
                   price={course.price}
                   name={course.name}
                   description={course.description}
+                  author={course.userId.fullname}
                 />
               ))}
             </div>

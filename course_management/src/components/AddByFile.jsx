@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import { toast } from 'react-toastify';
-import GPT from './popup/App'
-
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import GPT from "./popup/App";
 
 function App() {
   const [fileContent, setFileContent] = useState("");
   const [courseName, setCourseName] = useState("");
+  const [showCreate, serShowCreate] = useState(false);
   const [price, setPrice] = useState("");
   const [questions, setQuestions] = useState([]);
   const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
+  const navigate = useNavigate();
 
   // Function to handle file input change
   const handleFileChange = async (event) => {
@@ -21,6 +23,7 @@ function App() {
     };
 
     reader.readAsText(file);
+    serShowCreate(false);
   };
 
   // Function to parse file content and create questions object
@@ -90,34 +93,38 @@ function App() {
       const data = await response.json();
       setQuestions(data.questionIds);
       console.log("Successfully added questions:", data.questionIds);
-      console.log("Type: ", typeof(data.questionIds));
-      toast.success('Added questions successful');
+      console.log("Type: ", typeof data.questionIds);
+      serShowCreate(true);
+      toast.success("Added questions successful");
     } catch (error) {
       console.error("Error adding questions:", error.message);
-      toast.success('Error Adding questions');
+      toast.success("Error Adding questions");
     }
   };
 
   // Function to create collection via API
   const createCollection = async () => {
     const accessToken = localStorage.getItem("token");
-    console.log("question: ",questions);
-    console.log("type: ",typeof(questions));
+    console.log("question: ", questions);
+    console.log("type: ", typeof questions);
     try {
-      const response = await fetch("http://localhost:3000/collections/addCollection", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({
-          userId: accountId,
-          name: courseName,
-          numberOfQuestion: questions.length,
-          price: parseFloat(price), // Ensure price is converted to number
-          questions: questions,
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:3000/collections/addCollection",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+          body: JSON.stringify({
+            userId: accountId,
+            name: courseName,
+            numberOfQuestion: questions.length,
+            price: parseFloat(price), // Ensure price is converted to number
+            questions: questions,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to create course");
@@ -125,11 +132,12 @@ function App() {
 
       const data = await response.json();
       console.log("Successfully created course:", data);
-      toast.success('Successfully created course');
+      toast.success("Successfully created course");
+      window.location.href = "/home";
       // Optionally, you can handle the response data or update state accordingly
     } catch (error) {
       console.error("Error creating course:", error.message);
-      toast.success('Error creating course');
+      toast.success("Error creating course");
     }
   };
 
@@ -147,7 +155,6 @@ function App() {
           required
         />
       </div>
-      
 
       <div className="form-group">
         <label htmlFor="price">Price:</label>
@@ -163,7 +170,8 @@ function App() {
 
       <input type="file" accept=".txt" onChange={handleFileChange} />
       <button onClick={parseFileContent}>Confirm</button>
-      <button onClick={createCollection}>Create Course</button>
+      {showCreate && <button onClick={createCollection}>Create Course</button>}
+
       <GPT />
     </div>
   );
