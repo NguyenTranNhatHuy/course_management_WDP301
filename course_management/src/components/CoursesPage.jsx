@@ -48,13 +48,12 @@ export default function CoursesPage() {
       getAllCourses(token)
         .then((response) => {
           setCourses(response.data);
-          console.log("data :",response.data);
+          console.log("data check :", response.data);
           setOriginalCourses(response.data); // Store original courses
         })
         .catch((error) => {
           console.error("Error fetching courses:", error);
         });
-        
     } else {
       console.log("No token found");
     }
@@ -144,7 +143,7 @@ export default function CoursesPage() {
                   description={course.description}
                   enrolled={enrolledCourses.includes(course._id)}
                   onLearnNowClick={() => handleCollectionClick(course)}
-                  author={course.userId.fullname}
+                  author={course.userId ? course.userId.username : "Unknown"}
                 />
               ))}
             </div>
