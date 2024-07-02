@@ -1,0 +1,63 @@
+/* Center the container */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #f8f9fa; /* Light background color */
+}
+
+/* Style for the card */
+.card {
+  width: 100%; 
+  max-width: 500px; /* Max width for card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border: none; /* Remove default border */
+  border-radius: 8px; /* Rounded corners */
+}
+
+/* Style for the card body */
+.card-body {
+  padding: 2rem; /* Padding inside the card */
+}
+
+/* Style for the form */
+.form-group {
+  margin-bottom: 1.5rem; /* Space between form elements */
+}
+
+/* Style for the input group */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the input field */
+.form-control {
+  flex: 1;
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+  padding: 0.75rem; /* Padding inside the input */
+  font-size: 2rem; /* Font size */
+}
+
+/* Style for the input group append button */
+.input-group-append .btn {
+  border-radius: 4px; /* Rounded corners */
+  margin-left: 0.5rem; /* Space between input and button */
+  padding: 0.75rem 1.5rem; /* Padding inside the button */
+  font-size: 1rem; /* Font size */
+}
+
+/* Style for the heading */
+h4 {
+  margin-bottom: 1rem; /* Space below heading */
+  font-size: 1.25rem; /* Font size */
+  color: #495057; /* Text color */
+}
+
+/* Additional styling for the toast notifications */
+.toast-success, .toast-error {
+  background-color: #28a745; /* Success color */
+  color: #fff; /* Text color */
+}
