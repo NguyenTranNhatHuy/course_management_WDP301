@@ -106,7 +106,7 @@ const ExamCheck = () => {
         toast.error("Pasting is not allowed on this page.");
       });
     }
-    preventCheating();
+    // preventCheating();
   }, []);
 
   useEffect(() => {
