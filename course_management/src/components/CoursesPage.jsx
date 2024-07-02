@@ -8,8 +8,10 @@ import {
   updateWalletByAccountId,
 } from "../services/AccountServices";
 import { toast } from "react-toastify";
+import ReactPaginate from "react-paginate";
 import GPT from "./popup/App";
 import "../style/coursePage.css";
+
 
 export default function CoursesPage() {
   function getAuthToken() {
@@ -18,21 +20,25 @@ export default function CoursesPage() {
   }
   const navigate = useNavigate();
 
+
   function getAccountId() {
     const accountId = localStorage.getItem("accountid");
     return accountId;
   }
   const [courses, setCourses] = useState([]);
-  const [originalCourses, setOriginalCourses] = useState([]); // New state to hold original courses
+  const [originalCourses, setOriginalCourses] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
   const [account, setAccount] = useState(null);
   const [enrolledCourses, setEnrolledCourses] = useState([]);
+  const itemsPerPage = 6;
+
 
   useEffect(() => {
     const token = getAuthToken();
     if (token) {
       console.log("Have token:", token);
 
-      // Gọi API lấy thông tin tài khoản
+
       const accountId = getAccountId();
       if (accountId) {
         getAccountById(accountId, token)
@@ -45,11 +51,12 @@ export default function CoursesPage() {
           });
       }
 
+
       getAllCourses(token)
         .then((response) => {
           setCourses(response.data);
-          console.log("data check :", response.data);
-          setOriginalCourses(response.data); // Store original courses
+          setOriginalCourses(response.data);
+          console.log("data :", response.data);
         })
         .catch((error) => {
           console.error("Error fetching courses:", error);
@@ -57,15 +64,16 @@ export default function CoursesPage() {
     } else {
       console.log("No token found");
     }
-    // Load enrolled courses from localStorage
+
+
     const storedEnrolledCourses =
       JSON.parse(localStorage.getItem("enrolledCourses")) || [];
     setEnrolledCourses(storedEnrolledCourses);
   }, []);
 
+
   const handleCollectionClick = (course) => {
     if (enrolledCourses.includes(course._id)) {
-      // Nếu khóa học đã được enroll, chuyển hướng đến trang chi tiết
       navigate(`/course/${course._id}`);
     } else {
       const confirmEnroll = window.confirm(
@@ -82,6 +90,7 @@ export default function CoursesPage() {
             .then((response) => {
               setAccount(response.data);
               console.log("Wallet updated successfully");
+
 
               const updatedEnrolledCourses = [...enrolledCourses, course._id];
               setEnrolledCourses(updatedEnrolledCourses);
@@ -102,6 +111,7 @@ export default function CoursesPage() {
     }
   };
 
+
   const searchByName = (event) => {
     const searchByName = event.target.value.trim();
     if (searchByName) {
@@ -112,12 +122,22 @@ export default function CoursesPage() {
     } else {
       setCourses(originalCourses);
     }
+    setCurrentPage(0);
   };
+
+
+  const handlePageClick = (event) => {
+    setCurrentPage(event.selected);
+  };
+
+
+  const offset = currentPage * itemsPerPage;
+  const currentItems = courses.slice(offset, offset + itemsPerPage);
+
 
   return (
     <div>
       <Breadcrumb name={"Courses"} numOfImage={2} />
-      {/* Start Popular Courses */}
       <div className="popular-courses default-padding bottom-less without-carousel">
         <div className="container">
           <div className="search-bar">
@@ -126,15 +146,21 @@ export default function CoursesPage() {
               placeholder="Search for courses..."
               id="searchByName"
               className="form-control"
-              onChange={searchByName} // Call searchByName on input change
+              onChange={searchByName}
             />
-            <button onClick={() => searchByName({ target: { value: document.getElementById("searchByName").value } })}>
+            <button
+              onClick={() =>
+                searchByName({
+                  target: { value: document.getElementById("searchByName").value },
+                })
+              }
+            >
               <i className="fas fa-search" />
             </button>
           </div>
           <div className="row">
             <div className="popular-courses-items">
-              {courses.map((course) => (
+              {currentItems.map((course) => (
                 <Course
                   id={course._id}
                   key={course._id}
@@ -148,10 +174,26 @@ export default function CoursesPage() {
               ))}
             </div>
           </div>
+          <ReactPaginate
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(courses.length / itemsPerPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
+          />
         </div>
       </div>
       <GPT />
-      {/* End Popular Courses */}
     </div>
   );
 }
+
+
+
+
+
