@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
 import "../style/addByFile.css";
 import GPT from "./popup/App";
 
@@ -12,7 +11,7 @@ function App() {
   const [price, setPrice] = useState("");
   const [questions, setQuestions] = useState([]);
   const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
-  const navigate = useNavigate();
+  
 
   // Function to handle file input change
   const handleFileChange = async (event) => {

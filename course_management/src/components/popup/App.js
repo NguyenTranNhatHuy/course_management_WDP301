@@ -6,6 +6,8 @@ import './App.css';
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
+
 
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -13,18 +15,21 @@ function App() {
 
   return (
     <div className="App">
-      <div className={`popup ${isPopupOpen ? 'open' : 'closed'}`}>
-        {isPopupOpen ? (
-          <div className="popup-content">
-            <button className="close-button" onClick={togglePopup}><FontAwesomeIcon icon={faCircleXmark} beatFade style={{color: "#ff0000",}} /></button>
-            <GPT />
-          </div>
-        ) : (
-          <button className="popup-button" onClick={togglePopup}>
-            <FontAwesomeIcon icon={faComment} bounce style={{color: "#FFD43B",}} />
-          </button>
-        )}
-      </div>
+      {accountId && (
+        <div className={`popup ${isPopupOpen ? 'open' : 'closed'}`}>
+          {isPopupOpen ? (
+            <div className="popup-content">
+              <button className="close-button" onClick={togglePopup}><FontAwesomeIcon icon={faCircleXmark} beatFade style={{ color: "#ff0000", }} /></button>
+              <GPT />
+            </div>
+          ) : (
+            <button className="popup-button" onClick={togglePopup}>
+              <FontAwesomeIcon icon={faComment} bounce style={{ color: "#FFD43B", }} />
+            </button>
+          )}
+        </div>
+      )}
+
     </div>
   );
 }
