@@ -4,6 +4,8 @@ import { getAllExams } from "../services/ExamServices";
 import { toast } from "react-toastify";
 import ReactPaginate from "react-paginate";
 import GPT from "./popup/App";
+import Breadcrumb from "./layouts/Breadcrumb";
+import "../style/coursePage.css";
 
 const ExamList = () => {
   const navigate = useNavigate();
@@ -14,7 +16,21 @@ const ExamList = () => {
   const [numberQuestion, setNumberQuestion] = useState(null);
   const [password, setPassword] = useState("");
   const [showPasswordModal, setShowPasswordModal] = useState(false);
-  const itemsPerPage = 10; // Adjust the number of items per page
+  const itemsPerPage = 6;
+
+  const images = [
+    "assets/img/courses/1.jpg",
+    "assets/img/courses/2.jpg",
+    "assets/img/courses/3.jpg",
+    "assets/img/courses/4.jpg",
+    "assets/img/courses/5.jpg",
+    "assets/img/courses/6.jpg",
+  ];
+
+  function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+  }
 
   function getAuthToken() {
     const token = localStorage.getItem("token");
@@ -62,8 +78,8 @@ const ExamList = () => {
     }
   };
 
-  const searchByName = () => {
-    const searchTerm = document.getElementById("searchByName").value.trim();
+  const searchByName = (event) => {
+    const searchTerm = event.target.value.trim();
     if (searchTerm) {
       const filteredExams = exams.filter((exam) =>
         exam.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -72,7 +88,7 @@ const ExamList = () => {
     } else {
       setFilteredExams(exams);
     }
-    setCurrentPage(0); // Reset to first page on search
+    setCurrentPage(0);
   };
 
   const handlePageClick = (event) => {
@@ -83,62 +99,69 @@ const ExamList = () => {
   const currentItems = filteredExams.slice(offset, offset + itemsPerPage);
 
   return (
-    <div className="container">
-      <h2>All Exams</h2>
-      <div className="table-responsive">
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search for courses..."
-            id="searchByName"
-            className="form-control"
-            onChange={searchByName}
+    <div>
+      <Breadcrumb name={"Exams"} numOfImage={2} />
+      <div className="popular-courses default-padding bottom-less without-carousel">
+        <div className="container">
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search for exams..."
+              id="searchByName"
+              className="form-control"
+              onChange={searchByName}
+            />
+            <button
+              onClick={() =>
+                searchByName({
+                  target: { value: document.getElementById("searchByName").value },
+                })
+              }
+            >
+              <i className="fas fa-search" />
+            </button>
+          </div>
+          <div className="row">
+            <div className="popular-courses-items">
+              {currentItems.map((exam, index) => (
+                <div className="col-md-4 col-sm-6 equal-height" key={exam._id}>
+                  <div className="item">
+                    <div className="thumb" style={{ cursor: 'pointer' }}>
+                      <img src={getRandomImage()} alt="Thumb" />
+                      <div className="price">Time: {exam.time}'</div>
+                    </div>
+                    <div className="info">
+                      <h4>
+                        <a style={{ cursor: 'pointer' }}>{exam.name}</a>
+                      </h4>
+                      <div className="bottom-info">
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => handleJoinExam(exam)}
+                        >
+                          Join
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ReactPaginate
+            previousLabel={"previous"}
+            nextLabel={"next"}
+            breakLabel={"..."}
+            breakClassName={"break-me"}
+            pageCount={Math.ceil(filteredExams.length / itemsPerPage)}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination"}
+            activeClassName={"active"}
           />
-          <button onClick={searchByName}>
-            <i className="fas fa-search" />
-          </button>
         </div>
-        <table className="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <th className="text-center">#</th>
-              <th className="text-center">Exam Name</th>
-              <th className="text-center">Time</th>
-              <th className="text-center">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentItems.map((exam, index) => (
-              <tr key={exam._id}>
-                <td className="text-center">{offset + index + 1}</td>
-                <td>{exam.name}</td>
-                <td className="text-center">{exam.time}'</td>
-                <td className="text-center">
-                  <button
-                    className="btn btn-primary"
-                    onClick={() => handleJoinExam(exam)}
-                  >
-                    Join
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={Math.ceil(filteredExams.length / itemsPerPage)}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          activeClassName={"active"}
-        />
       </div>
-
       {showPasswordModal && (
         <div className="modal show" role="dialog" style={{ display: "block" }}>
           <div className="modal-dialog">

@@ -28,7 +28,7 @@ export default function CoursesPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const [account, setAccount] = useState(null);
   const [enrolledCourses, setEnrolledCourses] = useState([]);
-  const itemsPerPage = 10;
+  const itemsPerPage = 6;
 
   useEffect(() => {
     const token = getAuthToken();
