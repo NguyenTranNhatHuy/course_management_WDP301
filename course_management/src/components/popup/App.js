@@ -1,16 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import GPT from './GPT';
 import './App.css';
+import { getAccountById } from '../../services/AccountServices';
+import { toast } from 'react-toastify';
 
 function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
+  const [memberShip, setMemberShip] = useState(false);
+  const getAuthToken = () => {
+    return localStorage.getItem("token");
+  };
 
+  const getAccountId = () => {
+    return localStorage.getItem("accountid");
+  };
+  useEffect(() => {
+    const fetchAccountData = async () => {
+      if (getAuthToken()) {
+        try {
+          const response = await getAccountById(getAccountId(), getAuthToken());
+          const accountData = response.data;
+          setMemberShip(accountData.memberShip || false);
+        } catch (error) {
+          console.error("Error fetching account:", error);
+        } finally {
+        }
+      }
+    };
+
+    fetchAccountData();
+  }, [getAuthToken(), getAccountId()]);
 
   const togglePopup = () => {
-    setIsPopupOpen(!isPopupOpen);
+    if (memberShip) {
+      setIsPopupOpen(!isPopupOpen);
+    } else {
+      toast.error("You must be a member to access this feature.");
+    }
   };
 
   return (

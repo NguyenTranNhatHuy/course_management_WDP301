@@ -230,7 +230,7 @@ export default function DetailCourse() {
                                 {/* End Top Info */}
                                 {/* Start Tab Info */}
                                 <div style={{ marginTop: 330 }} className="tab-info">
-                                    <div style={{marginBottom:'50px'}}>
+                                    <div style={{ marginBottom: '50px' }}>
                                         <button className='btn btn-primary' onClick={handleFirst} disabled={currentQuestionIndex === 0}><FontAwesomeIcon icon={faAnglesLeft} /></button>
                                         <button className='btn btn-primary' onClick={handlePrev} disabled={currentQuestionIndex === 0}><FontAwesomeIcon icon={faAngleLeft} /></button>
                                         <span style={{ margin: '10px' }}> {currentQuestionIndex + 1} </span>

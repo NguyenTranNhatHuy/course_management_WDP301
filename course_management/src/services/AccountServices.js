@@ -60,6 +60,20 @@ export const updateWalletByAccountId = (id, wallet, accessToken) => {
     return axios.put(`${ACCOUNT_API_BASE_URL}${id}`, data, config);
 };
 
+export const updateMembershipStatus = (id, memberShip, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    const data = {
+        memberShip: memberShip
+    };
+
+    return axios.put(`${ACCOUNT_API_BASE_URL}${id}`, data, config);
+};
+
 // Delete an account by ID
 export const deleteAccountById = (id, accessToken) => {
     const config = {

@@ -48,13 +48,13 @@ export default function CoursesPage() {
       getAllCourses(token)
         .then((response) => {
           setCourses(response.data);
-          console.log("data :",response.data);
+          console.log("data :", response.data);
           setOriginalCourses(response.data); // Store original courses
         })
         .catch((error) => {
           console.error("Error fetching courses:", error);
         });
-        
+
     } else {
       console.log("No token found");
     }
