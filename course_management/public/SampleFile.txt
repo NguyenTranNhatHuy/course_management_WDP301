@@ -1,0 +1,13 @@
+Question: Đâu là nơi lạnh nhất thế giới
+A: Nam Mỹ
+B: Bắc cực
+C: Châu Phi
+D: Châu Á
+TrueAnswer: B
+
+Question: 1+1 = ?
+A: 1
+B: 2
+C: 3
+D: 4
+TrueAnswer: B

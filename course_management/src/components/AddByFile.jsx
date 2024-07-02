@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import "../style/addByFile.css";
 import GPT from "./popup/App";
 
 function App() {
   const [fileContent, setFileContent] = useState("");
   const [courseName, setCourseName] = useState("");
   const [showCreate, serShowCreate] = useState(false);
+  const [fileExit, setFileExit] = useState(false);
   const [price, setPrice] = useState("");
   const [questions, setQuestions] = useState([]);
   const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
@@ -16,6 +18,7 @@ function App() {
   const handleFileChange = async (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
+    setFileExit(true);
 
     reader.onload = async (event) => {
       const content = event.target.result;
@@ -28,51 +31,55 @@ function App() {
 
   // Function to parse file content and create questions object
   const parseFileContent = () => {
-    const lines = fileContent.split("\n");
-    const parsedQuestions = [];
-    let currentQuestion = {};
+    if (fileExit) {
+      const lines = fileContent.split("\n");
+      const parsedQuestions = [];
+      let currentQuestion = {};
 
-    lines.forEach((line) => {
-      const trimmedLine = line.trim();
-      if (trimmedLine.startsWith("Question:")) {
-        // Finish current question and push to array
-        if (Object.keys(currentQuestion).length > 0) {
-          parsedQuestions.push(currentQuestion);
+      lines.forEach((line) => {
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith("Question:")) {
+          // Finish current question and push to array
+          if (Object.keys(currentQuestion).length > 0) {
+            parsedQuestions.push(currentQuestion);
+          }
+          // Start new question
+          currentQuestion = {
+            detail: trimmedLine.substring(trimmedLine.indexOf(":") + 1).trim(),
+          };
+        } else if (trimmedLine.startsWith("A:")) {
+          currentQuestion.answerA = trimmedLine
+            .substring(trimmedLine.indexOf(":") + 1)
+            .trim();
+        } else if (trimmedLine.startsWith("B:")) {
+          currentQuestion.answerB = trimmedLine
+            .substring(trimmedLine.indexOf(":") + 1)
+            .trim();
+        } else if (trimmedLine.startsWith("C:")) {
+          currentQuestion.answerC = trimmedLine
+            .substring(trimmedLine.indexOf(":") + 1)
+            .trim();
+        } else if (trimmedLine.startsWith("D:")) {
+          currentQuestion.answerD = trimmedLine
+            .substring(trimmedLine.indexOf(":") + 1)
+            .trim();
+        } else if (trimmedLine.startsWith("TrueAnswer:")) {
+          currentQuestion.trueAnswer = trimmedLine
+            .substring(trimmedLine.indexOf(":") + 1)
+            .trim();
         }
-        // Start new question
-        currentQuestion = {
-          detail: trimmedLine.substring(trimmedLine.indexOf(":") + 1).trim(),
-        };
-      } else if (trimmedLine.startsWith("A:")) {
-        currentQuestion.answerA = trimmedLine
-          .substring(trimmedLine.indexOf(":") + 1)
-          .trim();
-      } else if (trimmedLine.startsWith("B:")) {
-        currentQuestion.answerB = trimmedLine
-          .substring(trimmedLine.indexOf(":") + 1)
-          .trim();
-      } else if (trimmedLine.startsWith("C:")) {
-        currentQuestion.answerC = trimmedLine
-          .substring(trimmedLine.indexOf(":") + 1)
-          .trim();
-      } else if (trimmedLine.startsWith("D:")) {
-        currentQuestion.answerD = trimmedLine
-          .substring(trimmedLine.indexOf(":") + 1)
-          .trim();
-      } else if (trimmedLine.startsWith("TrueAnswer:")) {
-        currentQuestion.trueAnswer = trimmedLine
-          .substring(trimmedLine.indexOf(":") + 1)
-          .trim();
+      });
+
+      // Push the last question into the array
+      if (Object.keys(currentQuestion).length > 0) {
+        parsedQuestions.push(currentQuestion);
       }
-    });
 
-    // Push the last question into the array
-    if (Object.keys(currentQuestion).length > 0) {
-      parsedQuestions.push(currentQuestion);
+      // Call API to add questions
+      addQuestions(parsedQuestions);
+    } else {
+      toast.error("File not exist");
     }
-
-    // Call API to add questions
-    addQuestions(parsedQuestions);
   };
 
   // Function to add questions via API
@@ -141,14 +148,48 @@ function App() {
     }
   };
 
+  const downloadSampleFile = () => {
+    const sampleContent = `Question: What is the capital of France?
+A: Berlin
+B: Madrid
+C: Paris
+D: Rome
+TrueAnswer: C
+
+Question: What is 2 + 2?
+A: 3
+B: 4
+C: 5
+D: 6
+TrueAnswer: B`;
+
+    const blob = new Blob([sampleContent], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "sample.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <div className="App">
-      <h1>File Reader and Parser</h1>
+    <div className="container-create">
+      <h1>Create Course By File</h1>
+      <div className="button-area">
+        <a href="/createcourse">
+          <button className="navigate btn btn-primary">Back</button>
+        </a>
+        <button style={{marginLeft:"1130px"}} className="btn btn-primary" onClick={downloadSampleFile}>
+          Sample file
+        </button>
+      </div>
+
       <div className="form-group">
-        <label htmlFor="courseName">Course Name:</label>
+        <label htmlFor="courseName">Course Name</label>
         <input
           type="text"
-          className="form-control"
+          className="form-control course"
           id="courseName"
           value={courseName}
           onChange={(e) => setCourseName(e.target.value)}
@@ -157,10 +198,10 @@ function App() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="price">Price:</label>
+        <label htmlFor="price">Price</label>
         <input
           type="number"
-          className="form-control"
+          className="form-control course"
           id="price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
@@ -168,9 +209,22 @@ function App() {
         />
       </div>
 
-      <input type="file" accept=".txt" onChange={handleFileChange} />
-      <button onClick={parseFileContent}>Confirm</button>
-      {showCreate && <button onClick={createCollection}>Create Course</button>}
+      <div className="file-group">
+        <input
+          className="input-file"
+          type="file"
+          accept=".txt"
+          onChange={handleFileChange}
+        />
+        <button className="btn btn-primary" onClick={parseFileContent}>
+          Confirm
+        </button>
+      </div>
+      {showCreate && (
+        <button className="btn btn-success create" onClick={createCollection}>
+          Create Course
+        </button>
+      )}
 
       <GPT />
     </div>

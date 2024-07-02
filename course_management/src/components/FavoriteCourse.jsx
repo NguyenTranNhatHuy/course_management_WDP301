@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "./layouts/Breadcrumb";
 import { getAllFavoriteCourses } from "../services/AccountServices";
-import Course from "./Course";
+import Course from "./CourseCard";
+
 
 export default function CoursesPage() {
   function getAuthToken() {

@@ -1,0 +1,58 @@
+.container-create {
+  height: 100%;
+  padding: 50px 100px 100px 100px;
+}
+
+.form-question {
+  margin-top: 50px;
+  padding: 20px 0 20px 50px;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #28609046;
+  box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.444);
+
+  .question-tag {
+    display: flex;
+    border-bottom: 1px solid #002147;
+    width: fit-content;
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin: auto !important;
+    width: 50%;
+    background-color: #ffffff;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+  }
+
+  select {
+    height: 50px;
+  }
+
+  .form-control {
+    width: 100px;
+  }
+
+  .detail {
+    width: 350px;
+  }
+
+  .form-group {
+    margin-left: 50px;
+  }
+}
+
+.upload {
+  margin-left: 1200px;
+}
+
+.create {
+  margin: 20px 0 0 55px;
+}
+
+.course {
+  margin-bottom: 20px;
+  text-align: center;
+}

@@ -29,6 +29,7 @@ function Header() {
     localStorage.removeItem("accountid");
     localStorage.removeItem("admin");
     localStorage.removeItem("deposit");
+    localStorage.removeItem("enrolledCourses");
 
     window.location.href = "/home";
     toast.success("Logout Successfully");

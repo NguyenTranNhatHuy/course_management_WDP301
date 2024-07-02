@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { debounce } from 'lodash';
 import './GPT.css';
 
@@ -114,7 +116,7 @@ function GPT({
 			}}>
 				<div className="hytech-ai-main">
 					<textarea className="text-input" name="message" placeholder="Type your message..." />
-					<button className="send-button" type="submit">{buttonText}</button>
+					<button className="send-button" type="submit"><FontAwesomeIcon icon={faPaperPlane} /></button>
 				</div>
 			</form>
 		</div>
