@@ -1,18 +1,42 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import {
-  getCollectionById,
-  getCollectionByIdRandomNum,
-} from "../services/CourseServices";
+import { getCollectionByIdRandomNum } from "../services/CourseServices";
 import { createEnrollmentById } from "../services/EnrollmentServices";
 import { toast } from "react-toastify";
 import "../style/result.css";
 
+const getAuthToken = () => localStorage.getItem("token");
 
-function getAuthToken() {
-  const token = localStorage.getItem("token");
-  return token;
-}
+const usePreventCheating = () => {
+  useEffect(() => {
+    const preventActions = (e) => {
+      e.preventDefault();
+      toast.error("Action is not allowed on this page.");
+    };
+
+    const preventKeys = (e) => {
+      const forbiddenKeys = ["C", "T", "V", "U", "F12"];
+      if (
+        (e.ctrlKey && forbiddenKeys.includes(e.key.toUpperCase())) ||
+        (e.shiftKey && e.ctrlKey && ["I", "J", "C", "V"].includes(e.key.toUpperCase()))
+      ) {
+        preventActions(e);
+      }
+    };
+
+    document.addEventListener("copy", preventActions);
+    document.addEventListener("contextmenu", preventActions);
+    document.addEventListener("keydown", preventKeys);
+    document.addEventListener("paste", preventActions);
+
+    return () => {
+      document.removeEventListener("copy", preventActions);
+      document.removeEventListener("contextmenu", preventActions);
+      document.removeEventListener("keydown", preventKeys);
+      document.removeEventListener("paste", preventActions);
+    };
+  }, []);
+};
 
 const ExamCheck = () => {
   const { collectionId } = useParams();
@@ -20,103 +44,51 @@ const ExamCheck = () => {
   const navigate = useNavigate();
   const [collection, setCollection] = useState(null);
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const [timeLeft, setTimeLeft] = useState(location.state?.time * 60 || 0);
-  const [numberQuestion, setNumberQuestion] = useState(
-    location.state?.numberOfQuestion || 0
-  );
+  const [numberQuestion, setNumberQuestion] = useState(location.state?.numberOfQuestion || 0);
   const [examId, setExamId] = useState(location.state?.examId);
   const [showResults, setShowResults] = useState(false);
-
-  useEffect(() => {
-    const fetchCollection = async () => {
-      try {
-        const response = await getCollectionByIdRandomNum(
-          collectionId,
-          numberQuestion,
-          getAuthToken()
-        );
-        setCollection(response.data);
-        console.log("question: ", response.data);
-        console.log("numberQuestion: ", numberQuestion);
-        console.log("Exam Id: ", examId);
-      } catch (error) {
-        toast.error("Error fetching collection. Please try again.");
-        console.error("Error fetching collection:", error);
+  const [activeQuestion, setActiveQuestion] = useState(null);
+  const [timeLeft, setTimeLeft] = useState(
+    parseInt(localStorage.getItem("timeLeft")) || (location.state?.time * 60 || 0)
+  );
+  const fetchCollection = useCallback(async () => {
+    try {
+      const response = await getCollectionByIdRandomNum(
+        collectionId,
+        numberQuestion,
+        getAuthToken()
+      );
+      setCollection(response.data);
+      if (response.data.length > 0) {
+        setActiveQuestion(response.data[0]._id);
       }
-    };
-
-    fetchCollection();
+      console.log("question: ", response.data);
+      console.log("numberQuestion: ", numberQuestion);
+      console.log("Exam Id: ", examId);
+    } catch (error) {
+      toast.error("Error fetching collection. Please try again.");
+      console.error("Error fetching collection:", error);
+    }
   }, [collectionId, numberQuestion, examId]);
 
   useEffect(() => {
-    function preventCheating() {
-      // Ngăn chặn sao chép
-      document.addEventListener("copy", function (e) {
-        e.preventDefault();
-        toast.error("Copying is not allowed on this page.");
-      });
+    fetchCollection();
+  }, [fetchCollection]);
 
-      // Ngăn chặn menu chuột phải
-      document.addEventListener("contextmenu", function (e) {
-        e.preventDefault();
-        toast.error("Right-click is not allowed on this page.");
-      });
-
-      // Ngăn chặn mở tab mới bằng cách nhấn Ctrl, Shift hoặc chuột giữa
-      document.addEventListener("click", function (e) {
-        if (
-          e.target.tagName === "A" &&
-          (e.ctrlKey || e.shiftKey || e.metaKey || e.button === 1)
-        ) {
-          e.preventDefault();
-          toast.error("Opening links in new tabs is not allowed.");
-        }
-      });
-
-      document.onkeydown = function (e) {
-        if (
-          e.ctrlKey &&
-          (e.keyCode === 67 ||
-            e.keyCode === 84 ||
-            e.keyCode === 86 ||
-            e.keyCode === 85 ||
-            e.keyCode === 117)
-        ) {
-          toast.error("Not allowed");
-          return false;
-        } else {
-          return true;
-        }
-      };
-
-      // Ngăn chặn F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C,
-      document.addEventListener("keydown", function (e) {
-        if (
-          e.key === "F12" ||
-          (e.ctrlKey &&
-            e.shiftKey &&
-            (e.key === "I" || e.key === "J" || e.key === "C" || e.key === "V"))
-        ) {
-          e.preventDefault();
-          toast.error("Inspect Element and Paste are not allowed.");
-        }
-      });
-
-      // Ngăn chặn dán (paste)
-      document.addEventListener("paste", function (e) {
-        e.preventDefault();
-        toast.error("Pasting is not allowed on this page.");
-      });
-    }
-    // preventCheating();
-  }, []);
+  usePreventCheating();
 
   useEffect(() => {
     if (timeLeft === 0) {
       setShowResults(true);
     }
     if (timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
+      const timer = setTimeout(() => {
+        setTimeLeft((prevTimeLeft) => {
+          const newTimeLeft = prevTimeLeft - 1;
+          localStorage.setItem("timeLeft", newTimeLeft);
+          return newTimeLeft;
+        });
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [timeLeft]);
@@ -149,12 +121,7 @@ const ExamCheck = () => {
     setShowResults(true);
   };
 
-  if (!collection) {
-    return <div>Loading...</div>;
-  }
-
-  // Hàm để ghi nhận điểm cho user
-  const fetchEnrollment = async () => {
+  const fetchEnrollment = useCallback(async () => {
     try {
       const accountid = localStorage.getItem("accountid");
       const correctAnswers = collection.filter(
@@ -168,12 +135,39 @@ const ExamCheck = () => {
         grade,
         getAuthToken()
       );
-      console.log("data enrollemt: ", response.data);
+      console.log("data enrollment: ", response.data);
     } catch (error) {
       toast.error("Error fetching collection. Please try again.");
       console.error("Error fetching collection:", error);
     }
-  };
+  }, [collection, selectedAnswers, examId]);
+
+  useEffect(() => {
+    const handleScrollToQuestion = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const questionIndex = parseInt(hash.split("-")[1]) - 1;
+        const questionId = collection[questionIndex]._id;
+        setActiveQuestion(questionId);
+        const element = document.getElementById(`question-${questionIndex + 1}`);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    };
+
+    handleScrollToQuestion();
+
+    window.addEventListener("hashchange", handleScrollToQuestion);
+    return () => {
+      window.removeEventListener("hashchange", handleScrollToQuestion);
+    };
+  }, [collection]);
+
+
+  if (!collection) {
+    return <div>Loading...</div>;
+  }
 
   if (showResults) {
     const correctAnswers = collection.filter(
@@ -181,6 +175,7 @@ const ExamCheck = () => {
     ).length;
     const totalQuestions = collection.length;
     const grade = (correctAnswers / totalQuestions) * 10;
+    localStorage.removeItem("timeLeft");
     return (
       <div className="container-result">
         <h2>Exam Results</h2>
@@ -208,39 +203,83 @@ const ExamCheck = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Collection: {collection.name}</h2>
-      <h3>Questions</h3>
-      <div>Time Left: {formatTime(timeLeft)}</div>
-      {collection.map((question, index) => (
-        <div key={question._id} className="question">
-          <div className="panel panel-default">
-            <div className="panel-heading">
-              <h4 className="panel-title">Question {index + 1}</h4>
-            </div>
-            <div className="panel-body">
-              <p>
-                <strong>Detail:</strong> {question.detail}
-              </p>
-              <ul className="list-group">
-                {["A", "B", "C", "D"].map((option) => (
-                  <li
-                    key={option}
-                    className={getAnswerClass(question._id, option)}
-                    onClick={() => handleAnswerSelect(question._id, option)}
-                  >
-                    <strong>Answer {option}:</strong>{" "}
-                    {question[`answer${option}`]}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <div className="container-fluid">
+      {/* <h2 style={{ margin: '20px 0' }}>Collection: {collection.name}</h2> */}
+      {/* <div className="row">
+        <div className="col-md-8">
+          <h3>Questions</h3>
+
         </div>
-      ))}
-      <button className="btn btn-primary" onClick={handleSubmit}>
-        Submit
-      </button>
+        <div className="col-md-4">
+        </div>
+      </div> */}
+      <div style={{ marginTop: '50px ' }} className="row ">
+        <div style={{ marginRight: '100px' }} className="col-md-7">
+          {collection.map((question, index) => (
+            <div
+              key={question._id}
+              className={`question ${activeQuestion === question._id ? 'active' : ''}`}
+              id={`question-${index + 1}`}
+            >
+              <div className="panel panel-default">
+                <div className="panel-heading">
+                  <h4 className="panel-title">Question {index + 1}</h4>
+                </div>
+                <div className="panel-body">
+                  <p>
+                    <strong>Detail:</strong> {question.detail}
+                  </p>
+                  <ul className="list-group">
+                    {["A", "B", "C", "D"].map((option) => (
+                      <li
+                        key={option}
+                        className={getAnswerClass(question._id, option)}
+                        onClick={() => {
+                          handleAnswerSelect(question._id, option);
+                          setActiveQuestion(question._id);
+                        }}
+                      >
+                        <strong>Answer {option}:</strong>{" "}
+                        {question[`answer${option}`]}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+          <button style={{ marginBottom: '300px' }} className="btn btn-primary" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+        <div style={{ border: '1px solid #ccc', borderRadius: '3px', boxShadow: ' 5px 10px #888888', zIndex: '1000000', position: 'fixed', right: '100px' }} className="col-md-3">
+          <span style={{ marginTop: '10px' }}>Time Left: {formatTime(timeLeft)}</span>
+
+          <ul style={{ marginBottom: '20px' }} className="nav nav-pills">
+            {collection.map((question, index) => (
+              <li
+                key={question._id}
+                className={`btn btn-secondary ${selectedAnswers[question._id] ? 'active' : ''}`}
+              >
+                <a
+                  style={{ border: '1px solid #ccc' }}
+                  href={`#question-${index + 1}`}
+                  aria-expanded="false"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.getElementById(`question-${index + 1}`);
+                    if (element) {
+                      element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  {index + 1}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
