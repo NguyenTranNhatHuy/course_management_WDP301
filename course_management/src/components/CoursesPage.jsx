@@ -176,34 +176,40 @@ export default function CoursesPage() {
           </div>
           <div className="row">
             <div className="popular-courses-items">
-              {currentItems.map((course) => (
-                <Course
-                  id={course._id}
-                  key={course._id}
-                  price={course.price}
-                  name={course.name}
-                  description={course.description}
-                  enrolled={enrolledCourses.includes(course._id)}
-                  onLearnNowClick={() => handleCollectionClick(course)}
-                  author={course.userId ? course.userId.username : "Unknown"}
-                  randomCourseImage={course.randomCourseImage}
-                  randomAuthorImage={course.randomAuthorImage}
-                />
-              ))}
+              {currentItems.length > 0 ? (
+                currentItems.map((course) => (
+                  <Course
+                    id={course._id}
+                    key={course._id}
+                    price={course.price}
+                    name={course.name}
+                    description={course.description}
+                    enrolled={enrolledCourses.includes(course._id)}
+                    onLearnNowClick={() => handleCollectionClick(course)}
+                    author={course.userId ? course.userId.username : "Unknown"}
+                    randomCourseImage={course.randomCourseImage}
+                    randomAuthorImage={course.randomAuthorImage}
+                  />
+                ))
+              ) : (
+                <h3 className="text-danger">No courses found</h3>
+              )}
             </div>
           </div>
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={Math.ceil(courses.length / itemsPerPage)}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
+          {courses.length > 0 && (
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(courses.length / itemsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+            />
+          )}
         </div>
       </div>
       <GPT />

@@ -132,43 +132,49 @@ const ExamList = () => {
           </div>
           <div className="row">
             <div className="popular-courses-items">
-              {currentItems.map((exam) => (
-                <div className="col-md-4 col-sm-6 equal-height" key={exam._id}>
-                  <div className="item">
-                    <div className="thumb" style={{ cursor: 'pointer' }}>
-                      <img src={examImages[exam._id]} alt="Thumb" />
-                      <div className="price">Time: {exam.time}'</div>
-                    </div>
-                    <div className="info">
-                      <h4>
-                        <a style={{ cursor: 'pointer' }}>{exam.name}</a>
-                      </h4>
-                      <div className="bottom-info">
-                        <button
-                          className="btn btn-primary"
-                          onClick={() => handleJoinExam(exam)}
-                        >
-                          Join
-                        </button>
+              {currentItems.length > 0 ? (
+                currentItems.map((exam) => (
+                  <div className="col-md-4 col-sm-6 equal-height" key={exam._id}>
+                    <div className="item">
+                      <div className="thumb" style={{ cursor: 'pointer' }}>
+                        <img src={examImages[exam._id]} alt="Thumb" />
+                        <div className="price">Time: {exam.time}'</div>
+                      </div>
+                      <div className="info">
+                        <h4>
+                          <a style={{ cursor: 'pointer' }}>{exam.name}</a>
+                        </h4>
+                        <div className="bottom-info">
+                          <button
+                            className="btn btn-primary"
+                            onClick={() => handleJoinExam(exam)}
+                          >
+                            Join
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <h3 className="text-danger">No exam found...</h3>
+              )}
             </div>
           </div>
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={Math.ceil(filteredExams.length / itemsPerPage)}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            activeClassName={"active"}
-          />
+          {filteredExams.length > 0 && (
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={Math.ceil(filteredExams.length / itemsPerPage)}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+            />
+          )}
         </div>
       </div>
       {showPasswordModal && (
