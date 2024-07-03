@@ -51,6 +51,7 @@ export default function CoursesPage() {
                   price={course.price}
                   name={course.name}
                   description={course.description}
+                  author={course.userId ? course.userId.username : "Unknown"}
                 />
               ))}
             </div>

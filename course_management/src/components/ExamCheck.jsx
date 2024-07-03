@@ -253,7 +253,7 @@ const ExamCheck = () => {
             Submit
           </button>
         </div>
-        <div className="col-md-3" style={{ border: '1px solid #ccc', borderRadius: '3px', boxShadow: '5px 10px #888888', zIndex: '1000000', position: 'fixed', right: '100px', top: '250px', padding: '10px', background: '#fff' }}>
+        <div className="col-md-3" style={{maxHeight:"500px", border: '1px solid #ccc', borderRadius: '3px', boxShadow: '5px 10px #888888', zIndex: '500', position: 'fixed', right: '100px', top: '200px', padding: '10px', background: '#fff', overflowY:"scroll"}}>
           <span style={{ display: 'block', marginBottom: '10px' }}>Time Left: {formatTime(timeLeft)}</span>
           <ul className="nav nav-pills flex-column">
             {collection.map((question, index) => (

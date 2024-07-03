@@ -58,7 +58,6 @@ export default function MyCoursesPage() {
                   name={course.name}
                   description={course.description}
                   author={course.userId ? course.userId.username : "Unknown"}
-
                 />
               ))}
             </div>
