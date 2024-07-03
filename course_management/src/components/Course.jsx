@@ -1,51 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-
-const courseImages = [
-  "assets/img/courses/1.jpg",
-  "assets/img/courses/2.jpg",
-  "assets/img/courses/3.jpg",
-  "assets/img/courses/4.jpg",
-  "assets/img/courses/5.jpg",
-  "assets/img/courses/6.jpg",
-];
-
-
-const authorImages = [
-  "assets/img/team/1.jpg",
-  "assets/img/team/2.jpg",
-  "assets/img/team/3.jpg",
-  "assets/img/team/4.jpg",
-  "assets/img/team/5.jpg",
-  "assets/img/team/6.jpg",
-  "assets/img/team/7.jpg",
-  "assets/img/team/8.jpg",
-  "assets/img/team/9.jpg",
-];
-
-
-const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
-
-
-const Course = ({ id, price, name, description, enrolled, onLearnNowClick, author }) => {
+const Course = ({
+  id,
+  price,
+  name,
+  description,
+  enrolled,
+  onLearnNowClick,
+  author,
+  randomCourseImage,
+  randomAuthorImage,
+}) => {
   const navigate = useNavigate();
-
-
-  const randomCourseImage = courseImages[getRandomIndex(courseImages)];
-  const randomAuthorImage = authorImages[getRandomIndex(authorImages)];
-
 
   const handleNavigate = () => {
     navigate(`/course/${id}`);
   };
 
-
   const handleLearnNowClick = (event) => {
     event.stopPropagation();
     onLearnNowClick();
   };
-
 
   return (
     <div className="col-md-4 col-sm-6 equal-height">
@@ -96,10 +72,4 @@ const Course = ({ id, price, name, description, enrolled, onLearnNowClick, autho
   );
 };
 
-
 export default Course;
-
-
-
-
-
