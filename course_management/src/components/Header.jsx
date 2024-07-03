@@ -47,7 +47,7 @@ function Header() {
     getAccountById(accountid, authToken)
       .then((response) => {
         setUser(response.data);
-        setIsAdmin(response.data.admin || false);
+        setIsAdmin(response.data.admin);
         console.log(admin);
         setWallet(response.data.wallet || 0);
         console.log("wallet = ", response);

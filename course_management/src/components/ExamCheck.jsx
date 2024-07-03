@@ -6,6 +6,8 @@ import {
 } from "../services/CourseServices";
 import { createEnrollmentById } from "../services/EnrollmentServices";
 import { toast } from "react-toastify";
+import "../style/result.css";
+
 
 function getAuthToken() {
   const token = localStorage.getItem("token");
@@ -180,15 +182,17 @@ const ExamCheck = () => {
     const totalQuestions = collection.length;
     const grade = (correctAnswers / totalQuestions) * 10;
     return (
-      <div className="container">
+      <div className="container-result">
         <h2>Exam Results</h2>
-        <p>
-          You answered {correctAnswers} out of {totalQuestions} questions
-          correctly.
-        </p>
-        <p>Your grade is: {grade.toFixed(1)}</p>
+        <div className="content">
+          <p>
+            You answered {correctAnswers} out of {totalQuestions} questions
+            correctly.
+          </p>
+          <p>Your grade is: {grade.toFixed(1)}</p>
+        </div>
         <button
-          className="btn btn-primary"
+          className="btn btn-primary go-back"
           onClick={() => navigate("/examList")}
         >
           Back to Exam List

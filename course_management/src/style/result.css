@@ -1,0 +1,16 @@
+
+.container-result{
+    margin: 50px 200px;
+    padding-top: 100px;
+    height: 50vh;
+    font-size: large;
+    background-color: #00214740;
+    color: black;
+    border-radius: 20px;
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.444);
+}
+
+.go-back{
+    border-radius: 0;
+    margin-top: 20px;
+}

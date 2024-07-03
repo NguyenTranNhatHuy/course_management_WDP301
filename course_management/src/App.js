@@ -65,7 +65,7 @@ function App() {
               <Route path="/examlist" element={<ExamList />} />
               <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
               <Route path="/testcheat" element={<Test />} />
-              <Route path="/course/:id" element={<DetailCourse />} />
+              <Route path="/course/:id" element={<DetailCourse />} />  
             </Routes>
             <Footer />
           </BrowserRouter>

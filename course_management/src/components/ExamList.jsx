@@ -158,8 +158,8 @@ const ExamList = () => {
             </div>
           </div>
           <ReactPaginate
-            previousLabel={"previous"}
-            nextLabel={"next"}
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
             breakLabel={"..."}
             breakClassName={"break-me"}
             pageCount={Math.ceil(filteredExams.length / itemsPerPage)}
