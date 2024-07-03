@@ -283,18 +283,21 @@ function AccountManage() {
                                     <div className="panel-heading">
                                         <i className="fa fa-table" /> Account Manage
                                     </div>
-                                    <div style={{ width: '200px', margin: '20px' }} className="input-group">
+                                    <span style={{ width: '250px', margin: '20px' }} className="input-group">
                                         <input
                                             type="text"
                                             className="form-control"
                                             placeholder="Search by username"
                                             value={searchQuery}
                                             onChange={handleSearchChange}
+                                            style={{ height: '38px' }} // Thiết lập chiều cao cho input
                                         />
-                                        <span className="input-group-addon">
+                                        <div className="input-group-text" style={{ backgroundColor: '#ccc', padding: '12px', borderRadius: '0px 15px 15px 0px' }}>
                                             <FontAwesomeIcon icon={faMagnifyingGlass} />
-                                        </span>
-                                    </div>
+                                        </div>
+                                    </span>
+
+
 
                                     <div className="panel-body">
                                         <table className="table table-striped table-bordered" style={{ width: "100%" }}>

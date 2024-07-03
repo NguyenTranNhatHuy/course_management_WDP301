@@ -253,7 +253,7 @@ const ExamCheck = () => {
             Submit
           </button>
         </div>
-        <div className="col-md-3" style={{ border: '1px solid #ccc', borderRadius: '3px', boxShadow: '5px 10px #888888', zIndex: '1000000', position: 'fixed', right: '100px', top: '250px', padding: '10px', background: '#fff' }}>
+        <div className="col-md-3" style={{ border: '1px solid #ccc', borderRadius: '3px', boxShadow: '5px 10px #888888', zIndex: '100', position: 'fixed', right: '100px', top: '250px', padding: '10px', background: '#fff' }}>
           <span style={{ display: 'block', marginBottom: '10px' }}>Time Left: {formatTime(timeLeft)}</span>
           <ul className="nav nav-pills flex-column">
             {collection.map((question, index) => (
@@ -263,7 +263,7 @@ const ExamCheck = () => {
                 style={{ marginBottom: '5px' }}
               >
                 <a
-                  style={{ border: '1px solid #ccc', display: 'block', width:'50px' }}
+                  style={{ border: '1px solid #ccc', display: 'block', width: '50px' }}
                   href={`#question-${index + 1}`}
                   aria-expanded="false"
                   onClick={(e) => {
