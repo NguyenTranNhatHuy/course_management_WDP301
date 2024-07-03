@@ -12,6 +12,28 @@ import ReactPaginate from "react-paginate";
 import GPT from "./popup/App";
 import "../style/coursePage.css";
 
+const courseImages = [
+  "assets/img/courses/1.jpg",
+  "assets/img/courses/2.jpg",
+  "assets/img/courses/3.jpg",
+  "assets/img/courses/4.jpg",
+  "assets/img/courses/5.jpg",
+  "assets/img/courses/6.jpg",
+];
+
+const authorImages = [
+  "assets/img/team/1.jpg",
+  "assets/img/team/2.jpg",
+  "assets/img/team/3.jpg",
+  "assets/img/team/4.jpg",
+  "assets/img/team/5.jpg",
+  "assets/img/team/6.jpg",
+  "assets/img/team/7.jpg",
+  "assets/img/team/8.jpg",
+  "assets/img/team/9.jpg",
+];
+
+const getRandomIndex = (array) => Math.floor(Math.random() * array.length);
 
 export default function CoursesPage() {
   function getAuthToken() {
@@ -19,7 +41,6 @@ export default function CoursesPage() {
     return token;
   }
   const navigate = useNavigate();
-
 
   function getAccountId() {
     const accountId = localStorage.getItem("accountid");
@@ -32,12 +53,10 @@ export default function CoursesPage() {
   const [enrolledCourses, setEnrolledCourses] = useState([]);
   const itemsPerPage = 6;
 
-
   useEffect(() => {
     const token = getAuthToken();
     if (token) {
       console.log("Have token:", token);
-
 
       const accountId = getAccountId();
       if (accountId) {
@@ -51,11 +70,15 @@ export default function CoursesPage() {
           });
       }
 
-
       getAllCourses(token)
         .then((response) => {
-          setCourses(response.data);
-          setOriginalCourses(response.data);
+          const coursesWithImages = response.data.map((course) => ({
+            ...course,
+            randomCourseImage: courseImages[getRandomIndex(courseImages)],
+            randomAuthorImage: authorImages[getRandomIndex(authorImages)],
+          }));
+          setCourses(coursesWithImages);
+          setOriginalCourses(coursesWithImages);
           console.log("data :", response.data);
         })
         .catch((error) => {
@@ -65,12 +88,10 @@ export default function CoursesPage() {
       console.log("No token found");
     }
 
-
     const storedEnrolledCourses =
       JSON.parse(localStorage.getItem("enrolledCourses")) || [];
     setEnrolledCourses(storedEnrolledCourses);
   }, []);
-
 
   const handleCollectionClick = (course) => {
     if (enrolledCourses.includes(course._id)) {
@@ -91,7 +112,6 @@ export default function CoursesPage() {
               setAccount(response.data);
               console.log("Wallet updated successfully");
 
-
               const updatedEnrolledCourses = [...enrolledCourses, course._id];
               setEnrolledCourses(updatedEnrolledCourses);
               localStorage.setItem(
@@ -111,7 +131,6 @@ export default function CoursesPage() {
     }
   };
 
-
   const searchByName = (event) => {
     const searchByName = event.target.value.trim();
     if (searchByName) {
@@ -125,15 +144,12 @@ export default function CoursesPage() {
     setCurrentPage(0);
   };
 
-
   const handlePageClick = (event) => {
     setCurrentPage(event.selected);
   };
 
-
   const offset = currentPage * itemsPerPage;
   const currentItems = courses.slice(offset, offset + itemsPerPage);
-
 
   return (
     <div>
@@ -170,6 +186,8 @@ export default function CoursesPage() {
                   enrolled={enrolledCourses.includes(course._id)}
                   onLearnNowClick={() => handleCollectionClick(course)}
                   author={course.userId ? course.userId.username : "Unknown"}
+                  randomCourseImage={course.randomCourseImage}
+                  randomAuthorImage={course.randomAuthorImage}
                 />
               ))}
             </div>
@@ -192,8 +210,3 @@ export default function CoursesPage() {
     </div>
   );
 }
-
-
-
-
-
