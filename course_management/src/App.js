@@ -31,6 +31,7 @@ import ExamList from './components/ExamList';
 import ExamCheck from './components/ExamCheck';
 import Test from './components/admin/Test';
 import DetailCourse from './components/DetailCourse';
+import MyEnrollment from './components/MyEnrollment'
 
 function App() {
   return (
@@ -65,7 +66,8 @@ function App() {
               <Route path="/examlist" element={<ExamList />} />
               <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
               <Route path="/testcheat" element={<Test />} />
-              <Route path="/course/:id" element={<DetailCourse />} />  
+              <Route path="/course/:id" element={<DetailCourse />} />
+              <Route path="/myEnrollment" element={<MyEnrollment />} />              
             </Routes>
             <Footer />
           </BrowserRouter>

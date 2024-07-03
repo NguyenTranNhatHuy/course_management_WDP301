@@ -35,3 +35,13 @@ export const createEnrollmentById = (id, examId, grade, accessToken) => {
     }
     return axios.post(ENROLLMENT_API_BASE_URL, body, config);
 };
+
+export const getEnrollmentByUserId = (id, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    return axios.get(ENROLLMENT_API_BASE_URL +"/user/"+ id, config);
+};

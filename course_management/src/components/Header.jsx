@@ -395,6 +395,9 @@ function Header() {
                         <li>
                           <a href="/deposit">Deposit</a>
                         </li>
+                        <li>
+                          <a href="/myEnrollment">My Enrollment</a>
+                        </li>
                       </>
                     )}
                     {isAdmin && (
