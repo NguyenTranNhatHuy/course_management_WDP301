@@ -46,9 +46,9 @@ export default function DepositPage() {
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Course Name</th>
                 <th scope="col">Exam Name</th>
                 <th scope="col">Number Of Questions</th>
+                <th scope="col">Score</th>
                 <th scope="col">Time</th>
               </tr>
             </thead>
@@ -58,8 +58,8 @@ export default function DepositPage() {
                   <tr key={index}>
                     <td scope="row">{index + 1}</td>
                     <td>{enroll.examId.name}</td>
-                    <td>{enroll.examId.name}</td>
                     <td>{enroll.examId.numberOfQuestion}</td>
+                    <td>{enroll.score}</td>
                     <td>{enroll.examId.time}</td>
                   </tr>
                 ))
