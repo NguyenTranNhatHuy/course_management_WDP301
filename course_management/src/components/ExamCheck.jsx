@@ -75,7 +75,7 @@ const ExamCheck = () => {
     fetchCollection();
   }, [fetchCollection]);
 
-  usePreventCheating();
+  // usePreventCheating();
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -226,12 +226,13 @@ const ExamCheck = () => {
                   <h4 className="panel-title">Question {index + 1}</h4>
                 </div>
                 <div className="panel-body">
-                  <p>
+                  <p style={{ textAlign: 'justify' }}>
                     <strong>Detail:</strong> {question.detail}
                   </p>
                   <ul className="list-group">
                     {["A", "B", "C", "D"].map((option) => (
                       <li
+                        style={{ textAlign: 'justify' }}
                         key={option}
                         className={getAnswerClass(question._id, option)}
                         onClick={() => {
@@ -252,17 +253,17 @@ const ExamCheck = () => {
             Submit
           </button>
         </div>
-        <div style={{ border: '1px solid #ccc', borderRadius: '3px', boxShadow: ' 5px 10px #888888', zIndex: '1000000', position: 'fixed', right: '100px' }} className="col-md-3">
-          <span style={{ marginTop: '10px' }}>Time Left: {formatTime(timeLeft)}</span>
-
-          <ul style={{ marginBottom: '20px' }} className="nav nav-pills">
+        <div className="col-md-3" style={{ border: '1px solid #ccc', borderRadius: '3px', boxShadow: '5px 10px #888888', zIndex: '1000000', position: 'fixed', right: '100px', top: '250px', padding: '10px', background: '#fff' }}>
+          <span style={{ display: 'block', marginBottom: '10px' }}>Time Left: {formatTime(timeLeft)}</span>
+          <ul className="nav nav-pills flex-column">
             {collection.map((question, index) => (
               <li
                 key={question._id}
                 className={`btn btn-secondary ${selectedAnswers[question._id] ? 'active' : ''}`}
+                style={{ marginBottom: '5px' }}
               >
                 <a
-                  style={{ border: '1px solid #ccc' }}
+                  style={{ border: '1px solid #ccc', display: 'block', width:'50px' }}
                   href={`#question-${index + 1}`}
                   aria-expanded="false"
                   onClick={(e) => {
@@ -279,6 +280,7 @@ const ExamCheck = () => {
             ))}
           </ul>
         </div>
+
       </div>
     </div>
   );
