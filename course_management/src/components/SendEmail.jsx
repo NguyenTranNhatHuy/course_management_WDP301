@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import emailjs from "emailjs-com";
+import { getAccountByUsername, updatePassword } from "../services/AccountServices";
 import { toast } from "react-toastify";
 import "../style/sendEmail.css";
 
@@ -9,6 +10,8 @@ function EmailApp() {
   const [password, setPassword] = useState("");
   const [showCode, setShowCode] = useState(false);
   const [generatedCode, setGeneratedCode] = useState("");
+  const [id, setId] = useState("");
+  const [username, setUserName] = useState("");
 
   const generateCode = () => {
     return Math.floor(100000 + Math.random() * 900000).toString();
@@ -19,42 +22,64 @@ function EmailApp() {
     const message = generateCode();
     setGeneratedCode(message);
 
-    emailjs
-      .send(
-        "service_tt39l4v",
-        "template_7hvwryp",
-        {
-          to_email: email,
-          message: message,
-        },
-        "VDVXnhZHDJKUJxZ3y"
-      )
-      .then((result) => {
-        console.log("Email sent successfully:", result.text);
-        toast.success("Email sent successfully!");
-        setEmail("");
-        setShowCode(true);
+    getAccountByUsername(username)
+      .then((response) => {
+        console.log("Email: " + response.data.email);
+        console.log("UserId: " + response.data.userId);
+
+        setId(response.data.userId)
+        // setEmail(response.data.email);
+        emailjs
+          .send(
+            "service_tt39l4v",
+            "template_7hvwryp",
+            {
+              to_email: response.data.email,
+              message: message,
+            },
+            "VDVXnhZHDJKUJxZ3y"
+          )
+          .then((result) => {
+            console.log("Email sent successfully:", result.text);
+            toast.success("Email sent successfully!");
+            setEmail("");
+            setShowCode(true);
+          })
+          .catch((error) => {
+            console.error("Email sending failed:", error);
+            setShowCode(false);
+            toast.error("Please check your email");
+          });
       })
       .catch((error) => {
-        console.error("Email sending failed:", error);
-        setShowCode(false);
-        toast.error("Please check your email");
+        console.error("Error fetching account:", error);
+        toast.error("Username is not exits");
       });
   };
 
   const checkCode = (e) => {
     e.preventDefault();
-
+  
     if (generatedCode === code) {
       toast.success("Code verified successfully!");
-      // xử lý gọi api update password
-
-
-      // window.location.href = "/login";
+      
+      // Gọi API để cập nhật mật khẩu
+      updatePassword(id, password)
+        .then((response) => {
+          toast.success("Password updated successfully!");
+          // Điều hướng tới trang đăng nhập hoặc xử lý tiếp theo nếu cần
+          console.log("response:", response);
+          // window.location.href = "/login";
+        })
+        .catch((error) => {
+          console.error("Error updating password:", error);
+          toast.error("Failed to update password. Please try again.");
+        });
     } else {
-      toast.error("Invalid code. Please check your email for the code");
+      toast.error("Invalid code. Please check your email for the code.");
     }
   };
+  
 
   return (
     <div className="container-email">
@@ -62,12 +87,12 @@ function EmailApp() {
       {!showCode && (
         <form className="email-form" onSubmit={sendEmail}>
           <div>
-            <label>Email:</label>
+            <label>Username:</label>
             <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="username"
+              name="username"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
               required
             />
           </div>

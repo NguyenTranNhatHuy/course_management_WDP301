@@ -120,3 +120,18 @@ export const addMoney = (id, amount, accessToken) => {
 
     return axios.post(ACCOUNT_API_BASE_URL + id + "/add-money", amount, config);
 };
+
+// Get an account by username
+export const getAccountByUsername = (username) => {
+    return axios.get(ACCOUNT_API_BASE_URL + "getName/" + username);
+};
+
+// Update an password by userId
+export const updatePassword = (id, newPassword) => {
+
+    const data = {
+        newPassword: newPassword
+    };
+
+    return axios.put(ACCOUNT_API_BASE_URL + "update-password/" + id, data);
+};
