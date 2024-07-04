@@ -101,7 +101,7 @@ function Login() {
                                                 <input type="checkbox" id="login-remember" />
                                                 Remember Me
                                             </label>
-                                            <a title="Lost Password" href="#" className="lost-pass-link">
+                                            <a title="Lost Password" href="/sendEmail" className="lost-pass-link">
                                                 Lost your password?
                                             </a>
                                         </div>

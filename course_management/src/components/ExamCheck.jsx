@@ -263,7 +263,7 @@ const ExamCheck = () => {
                 style={{ marginBottom: '5px' }}
               >
                 <a
-                  style={{ border: '1px solid #ccc', display: 'block', width:'50px' }}
+                  style={{ border: '1px solid #ccc', display: 'block', width: '50px' }}
                   href={`#question-${index + 1}`}
                   aria-expanded="false"
                   onClick={(e) => {

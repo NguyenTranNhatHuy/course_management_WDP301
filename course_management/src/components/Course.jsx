@@ -50,7 +50,7 @@ const Course = ({
             </div>
           </div>
           <h4>
-            <a onClick={handleNavigate} style={{ cursor: 'pointer' }}>{name}</a>
+            <a style={{ cursor: 'pointer' }}>{name}</a>
           </h4>
           <p>{description}</p>
           <div className="bottom-info">

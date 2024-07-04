@@ -47,3 +47,18 @@ export const deleteCollectionById = (id, accessToken) => {
 
     return axios.delete(COLLECTION_API_BASE_URL + id, config);
 };
+
+// Update an collection by ID
+export const updateCollectionNullId = (id, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+
+    const data = {
+        "userId": null
+    };
+
+    return axios.put(COLLECTION_API_BASE_URL + "/update-userId/" + id, data, config);
+};

@@ -367,7 +367,7 @@ function QuestionManage() {
                                     <div className="panel-heading">
                                         <i className="fa fa-table" /> Question Manage
                                     </div>
-                                    <div style={{ width: '200px', margin: '20px' }} className="input-group">
+                                    <div style={{ width: '250px', margin: '20px' }} className="input-group">
                                         <input
                                             type="text"
                                             className="form-control"
@@ -375,9 +375,9 @@ function QuestionManage() {
                                             value={searchQuery}
                                             onChange={handleSearchChange}
                                         />
-                                        <span className="input-group-addon">
+                                        <div className="input-group-text" style={{ backgroundColor: '#ccc', padding: '12px', borderRadius: '0px 15px 15px 0px' }}>
                                             <FontAwesomeIcon icon={faMagnifyingGlass} />
-                                        </span>
+                                        </div>
                                     </div>
 
                                     <div className="panel-body">

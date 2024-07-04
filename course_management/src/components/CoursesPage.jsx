@@ -72,11 +72,19 @@ export default function CoursesPage() {
 
       getAllCourses(token)
         .then((response) => {
-          const coursesWithImages = response.data.map((course) => ({
+          // Lọc ra các khóa học có userId không phải là null
+          const filteredCourses = response.data.filter(
+            (course) => course.userId !== null
+          );
+
+          // Gán các hình ảnh ngẫu nhiên cho các khóa học đã lọc
+          const coursesWithImages = filteredCourses.map((course) => ({
             ...course,
             randomCourseImage: courseImages[getRandomIndex(courseImages)],
             randomAuthorImage: authorImages[getRandomIndex(authorImages)],
           }));
+
+          // Cập nhật state với các khóa học đã gán hình ảnh
           setCourses(coursesWithImages);
           setOriginalCourses(coursesWithImages);
           console.log("data :", response.data);
@@ -167,7 +175,9 @@ export default function CoursesPage() {
             <button
               onClick={() =>
                 searchByName({
-                  target: { value: document.getElementById("searchByName").value },
+                  target: {
+                    value: document.getElementById("searchByName").value,
+                  },
                 })
               }
             >
