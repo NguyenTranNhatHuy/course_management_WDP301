@@ -32,7 +32,8 @@ import ExamCheck from './components/ExamCheck';
 import Test from './components/admin/Test';
 import DetailCourse from './components/DetailCourse';
 import MyEnrollment from './components/MyEnrollment'
-import SendEmail  from './components/SendEmail'
+import SendEmail from './components/SendEmail'
+import MyExams from './components/MyExams';
 
 function App() {
   return (
@@ -68,9 +69,9 @@ function App() {
               <Route path="/exam-check/:collectionId" element={<ExamCheck />} />
               <Route path="/testcheat" element={<Test />} />
               <Route path="/course/:id" element={<DetailCourse />} />
-              <Route path="/myEnrollment" element={<MyEnrollment />} />     
-              <Route path="/sendEmail" element={<SendEmail />} />     
-
+              <Route path="/myEnrollment" element={<MyEnrollment />} />
+              <Route path="/sendEmail" element={<SendEmail />} />
+              <Route path="/myExam" element={<MyExams />} />
             </Routes>
             <Footer />
           </BrowserRouter>

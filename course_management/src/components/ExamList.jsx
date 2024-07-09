@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getAllExams } from "../services/ExamServices";
+import { getAllExams, updateExam } from "../services/ExamServices";
 import { toast } from "react-toastify";
 import ReactPaginate from "react-paginate";
 import GPT from "./popup/App";
@@ -44,14 +44,17 @@ const ExamList = () => {
         const response = await getAllExams(getAuthToken());
         const fetchedExams = response.data;
 
+        // Filter exams with userId not equal to null
+        const validExams = fetchedExams.filter(exam => exam.userId !== null);
+
         // Assign a random image to each exam
-        const imagesMap = fetchedExams.reduce((acc, exam) => {
+        const imagesMap = validExams.reduce((acc, exam) => {
           acc[exam._id] = getRandomImage();
           return acc;
         }, {});
-        
-        setExams(fetchedExams);
-        setFilteredExams(fetchedExams);
+
+        setExams(validExams);
+        setFilteredExams(validExams);
         setExamImages(imagesMap);
       } catch (error) {
         console.error("Error fetching exams:", error);
@@ -130,7 +133,7 @@ const ExamList = () => {
               <i className="fas fa-search" />
             </button>
           </div>
-          <div className="row">
+          <div style={{ marginTop: '100px' }} className="row">
             <div className="popular-courses-items">
               {currentItems.length > 0 ? (
                 currentItems.map((exam) => (

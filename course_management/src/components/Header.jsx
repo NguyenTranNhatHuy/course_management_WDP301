@@ -171,7 +171,23 @@ function Header() {
                   </ul>
                 </li>
                 <li className="dropdown">
-                  <a href="/examList">Exams</a>
+                  <a
+                    href="#"
+                    className="dropdown-toggle active"
+                    data-toggle="dropdown"
+                  >
+                    Exams
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a href="/examList">All exams</a>
+                    </li>
+                    {user && (
+                      <li>
+                        <a href="/myExam">My exams</a>
+                      </li>
+                    )}
+                  </ul>
                 </li>
                 <li className="dropdown">
                   {user && (

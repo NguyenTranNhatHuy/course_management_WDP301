@@ -28,4 +28,20 @@ export const getAllExams = (accessToken) => {
 
     return axios.get(EXAM_API_BASE_URL, config);
 };
-  
+
+export const updateExam = async (examId, data, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+        },
+    };
+
+    try {
+        const response = await axios.put(`${EXAM_API_BASE_URL}${examId}`, data, config);
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};
+
