@@ -51,6 +51,7 @@ const ExamCheck = () => {
   const [timeLeft, setTimeLeft] = useState(
     parseInt(localStorage.getItem("timeLeft")) || (location.state?.time * 60 || 0)
   );
+
   const fetchCollection = useCallback(async () => {
     try {
       const response = await getCollectionByIdRandomNum(
@@ -74,8 +75,6 @@ const ExamCheck = () => {
   useEffect(() => {
     fetchCollection();
   }, [fetchCollection]);
-
-  // usePreventCheating();
 
   useEffect(() => {
     if (timeLeft === 0) {
@@ -176,6 +175,7 @@ const ExamCheck = () => {
     const totalQuestions = collection.length;
     const grade = (correctAnswers / totalQuestions) * 10;
     localStorage.removeItem("timeLeft");
+
     return (
       <div className="container-result">
         <h2>Exam Results</h2>
@@ -185,6 +185,15 @@ const ExamCheck = () => {
             correctly.
           </p>
           <p>Your grade is: {grade.toFixed(1)}</p>
+          <ul>
+            {collection.map((question, index) => (
+              <li key={question._id}>
+                <p><strong>Question {index + 1}:</strong> {question.detail}</p>
+                <p><strong>Your Answer:</strong> {selectedAnswers[question._id]}</p>
+                <p><strong>Correct Answer:</strong> {question.trueAnswer}</p>
+              </li>
+            ))}
+          </ul>
         </div>
         <button
           className="btn btn-primary go-back"
@@ -204,15 +213,6 @@ const ExamCheck = () => {
 
   return (
     <div className="container-fluid">
-      {/* <h2 style={{ margin: '20px 0' }}>Collection: {collection.name}</h2> */}
-      {/* <div className="row">
-        <div className="col-md-8">
-          <h3>Questions</h3>
-
-        </div>
-        <div className="col-md-4">
-        </div>
-      </div> */}
       <div style={{ marginTop: '50px ' }} className="row ">
         <div style={{ marginRight: '100px' }} className="col-md-7">
           {collection.map((question, index) => (

@@ -29,7 +29,7 @@ export const createCourse = async (course, accessToken) => {
 
 export default function CreateCourse() {
   const [courseName, setCourseName] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState(100);
   const [showCreate, setShowCreate] = useState(false);
   const [questions, setQuestions] = useState([
     {
@@ -134,7 +134,7 @@ export default function CreateCourse() {
             onChange={(e) => setCourseName(e.target.value)}
             required
           />
-          <label htmlFor="price">Price</label>
+          {/* <label htmlFor="price">Price</label>
           <input
             type="number"
             className="form-control course"
@@ -142,7 +142,7 @@ export default function CreateCourse() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
             required
-          />
+          /> */}
         </div>
 
         <div className="form-question">

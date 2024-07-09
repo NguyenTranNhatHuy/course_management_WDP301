@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Breadcrumb from "./layouts/Breadcrumb";
 import { getAllFavoriteCourses } from "../services/AccountServices";
-import Course from "./CourseCard";
+import Course from "./CourseFavorite";
 
 
 export default function CoursesPage() {

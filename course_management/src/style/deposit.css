@@ -3,15 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100vw;
   height: 100vh; /* Full viewport height */
-  background-color: #f8f9fa; /* Light background color */
+  background: linear-gradient(45deg, rgba(183,230,225,1) 0%, rgba(66,125,125,1) 50%, rgba(129,194,223,1) 100%);
 }
 
 /* Style for the card */
 .card {
   width: 100%; 
   max-width: 500px; /* Max width for card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.444);
   border: none; /* Remove default border */
   border-radius: 8px; /* Rounded corners */
 }

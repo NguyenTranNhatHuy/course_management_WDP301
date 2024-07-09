@@ -8,7 +8,7 @@ function App() {
   const [courseName, setCourseName] = useState("");
   const [showCreate, serShowCreate] = useState(false);
   const [fileExit, setFileExit] = useState(false);
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState("100");
   const [questions, setQuestions] = useState([]);
   const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
   
@@ -196,7 +196,7 @@ TrueAnswer: B`;
         />
       </div>
 
-      <div className="form-group">
+      {/* <div className="form-group">
         <label htmlFor="price">Price</label>
         <input
           type="number"
@@ -206,7 +206,7 @@ TrueAnswer: B`;
           onChange={(e) => setPrice(e.target.value)}
           required
         />
-      </div>
+      </div> */}
 
       <div className="file-group">
         <input

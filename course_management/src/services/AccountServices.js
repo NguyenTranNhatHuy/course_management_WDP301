@@ -130,8 +130,17 @@ export const getAccountByUsername = (username) => {
 export const updatePassword = (id, newPassword) => {
 
     const data = {
-        newPassword: newPassword
+        password: newPassword
     };
 
     return axios.put(ACCOUNT_API_BASE_URL + "update-password/" + id, data);
+};
+
+export const deleteFavoriteCourse = (id, collectionId, accessToken) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        },
+    };
+    return axios.put(ACCOUNT_API_BASE_URL + id + "/favoriteCollection/" + collectionId, null, config); // Pass null as data
 };

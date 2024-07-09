@@ -27,7 +27,7 @@ function EmailApp() {
         console.log("Email: " + response.data.email);
         console.log("UserId: " + response.data.userId);
 
-        setId(response.data.userId)
+        setId(response.data.userId);
         // setEmail(response.data.email);
         emailjs
           .send(
@@ -59,17 +59,22 @@ function EmailApp() {
 
   const checkCode = (e) => {
     e.preventDefault();
-  
+
     if (generatedCode === code) {
+      if (password.length < 7) {
+        toast.error("Password must be at least 7 characters long.");
+        return;
+      }
+
       toast.success("Code verified successfully!");
-      
+
       // Gọi API để cập nhật mật khẩu
       updatePassword(id, password)
         .then((response) => {
           toast.success("Password updated successfully!");
           // Điều hướng tới trang đăng nhập hoặc xử lý tiếp theo nếu cần
           console.log("response:", response);
-          // window.location.href = "/login";
+          window.location.href = "/login";
         })
         .catch((error) => {
           console.error("Error updating password:", error);
@@ -79,7 +84,6 @@ function EmailApp() {
       toast.error("Invalid code. Please check your email for the code.");
     }
   };
-  
 
   return (
     <div className="container-email">
@@ -89,7 +93,7 @@ function EmailApp() {
           <div>
             <label>Username:</label>
             <input
-              type="username"
+              type="text"
               name="username"
               value={username}
               onChange={(e) => setUserName(e.target.value)}
@@ -118,7 +122,8 @@ function EmailApp() {
             />
             <label>Enter your new password:</label>
             <input
-              name="code"
+              name="password"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
