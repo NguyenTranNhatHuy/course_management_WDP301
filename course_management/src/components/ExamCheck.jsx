@@ -185,15 +185,6 @@ const ExamCheck = () => {
             correctly.
           </p>
           <p>Your grade is: {grade.toFixed(1)}</p>
-          <ul>
-            {collection.map((question, index) => (
-              <li key={question._id}>
-                <p><strong>Question {index + 1}:</strong> {question.detail}</p>
-                <p><strong>Your Answer:</strong> {selectedAnswers[question._id]}</p>
-                <p><strong>Correct Answer:</strong> {question.trueAnswer}</p>
-              </li>
-            ))}
-          </ul>
         </div>
         <button
           className="btn btn-primary go-back"
