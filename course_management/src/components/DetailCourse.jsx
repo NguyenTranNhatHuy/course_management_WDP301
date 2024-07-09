@@ -89,6 +89,10 @@ export default function DetailCourse() {
             toast.error("Number of questions must be at least 1.");
             return;
         }
+        if (questionCount > collection.questions.length) {
+            toast.error(`Number of questions cannot exceed  ${collection.questions.length} questions.`);
+            return;
+        }
         if (!pass) {
             toast.error("Password is required.");
             return;
