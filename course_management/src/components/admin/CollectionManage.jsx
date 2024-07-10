@@ -3,7 +3,7 @@ import { faCheckCircle, faGauge, faMagnifyingGlass, faPenToSquare, faQuestionCir
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Pagination from './Pagination';
-import { addCollection, deleteCollectionById, getAllCollections, updateCollectionById } from '../../services/CollectionServices';
+import { addCollection, updateCollectionNullId, getAllCollections, updateCollectionById } from '../../services/CollectionServices';
 
 function CollectionManage() {
     function getAuthToken() {
@@ -44,9 +44,10 @@ function CollectionManage() {
     const fetchCollections = async () => {
         try {
             const response = await getAllCollections(authToken);
-            setCollections(response.data);
-            setFilteredCollections(response.data);
-            console.log('fetching collections:', response.data);
+            const filteredData = response.data.filter(collection => collection.userId !== null);
+            setCollections(filteredData);
+            setFilteredCollections(filteredData);
+            console.log('fetching collections:', filteredData);
         } catch (error) {
             console.error('Error fetching collections:', error);
             setCollections([]);
@@ -65,7 +66,7 @@ function CollectionManage() {
         try {
             if (shouldDelete) {
 
-                const response = await deleteCollectionById(collectionId, authToken);
+                const response = await updateCollectionNullId(collectionId, authToken);
                 console.log('Account deleted:', response.data);
                 toast.success('Collection deleted successfully');
                 fetchCollections();
@@ -366,10 +367,8 @@ function CollectionManage() {
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }
 
-export default CollectionManage
+export default CollectionManage;
