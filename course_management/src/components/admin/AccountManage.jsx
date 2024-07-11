@@ -68,25 +68,41 @@ function AccountManage() {
 
     const handleUpdateAccount = async (e) => {
         e.preventDefault();
+        // Validate DOB here
+        const currentDate = new Date();
+        const updateDOB = new Date(updateData.DOB);
+
+        if (updateDOB > currentDate) {
+            toast.error('Date of birth cannot be a future date');
+            return;
+        }
+
         try {
             const response = await updateAccountById(updateData._id, updateData, authToken);
             console.log('Account updated:', response.data);
             toast.success('Account updated successfully');
             fetchAccounts();
-            window.location.href = "/admin/accountManage"
+            setShowUpdateModal(false); // Close modal after successful update
         } catch (error) {
             console.error('Error updating account:', error);
             toast.error('Error updating account');
         }
     };
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        return `${year}-${month}-${day}`;
+    };
     const openUpdateModal = (account) => {
         setUpdateData({
             _id: account._id,
             username: account.username,
             password: account.password,
             email: account.email,
-            DOB: account.DOB
+            DOB: formatDate(account.DOB)
         });
         setShowUpdateModal(true);
     };
@@ -319,7 +335,7 @@ function AccountManage() {
                                                             <td>{account.username}</td>
                                                             <td>{account.password}</td>
                                                             <td>{account.email}</td>
-                                                            <td>{account.DOB}</td>
+                                                            <td>{formatDate(account.DOB)}</td>
                                                             <td>
                                                                 <div className='d-flex'>
                                                                     <button onClick={() => openUpdateModal(account)} data-toggle="modal" data-target="#updateAccount" style={{ marginRight: '10px' }} className='btn btn-primary'>

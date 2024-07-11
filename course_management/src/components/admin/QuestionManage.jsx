@@ -251,7 +251,7 @@ function QuestionManage() {
                                                 />
                                             </div>
                                             <div className="form-group">
-                                                <label htmlFor="new-price">Price:</label>
+                                                <label htmlFor="new-price">True Answer:</label>
                                                 <select
                                                     className="form-control"
                                                     id="new-price"
@@ -390,6 +390,7 @@ function QuestionManage() {
                                                     <th>Answer B</th>
                                                     <th>Answer C</th>
                                                     <th>Answer D</th>
+                                                    <th>True Answer</th>
                                                     <th>Actions</th>
                                                 </tr>
                                             </thead>
