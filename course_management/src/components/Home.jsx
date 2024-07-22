@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import GPT from "./popup/App";
 
 function Home() {
+
+  // Test khong commit
+
   function getAuthToken() {
     const token = localStorage.getItem("token");
     return token;

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import "../style/deposit.css";
 
 export default function DepositPage() {
+  // test commit 3
   const [number, setNumber] = useState(0);
 
   const handleNumberChange = (event) => {
