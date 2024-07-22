@@ -11,7 +11,6 @@ function App() {
   const [price, setPrice] = useState("100");
   const [questions, setQuestions] = useState([]);
   const [accountId, setAccountId] = useState(localStorage.getItem("accountid")); // Assuming accountId is stored in localStorage
-  
 
   // Function to handle file input change
   const handleFileChange = async (event) => {
@@ -179,7 +178,11 @@ TrueAnswer: B`;
         <a href="/createcourse">
           <button className="navigate btn btn-primary">Back</button>
         </a>
-        <button style={{marginLeft:"1130px"}} className="btn btn-primary" onClick={downloadSampleFile}>
+        <button
+          style={{ marginLeft: "1130px" }}
+          className="btn btn-primary"
+          onClick={downloadSampleFile}
+        >
           Sample file
         </button>
       </div>

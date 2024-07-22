@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext } from "react";
 import GPT from "./popup/App";
-import DataContext from '../context/DataProvider';
+import DataContext from "../context/DataProvider";
 
 const TestWithNoQuestion = () => {
   const {
@@ -29,36 +29,62 @@ const TestWithNoQuestion = () => {
 
   return (
     <div className="container">
-      <h3>Question {questionIndex + 1}/{quizs.length}</h3>
+      <h3>
+        Question {questionIndex + 1}/{quizs.length}
+      </h3>
       <div className="panel panel-default">
         <div className="panel-body">
           <p>{question.detail}</p>
           <div className="list-group">
             <button
-              className={`list-group-item btn ${isAnswerCorrect(question.answerA) ? 'btn-success' : isAnswerWrong(question.answerA) ? 'btn-danger' : 'btn-default'}`}
+              className={`list-group-item btn ${
+                isAnswerCorrect(question.answerA)
+                  ? "btn-success"
+                  : isAnswerWrong(question.answerA)
+                  ? "btn-danger"
+                  : "btn-default"
+              }`}
               onClick={(e) => checkAnswer(e, question.answerA)}
-              disabled={selectedAnswer !== ''}
+              disabled={selectedAnswer !== ""}
             >
               A. {question.answerA}
             </button>
             <button
-              className={`list-group-item btn ${isAnswerCorrect(question.answerB) ? 'btn-success' : isAnswerWrong(question.answerB) ? 'btn-danger' : 'btn-default'}`}
+              className={`list-group-item btn ${
+                isAnswerCorrect(question.answerB)
+                  ? "btn-success"
+                  : isAnswerWrong(question.answerB)
+                  ? "btn-danger"
+                  : "btn-default"
+              }`}
               onClick={(e) => checkAnswer(e, question.answerB)}
-              disabled={selectedAnswer !== ''}
+              disabled={selectedAnswer !== ""}
             >
               B. {question.answerB}
             </button>
             <button
-              className={`list-group-item btn ${isAnswerCorrect(question.answerC) ? 'btn-success' : isAnswerWrong(question.answerC) ? 'btn-danger' : 'btn-default'}`}
+              className={`list-group-item btn ${
+                isAnswerCorrect(question.answerC)
+                  ? "btn-success"
+                  : isAnswerWrong(question.answerC)
+                  ? "btn-danger"
+                  : "btn-default"
+              }`}
               onClick={(e) => checkAnswer(e, question.answerC)}
-              disabled={selectedAnswer !== ''}
+              disabled={selectedAnswer !== ""}
             >
               C. {question.answerC}
             </button>
             <button
-              className={`list-group-item btn ${isAnswerCorrect(question.answerD) ? 'btn-success' : isAnswerWrong(question.answerD) ? 'btn-danger' : 'btn-default'}`}
+              className={`list-group-item btn ${
+                isAnswerCorrect(question.answerD)
+                  ? "btn-success"
+                  : isAnswerWrong(question.answerD)
+                  ? "btn-danger"
+                  : "btn-default"
+              }`}
               onClick={(e) => checkAnswer(e, question.answerD)}
-              disabled={selectedAnswer !== ''}
+              disabled={selectedAnswer !== ""}
             >
               D. {question.answerD}
             </button>
@@ -71,9 +97,11 @@ const TestWithNoQuestion = () => {
                   Next Question
                 </button>
               ) : (
-                <button className="btn btn-success" onClick={showTheResult}>
-                  Back to Collections
-                </button>
+                <a href="/courses">
+                  <button className="btn btn-success" >
+                    Back to Collections
+                  </button>
+                </a>
               )}
             </div>
           )}
