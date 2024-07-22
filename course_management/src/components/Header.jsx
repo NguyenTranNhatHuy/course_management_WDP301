@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWallet, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
+  //Test commit
   const navigator = useNavigate();
   const [user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
